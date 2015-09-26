@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-09-26T17:57:38-04:00</updated>
+<updated>2015-09-26T18:01:45-04:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
@@ -103,8 +103,9 @@ I now have the same functionality as I had in the Jetbrains EDI’s but in, what
 &lt;p&gt;Overall I enjoy the cleaner, distraction free look of the Atom Editor. A lot of the buttons and tabs that I don’t use in PHPStorm are just not there. You can find all these in the mac top menu bar, which enforces learning keyboard shortcuts. And I don’t mind.
 My work environment is cleaner, and I have a larger area to code. Also, the few seconds it takes to look up a hotkey combination for a common command will shave off countless seconds of work in the future.&lt;/p&gt;
 
-&lt;p&gt;Also, what I like about Atom is that you can customize it to your own needs. Atom is flexible and I can choose which plug-ins I need, whereas the Jetbrains EDI’s come with a lot of stuff prepacked. Stuff that I’ll never use in an EDI. for example: vcs and grunt: good try, but I do my gitting and grunting in the terminal.
-If you don’t like something, or want to make it better, it is &lt;a href=&quot;https://github.com/atom/atom&quot;&gt;hackable&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Also, what I like about Atom is that you can customize it to your own needs. Atom is flexible and I can choose which plug-ins I need, whereas the Jetbrains EDI’s come with a lot of stuff prepackaged. Stuff that I’ll never use in an EDI. for example: vcs and grunt: good try, but I do my gitting and grunting in the terminal.&lt;/p&gt;
+
+&lt;p&gt;If you don’t like something, or want to make it better, it is &lt;a href=&quot;https://github.com/atom/atom&quot;&gt;hackable&lt;/a&gt;.&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;/webstorm-vs-atom/&quot;&gt;WebStorm vs. Atom&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on September 23, 2015.&lt;/p&gt;
   </content>
