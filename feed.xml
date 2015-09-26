@@ -4,13 +4,110 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-09-13T14:37:55-04:00</updated>
+<updated>2015-09-26T17:22:34-04:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
   <uri>/</uri>
   <email>jestersimpps@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Gitup, the New Git Manager]]></title>
+ <link rel="alternate" type="text/html" href="/gitup-the-new-git-manager/" />
+  <id>/gitup-the-new-git-manager</id>
+  <published>2015-09-26T16:34:57-04:00</published>
+  <updated>2015-09-26T16:34:57-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Work quickly, safely, and without headaches.
+The Git interface you’ve been missing
+all your life has finally arrived.&lt;/p&gt;
+
+&lt;p&gt;I’m used to gitting in the terminal and visualizing branches like:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;graph&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pretty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oneline&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;abbrev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;lol, which, I &lt;a href=&quot;http://www.moncefbelyamani.com/create-aliases-in-bash-profile-to-assign-shortcuts-for-common-terminal-commands/&quot;&gt;changed in my bash config&lt;/a&gt; to:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;gt&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/gittree.png&quot; alt=&quot;git1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;but…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gitup.co/&quot;&gt;GitUp&lt;/a&gt; looks promising:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/editing.gif&quot; alt=&quot;git1&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/gitup-the-new-git-manager/&quot;&gt;Gitup, the New Git Manager&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on September 26, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[WebStorm vs. Atom]]></title>
+ <link rel="alternate" type="text/html" href="/webstorm-vs-atom/" />
+  <id>/webstorm-vs-atom</id>
+  <published>2015-09-23T15:19:12-04:00</published>
+  <updated>2015-09-23T15:19:12-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;I have recently switched to the Atom editor and really love it.
+I love experimenting with new coding EDI’s and so far PHP- and Webstorm have provided me with the best all round support
+for everything I make Web-related. But now… there is: Atom!!!&lt;/p&gt;
+
+&lt;p&gt;My first programming experiences, I remember, were in DOS. There was this EDI for Qbasic, which was basically no EDI at all.
+It was just a textbox in DOS you could write code in. Then I started developing Visual Basic 6 applications when I was around 14-15.
+Visual Basic was awesome! The name Visual comes from it having a drag &amp;amp; drop UI builder. I thought that was really great until I moved to .NET. Dot NET was actually a super visual Basic EDI and I loved it.&lt;/p&gt;
+
+&lt;p&gt;When making the switch to web development some time ago I started out using sublime text as everybody was using it at the time. I wanted to get into using predominantly open source tools as they are free,
+and they are developed by a community of people who are also the actual users of the tools they build.
+However, after Sublime came Webstorm / PHPStorm since I loved the terminal-in-edi solution and it had great code inspection and an actual drag and drop file tree.&lt;/p&gt;
+
+&lt;p&gt;Today I downloaded Atom and in a matter of minutes I found and insalled the packages “Terminal-plus” and “Atom-beautify”.
+I now have the same functionality as I had in the Jetbrains EDI’s but in, what seems to me, a much lighter package.&lt;/p&gt;
+
+&lt;p&gt;The scrolling is smooth and I can have 4 or more projects open at the same time without any hassle. This would be a nogo using the Jetbrains editors. You either had to minimize the Jetbrains editors and only have one open at a time or switch to power saving mode. Not doing this would ramp up the CPU too much and keep them from working smoothly.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/atomeditors.png&quot; alt=&quot;multipleatom&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I also love the preinstalled markdown preview package, which I am using right now:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Atom&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;PHPStorm&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;../images/atomeditor.png&quot; alt=&quot;eatom&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;../images/phpstorm.png&quot; alt=&quot;eatom&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;PHPStorm also has the markdown preview, but its in a tabswitcher, and I couldn’t figure out how to make it show permanently on the side like the one in Atom.&lt;/p&gt;
+
+&lt;p&gt;Overall I enjoy the cleaner, distraction free look of the Atom Editor. To add to my development environment, A lot of the buttons and tabs that I don’t use in PHPStorm are just not there. You can find all these in the mac top menu bar, which enforces learning keyboard shortcuts. And I don’t mind.
+My work environment is cleaner, and I have a larger area to code. Also, the few seconds it takes to look up a hotkey combination for a common command will shave off countless seconds of work in the future.&lt;/p&gt;
+
+&lt;p&gt;Also, I like an editor that you can customize to your own needs. If you don’t like something, or want to make it better, it is &lt;a href=&quot;https://github.com/atom/atom&quot;&gt;hackable&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/webstorm-vs-atom/&quot;&gt;WebStorm vs. Atom&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on September 23, 2015.&lt;/p&gt;
+  </content>
+</entry>
 
 
 <entry>
