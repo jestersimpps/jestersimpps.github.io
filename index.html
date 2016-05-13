@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Latest Posts">
 <meta property="og:description" content="hardcore trial & error">
-<meta property="og:url" content="/index.html">
+<meta property="og:url" content="/">
 <meta property="og:site_name" content="Hardcore trial & error">
 
 
@@ -136,6 +136,151 @@
   <header>
     
       <div class="entry-image-index">
+        <a href="/getting-around-the-product-variant-limitation-in-shopify/" title="Getting Around the Product Variant Limitation in Shopify"><img src="/images/Shopify-Mobile-Event-2.jpg" alt="Getting Around the Product Variant Limitation in Shopify"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-05-13T15:13:37-04:00"><a href="/getting-around-the-product-variant-limitation-in-shopify/">May 13, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jester Simpps">Jester Simpps</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~6 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/getting-around-the-product-variant-limitation-in-shopify/" rel="bookmark" title="Getting Around the Product Variant Limitation in Shopify" itemprop="url">Getting Around the Product Variant Limitation in Shopify</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Recently, I was struggling with some Shopify products that had more than 300 variant combinations.
+Shopify has a product variant limitation of 300 per product, whereas products themselves are unlimited.
+To get around the limitation I wrote a little Node script that creates a unique Shopify product for every variant and links the SKU’s dynamically to option selectors in the product pages.</p>
+
+<p>You can find the script here:</p>
+
+<p><a href="https://github.com/jestersimpps/shopify-node-excel-product-import.git">https://github.com/jestersimpps/shopify-node-excel-product-import.git</a></p>
+
+<p>The script generates HTML for option boxes and javascript combination arrays. This content is then stored in the description body of the products using the Shopify-node API.
+I had to simulate randomly timed API posts since somehow I was getting errors on API POST bursts. (I’ll revise the code after some more experiments)
+The script creates two types of products in Shopify: ‘variants’ and ‘products’. This allows you to set custom search filters in the admin and keep the variants separate from the actual products.
+One product can now have unlimited ‘variants’ (which are actually Shopify products). They are linked in the variant array that is injected in the product descriptions:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">variants</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">13737525511</span><span class="p">,</span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="mf">232.5</span><span class="p">,</span><span class="s2">&quot;variants&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;8.5\&quot; x 11\&quot; &quot;</span><span class="p">,</span><span class="s2">&quot; 100 &quot;</span><span class="p">,</span><span class="s2">&quot; single sided&quot;</span><span class="p">]},{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1232</span> <span class="p">...</span></code></pre></figure>
+
+<h1 id="how-to-get-going">How to get going:</h1>
+
+<h3 id="prepare-the-excel-file">1. Prepare the Excel file</h3>
+
+<ol>
+  <li>Add product rows in the products tab</li>
+  <li>Add the urls to the product images (Shopify will download the images from the urls and add them to your products)</li>
+  <li>Add product options in the options tab</li>
+  <li>Add the option identifiers in the option column on the product page</li>
+  <li>Generate all product variants using the VBA script in the variants page.</li>
+  <li>When adding new products/options, new variants appear in yellow</li>
+  <li>Add correct pricing to the variants</li>
+</ol>
+
+<h3 id="using-the-xls2shop-script">2. Using the xls2shop script</h3>
+
+<h4 id="add-your-shopify-credentials">1. Add your Shopify credentials</h4>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Shopify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">shopifyAPI</span><span class="p">({</span>
+  <span class="nx">shop</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// MYSHOP.myshopify.com</span>
+  <span class="nx">shopify_api_key</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Your API key</span>
+  <span class="nx">shopify_shared_secret</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Your Shared Secret</span>
+  <span class="nx">access_token</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">//permanent token</span>
+  <span class="nx">verbose</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">rate_limit_delay</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="c1">// 10 seconds (in ms) =&gt; if Shopify returns 429 response code</span>
+  <span class="nx">backoff</span><span class="o">:</span> <span class="mi">35</span><span class="p">,</span> <span class="c1">// limit X of 40 API calls =&gt; default is 35 of 40 API calls</span>
+  <span class="nx">backoff_delay</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="c1">// 1 second (in ms) =&gt; wait 1 second if backoff option is exceeded</span>
+  <span class="nx">retry_errors</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span></code></pre></figure>
+
+<h4 id="actions">2. Actions:</h4>
+
+<p>Removing all products:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">node</span> <span class="nx">xls2shop</span><span class="p">.</span><span class="nx">js</span> <span class="nx">clean</span></code></pre></figure>
+
+<p>Uploading product variants from Excel:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">node</span> <span class="nx">xls2shop</span><span class="p">.</span><span class="nx">js</span> <span class="nx">upload</span> <span class="nx">business</span><span class="err">\</span> <span class="nx">cards</span><span class="err">\</span> <span class="nx">example</span><span class="p">.</span><span class="nx">xlsm</span></code></pre></figure>
+
+<h3 id="add-the-following-javascipt-to-the-product-pages-in-shopify">3. Add the following javascipt to the product pages in Shopify:</h3>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
+  <span class="nx">$</span><span class="p">(</span> <span class="s2">&quot;#price&quot;</span> <span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">variant</span><span class="p">.</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
+
+
+  <span class="nx">selectors</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">selectorId</span><span class="p">){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nx">selectorId</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
+      <span class="nx">$</span><span class="p">(</span> <span class="s2">&quot;#price&quot;</span> <span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span> <span class="nx">variant</span><span class="p">.</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">})</span>
+
+
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span> <span class="s2">&quot;#price&quot;</span> <span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">variant</span><span class="p">.</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="kd">function</span> <span class="nx">addToCart</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">variant</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/cart/add.js&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">quantity</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="nx">variant</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+      <span class="nx">properties</span><span class="o">:</span> <span class="p">{}</span>
+    <span class="p">}).</span><span class="nx">always</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/cart.js&#39;</span><span class="p">).</span><span class="nx">always</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">cartData</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">cartData</span><span class="p">.</span><span class="nx">responseText</span><span class="p">));</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#cartItems&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">cartData</span><span class="p">.</span><span class="nx">responseText</span><span class="p">).</span><span class="nx">item_count</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">findVariant</span><span class="p">(){</span>
+    <span class="nx">dance</span><span class="o">:</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">variants</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">variants</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">variants</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">variants</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">variants</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">selectors</span><span class="p">[</span><span class="nx">i</span><span class="p">]).</span><span class="nx">val</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">continue</span> <span class="nx">dance</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">variants</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p>This will take care of passing the SKU of the product variant that was selected to the cart.
+The product description that contains the variant data is injected in the product page. It contains a selector array and a variants array. The variants array contains all the possible combinations of the selectors with the corresponding product-variant SKU.</p>
+
+<p>The add to cart script can be triggered as such:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick=</span><span class="s">&quot;addToCart()&quot;</span><span class="nt">&gt;</span>
+ Add to Cart
+<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<p>Dynamic pricing upon selection change is done by setting an element id to <code>price</code>:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">$<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;price&quot;</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre></figure>
+
+<h3 id="finally-hide-the-option-selectors-in-the-collection-pages">4. Finally, hide the option selectors in the collection pages</h3>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.productOptions</span><span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
         <a href="/gitup-the-new-git-manager/" title="Gitup, the New Git Manager"><img src="/images/speed.png" alt="Gitup, the New Git Manager"></a>
       </div><!-- /.entry-image -->
     
@@ -160,11 +305,11 @@ all your life has finally arrived.</p>
 
 <p>I’m used to gitting in the terminal and visualizing branches like:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">git</span> <span class="nx">log</span> <span class="o">--</span><span class="nx">graph</span> <span class="o">--</span><span class="nx">pretty</span><span class="o">=</span><span class="nx">oneline</span> <span class="o">--</span><span class="nx">abbrev</span><span class="o">-</span><span class="nx">commit</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">git</span> <span class="nx">log</span> <span class="o">--</span><span class="nx">graph</span> <span class="o">--</span><span class="nx">pretty</span><span class="o">=</span><span class="nx">oneline</span> <span class="o">--</span><span class="nx">abbrev</span><span class="o">-</span><span class="nx">commit</span></code></pre></figure>
 
 <p>lol, which, I <a href="http://www.moncefbelyamani.com/create-aliases-in-bash-profile-to-assign-shortcuts-for-common-terminal-commands/">changed in my bash config</a> to:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">gt</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">gt</span></code></pre></figure>
 
 <p><img src="../images/gittree.png" alt="git1" /></p>
 
@@ -307,7 +452,7 @@ Click on the sharing button in the top right:</p>
 <p><img src="../images/share4.png" alt="google spreadsheet file" /></p>
 
 <p>Finally, copy the google spreadsheet key for later use, or leave the browser window or tab open so you can copy the key later.
-To find the key, look in the url for a sequence of random strings:</p>
+To find the key, look in the url for a sequence of randomness:</p>
 
 <p><img src="../images/gdockey.png" alt="google spreadsheet file" /></p>
 
@@ -335,23 +480,23 @@ To find the key, look in the url for a sequence of random strings:</p>
 
 <p>In our Grunt file, we enable the tasks and add the following constants and the key to your google spreadsheet file:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-i18n-gspreadsheet&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-i18n-gspreadsheet&#39;</span><span class="p">);</span>
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-convert&#39;</span><span class="p">);</span>
-<span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;assemble&#39;</span><span class="p">);</span></code></pre></div>
+<span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;assemble&#39;</span><span class="p">);</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
     <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">src</span>                <span class="o">:</span> <span class="s1">&#39;src&#39;</span><span class="p">,</span>
         <span class="nx">dist</span>               <span class="o">:</span> <span class="s1">&#39;dist&#39;</span><span class="p">,</span>
         <span class="nx">locales</span>            <span class="o">:</span> <span class="s1">&#39;locales&#39;</span><span class="p">,</span>
         <span class="nx">google_document_key</span><span class="o">:</span> <span class="s1">&#39;1gA-5lpURCmllQAuTkc5vDvAv6Y4eXJDyr8XS-QJntes&#39;</span><span class="p">,</span>
         <span class="nx">default_locale</span>     <span class="o">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
-    <span class="p">},</span></code></pre></div>
+    <span class="p">},</span></code></pre></figure>
 
-<p>We add the task that will parse your google spreadsheet file. 
+<p>We add the task that will parse your google spreadsheet file.
 It will automaticall create 3 <code>.js</code> language files in a <code>/locales</code> folder.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">i18n_gspreadsheet</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">i18n_gspreadsheet</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">options</span>    <span class="o">:</span> <span class="p">{</span>
         <span class="nx">document_key</span>              <span class="o">:</span> <span class="s1">&#39;&lt;%= config.google_document_key %&gt;&#39;</span><span class="p">,</span>
         <span class="nx">key_column</span>                <span class="o">:</span> <span class="s1">&#39;key&#39;</span><span class="p">,</span>
@@ -359,13 +504,13 @@ It will automaticall create 3 <code>.js</code> language files in a <code>/locale
         <span class="nx">write_default_translations</span><span class="o">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="nx">your_target</span><span class="o">:</span> <span class="p">{}</span>
-<span class="p">},</span></code></pre></div>
+<span class="p">},</span></code></pre></figure>
 
 <p>We use the Grunt-convert task to convert these files into json files and write them to the the correct folders we will use in the assemble process.
 In this example, we use t.json for the data file name that the assemble process will use in the build process.
 This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars templates, which will get replaced by the correct translations.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">convert</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">convert</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">explicitArray</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
@@ -381,31 +526,31 @@ This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars t
         <span class="nx">src</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;locales/es.js&#39;</span><span class="p">],</span>
         <span class="nx">dest</span><span class="o">:</span> <span class="s1">&#39;locales/es/t.json&#39;</span>
     <span class="p">}</span>
-<span class="p">},</span></code></pre></div>
+<span class="p">},</span></code></pre></figure>
 
 <p>We can add a clean task to the entire process and package the sequence in a new task: <code>translate</code> that is to be executed before the assemble process.</p>
 
 <p><code>npm i Grunt-contrib-clean --save-dev</code></p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-contrib-clean&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-contrib-clean&#39;</span><span class="p">);</span>
 
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">&#39;translate&#39;</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">&#39;clean:locales&#39;</span><span class="p">,</span>
     <span class="s1">&#39;i18n_gspreadsheet&#39;</span><span class="p">,</span>
     <span class="s1">&#39;convert&#39;</span>
-<span class="p">]);</span></code></pre></div>
+<span class="p">]);</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">clean</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">clean</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">locales</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;locales&quot;</span><span class="p">]</span>
     <span class="p">}</span>
-<span class="p">},</span></code></pre></div>
+<span class="p">},</span></code></pre></figure>
 
-<p>Finally, we add the assemble tasks that will take care of assembling the website in the different languages using the json files in the locale folders. 
-The following code will assemble to the root folder <code>/</code> and the different subfolders <code>/fr</code> en <code>/es</code> from the different locale files 
+<p>Finally, we add the assemble tasks that will take care of assembling the website in the different languages using the json files in the locale folders.
+The following code will assemble to the root folder <code>/</code> and the different subfolders <code>/fr</code> en <code>/es</code> from the different locale files
 (<code>locales/en/t.json</code>, <code>locales/fr/t.json</code> and <code>locales/es/t.json</code>) created by the Grunt-convert task.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">assemble</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">assemble</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">en</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
             <span class="nx">flatten</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -454,17 +599,17 @@ The following code will assemble to the root folder <code>/</code> and the diffe
              <span class="s1">&#39;&lt;%= config.dist %&gt;/es&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;&lt;%= config.src %&gt;/templates/pages/*.hbs&#39;</span><span class="p">]</span>
          <span class="p">}</span>
      <span class="p">}</span>
-<span class="p">},</span></code></pre></div>
+<span class="p">},</span></code></pre></figure>
 
 <p>The build process will now scaffold our <code>/dist</code> directory like this:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">...
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">...
 fr/...
-es/...</code></pre></div>
+es/...</code></pre></figure>
 
 <p>We can now use the translation keys in our assemble .hbs files that will be replaced by the language content in the google spreadsheet file:</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span> {{ t.HELLO }}, {{ t.WORLD }}  <span class="nt">&lt;/h1&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">   <span class="nt">&lt;h1&gt;</span> {{ t.HELLO }}, {{ t.WORLD }}  <span class="nt">&lt;/h1&gt;</span></code></pre></figure>
 
 
   </div><!-- /.entry-content -->
@@ -491,7 +636,7 @@ es/...</code></pre></div>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2015 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2016 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

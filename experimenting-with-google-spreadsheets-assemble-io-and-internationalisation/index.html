@@ -180,7 +180,7 @@ Click on the sharing button in the top right:</p>
 <p><img src="../images/share4.png" alt="google spreadsheet file" /></p>
 
 <p>Finally, copy the google spreadsheet key for later use, or leave the browser window or tab open so you can copy the key later.
-To find the key, look in the url for a sequence of random strings:</p>
+To find the key, look in the url for a sequence of randomness:</p>
 
 <p><img src="../images/gdockey.png" alt="google spreadsheet file" /></p>
 
@@ -208,23 +208,23 @@ To find the key, look in the url for a sequence of random strings:</p>
 
 <p>In our Grunt file, we enable the tasks and add the following constants and the key to your google spreadsheet file:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-i18n-gspreadsheet&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-i18n-gspreadsheet&#39;</span><span class="p">);</span>
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-convert&#39;</span><span class="p">);</span>
-<span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;assemble&#39;</span><span class="p">);</span></code></pre></div>
+<span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;assemble&#39;</span><span class="p">);</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
     <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">src</span>                <span class="o">:</span> <span class="s1">&#39;src&#39;</span><span class="p">,</span>
         <span class="nx">dist</span>               <span class="o">:</span> <span class="s1">&#39;dist&#39;</span><span class="p">,</span>
         <span class="nx">locales</span>            <span class="o">:</span> <span class="s1">&#39;locales&#39;</span><span class="p">,</span>
         <span class="nx">google_document_key</span><span class="o">:</span> <span class="s1">&#39;1gA-5lpURCmllQAuTkc5vDvAv6Y4eXJDyr8XS-QJntes&#39;</span><span class="p">,</span>
         <span class="nx">default_locale</span>     <span class="o">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
-    <span class="p">},</span></code></pre></div>
+    <span class="p">},</span></code></pre></figure>
 
-<p>We add the task that will parse your google spreadsheet file. 
+<p>We add the task that will parse your google spreadsheet file.
 It will automaticall create 3 <code>.js</code> language files in a <code>/locales</code> folder.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">i18n_gspreadsheet</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">i18n_gspreadsheet</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">options</span>    <span class="o">:</span> <span class="p">{</span>
         <span class="nx">document_key</span>              <span class="o">:</span> <span class="s1">&#39;&lt;%= config.google_document_key %&gt;&#39;</span><span class="p">,</span>
         <span class="nx">key_column</span>                <span class="o">:</span> <span class="s1">&#39;key&#39;</span><span class="p">,</span>
@@ -232,13 +232,13 @@ It will automaticall create 3 <code>.js</code> language files in a <code>/locale
         <span class="nx">write_default_translations</span><span class="o">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="nx">your_target</span><span class="o">:</span> <span class="p">{}</span>
-<span class="p">},</span></code></pre></div>
+<span class="p">},</span></code></pre></figure>
 
 <p>We use the Grunt-convert task to convert these files into json files and write them to the the correct folders we will use in the assemble process.
 In this example, we use t.json for the data file name that the assemble process will use in the build process.
 This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars templates, which will get replaced by the correct translations.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">convert</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">convert</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">explicitArray</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
@@ -254,31 +254,31 @@ This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars t
         <span class="nx">src</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;locales/es.js&#39;</span><span class="p">],</span>
         <span class="nx">dest</span><span class="o">:</span> <span class="s1">&#39;locales/es/t.json&#39;</span>
     <span class="p">}</span>
-<span class="p">},</span></code></pre></div>
+<span class="p">},</span></code></pre></figure>
 
 <p>We can add a clean task to the entire process and package the sequence in a new task: <code>translate</code> that is to be executed before the assemble process.</p>
 
 <p><code>npm i Grunt-contrib-clean --save-dev</code></p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-contrib-clean&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-contrib-clean&#39;</span><span class="p">);</span>
 
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">&#39;translate&#39;</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">&#39;clean:locales&#39;</span><span class="p">,</span>
     <span class="s1">&#39;i18n_gspreadsheet&#39;</span><span class="p">,</span>
     <span class="s1">&#39;convert&#39;</span>
-<span class="p">]);</span></code></pre></div>
+<span class="p">]);</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">clean</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">clean</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">locales</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;locales&quot;</span><span class="p">]</span>
     <span class="p">}</span>
-<span class="p">},</span></code></pre></div>
+<span class="p">},</span></code></pre></figure>
 
-<p>Finally, we add the assemble tasks that will take care of assembling the website in the different languages using the json files in the locale folders. 
-The following code will assemble to the root folder <code>/</code> and the different subfolders <code>/fr</code> en <code>/es</code> from the different locale files 
+<p>Finally, we add the assemble tasks that will take care of assembling the website in the different languages using the json files in the locale folders.
+The following code will assemble to the root folder <code>/</code> and the different subfolders <code>/fr</code> en <code>/es</code> from the different locale files
 (<code>locales/en/t.json</code>, <code>locales/fr/t.json</code> and <code>locales/es/t.json</code>) created by the Grunt-convert task.</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">assemble</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">assemble</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">en</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
             <span class="nx">flatten</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -327,17 +327,17 @@ The following code will assemble to the root folder <code>/</code> and the diffe
              <span class="s1">&#39;&lt;%= config.dist %&gt;/es&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;&lt;%= config.src %&gt;/templates/pages/*.hbs&#39;</span><span class="p">]</span>
          <span class="p">}</span>
      <span class="p">}</span>
-<span class="p">},</span></code></pre></div>
+<span class="p">},</span></code></pre></figure>
 
 <p>The build process will now scaffold our <code>/dist</code> directory like this:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">...
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">...
 fr/...
-es/...</code></pre></div>
+es/...</code></pre></figure>
 
 <p>We can now use the translation keys in our assemble .hbs files that will be replaced by the language content in the google spreadsheet file:</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span> {{ t.HELLO }}, {{ t.WORLD }}  <span class="nt">&lt;/h1&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">   <span class="nt">&lt;h1&gt;</span> {{ t.HELLO }}, {{ t.WORLD }}  <span class="nt">&lt;/h1&gt;</span></code></pre></figure>
 
 
       <footer class="entry-meta">
@@ -359,11 +359,16 @@ es/...</code></pre></div>
       <a href="" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="/gitup-the-new-git-manager/" title="Gitup, the New Git Manager">Gitup, the New Git Manager</a></h3>
-      <p>Work quickly, safely, and without headaches.The Git interface you've been missingall your life has finally arrived.I'm used to gitting in...&hellip; <a href="/gitup-the-new-git-manager/">Continue reading</a></p>
+      <h3><a href="/getting-around-the-product-variant-limitation-in-shopify/" title="Getting Around the Product Variant Limitation in Shopify">Getting Around the Product Variant Limitation in Shopify</a></h3>
+      <p>Recently, I was struggling with some Shopify products that had more than 300 variant combinations.Shopify has a product variant limitatio...&hellip; <a href="/getting-around-the-product-variant-limitation-in-shopify/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/gitup-the-new-git-manager/" title="Gitup, the New Git Manager">Gitup, the New Git Manager</a></h4>
+        <span>Published on September 26, 2015</span>
+      </div><!-- /.list-item -->
     
       <div class="list-item">
         <h4><a href="/webstorm-vs-atom/" title="WebStorm vs. Atom">WebStorm vs. Atom</a></h4>
@@ -377,7 +382,7 @@ es/...</code></pre></div>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2015 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2016 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 
