@@ -327,7 +327,7 @@ Wallet balance (or address balance) is an abstraction to help us humans and make
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
       <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have enough Satoshis to cover the miner fee.&quot;</span><span class="p">);</span>
     <span class="p">}</span>
-    
+
   <span class="p">}</span>
 <span class="p">});</span></code></pre></figure>
 
@@ -378,7 +378,7 @@ Hence, I discovered the best way to get around this was to surround the transact
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">bitcore_transaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Transaction</span><span class="p">()</span>
   <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">utxos</span><span class="p">)</span> <span class="c1">// Feed information about what unspent outputs one can use</span>
-  <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">,</span> <span class="nx">transactionAmount</span> <span class="o">-</span> <span class="nx">minerFee</span><span class="p">)</span> <span class="c1">// Add an output with the given amount of satoshis</span>
+  <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">,</span> <span class="nx">transactionAmount</span><span class="p">)</span> <span class="c1">// Add an output with the given amount of satoshis</span>
   <span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">)</span> <span class="c1">// Sets up a change address where the rest of the funds will go</span>
   <span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">privatekey</span><span class="p">);</span>  <span class="c1">// Signs all the inputs it can</span></code></pre></figure>
 
