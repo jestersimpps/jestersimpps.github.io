@@ -298,7 +298,7 @@ Wallet balance (or address balance) is an abstraction to help us humans and make
 <p>Let’s expand our code, create some constants for the miner fee and the transaction amount and include some error handling:</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">minerFee</span> <span class="o">=</span> <span class="mi">12800</span><span class="p">;</span> <span class="c1">//cost of transaction in satoshis</span>
-<span class="kr">const</span> <span class="nx">transactionAmount</span> <span class="o">=</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">amount</span> <span class="o">*</span> <span class="mi">100000</span><span class="p">;</span> <span class="c1">//1 mBTC = 100000 satoshis</span>
+<span class="kr">const</span> <span class="nx">transactionAmount</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">amount</span> <span class="o">*</span> <span class="mi">100000</span><span class="p">);</span> <span class="c1">//1 mBTC = 100000 satoshis</span>
 <span class="kr">const</span> <span class="nx">insight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">explorers</span><span class="p">.</span><span class="nx">Insight</span><span class="p">();</span></code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
@@ -307,10 +307,12 @@ Wallet balance (or address balance) is an abstraction to help us humans and make
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+
     <span class="k">if</span> <span class="p">(</span><span class="nx">utxos</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
       <span class="c1">//if no transactions have happened, there is no balance on the address.</span>
       <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have enough Satoshis to cover the miner fee.&quot;</span><span class="p">);</span>
     <span class="p">}</span>
+
     <span class="c1">//get balance</span>
     <span class="kd">let</span> <span class="nx">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">utxos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -318,13 +320,14 @@ Wallet balance (or address balance) is an abstraction to help us humans and make
     <span class="p">}</span>
 
     <span class="c1">//check whether the balance of the address covers the miner fee</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">balance</span> <span class="o">-</span> <span class="nx">minerFee</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">balance</span> <span class="o">-</span> <span class="nx">transactionAmount</span> <span class="o">-</span> <span class="nx">minerFee</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 
       <span class="c1">//our transaction code will come here</span>
 
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
       <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have enough Satoshis to cover the miner fee.&quot;</span><span class="p">);</span>
     <span class="p">}</span>
+    
   <span class="p">}</span>
 <span class="p">});</span></code></pre></figure>
 
@@ -350,7 +353,7 @@ Hence, I discovered the best way to get around this was to surround the transact
 <span class="k">try</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">bitcore_transaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Transaction</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">utxos</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">,</span> <span class="nx">transactionAmount</span> <span class="o">-</span> <span class="nx">minerFee</span><span class="p">)</span> <span class="c1">// Send &#39;transactionAmount&#39; Satoshi&#39;s</span>
+    <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">,</span> <span class="nx">transactionAmount</span><span class="p">)</span> <span class="c1">// Send &#39;transactionAmount&#39; Satoshi&#39;s</span>
     <span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">privatekey</span><span class="p">);</span>
 
