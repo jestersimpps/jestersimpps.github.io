@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-05-21T13:17:46-04:00</updated>
+<updated>2016-05-21T17:58:05-04:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
@@ -25,7 +25,7 @@
     <email>jestersimpps@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;This week I was asked to write a simple web app that allows users to send bitcoins from one address to another using node.js.
+    &lt;p&gt;This week I was asked to create a simple web app that allows users to send bitcoins from one address to another using node.js.
 After skimming through some online articles and forums I discovered &lt;a href=&quot;https://bitcore.io/api&quot;&gt;Bitcore&lt;/a&gt;.
 I also looked at some alternatives like &lt;a href=&quot;http://bitcoinjs.org/&quot;&gt;BitcoinJs&lt;/a&gt;&lt;/p&gt;
 
