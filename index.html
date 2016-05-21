@@ -156,7 +156,7 @@
   <div class="entry-content">
     <p>This week I was asked to create a simple web app that allows users to send bitcoins from one address to another using node.js.
 After skimming through some online articles and forums I discovered <a href="https://bitcore.io/api">Bitcore</a>.
-I also looked at an alternative called <a href="http://bitcoinjs.org/">BitcoinJs</a></p>
+I also looked at an alternative calledc <a href="http://bitcoinjs.org/">BitcoinJs</a></p>
 
 <p>After comparing both, I decided to use bitcore as it seemed a little bit ahead of BitcoinJs and they also provide <a href="https://bitcore.io/api/lib/transaction#Transaction+checkedSerialize">nice documentation and development resources on their website</a>. Also, the company that open sourced Bitcore, Bitpay, is an established brand in the Bitcoin industry. BitPay is a payment processor that specializes in processing bitcoin payments and enabling merchants to accept bitcoin using a variety of website plugins and other integrations. Bitcore is their javascript library that allows developers to interface directly with the real bitcoin network.</p>
 
@@ -192,7 +192,7 @@ You can see the output of an example request to the Blockchain.info api <a href=
 <span class="p">|</span>               ├── services
 <span class="p">|</span>                     ├── wallet-service.js</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;https://blockchain.info/address/&#39;</span> <span class="o">+</span> <span class="nx">pub_key</span> <span class="o">+</span> <span class="s1">&#39;?format=json&#39;</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;https://blockchain.info/address/&#39;</span> <span class="o">+</span> <span class="nx">address</span> <span class="o">+</span> <span class="s1">&#39;?format=json&#39;</span><span class="p">;</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
@@ -214,7 +214,7 @@ You can see the output of an example request to the Blockchain.info api <a href=
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">bitcoinaddress</span> <span class="nx">from</span> <span class="s1">&#39;bitcoin-address&#39;</span><span class="p">;</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">pub_key</span><span class="p">))</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">address</span><span class="p">))</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Address checksum failed&#39;</span><span class="p">);</span>
 <span class="p">}</span>
  </code></pre></figure>
