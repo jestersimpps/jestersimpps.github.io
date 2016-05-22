@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-05-22T11:40:44-04:00</updated>
+<updated>2016-05-22T11:43:37-04:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
@@ -167,7 +167,7 @@ Wallet balance (or address balance) is an abstraction to help us humans and make
 
 &lt;h3 id=&quot;error-handling-and-input-validation&quot;&gt;3.2 Error handling and input validation&lt;/h3&gt;
 &lt;p&gt;Let’s expand our code, create some constants for the miner fee and the transaction amount and include some error handling.
-Furthermore, we will make use of the bitcore Unit utility to define and convert our amount and balance variables:&lt;/p&gt;
+We will also make use of the bitcore Unit utility to define and convert our minerfee, transaction amount and balance variables:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;explorers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;

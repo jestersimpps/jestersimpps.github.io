@@ -284,7 +284,7 @@ Wallet balance (or address balance) is an abstraction to help us humans and make
 
 <h3 id="error-handling-and-input-validation">3.2 Error handling and input validation</h3>
 <p>Let’s expand our code, create some constants for the miner fee and the transaction amount and include some error handling.
-Furthermore, we will make use of the bitcore Unit utility to define and convert our amount and balance variables:</p>
+We will also make use of the bitcore Unit utility to define and convert our minerfee, transaction amount and balance variables:</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">unit</span> <span class="o">=</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Unit</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">insight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">explorers</span><span class="p">.</span><span class="nx">Insight</span><span class="p">();</span>
