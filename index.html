@@ -145,7 +145,7 @@
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
         
-        Reading time ~19 minutes
+        Reading time ~20 minutes
       </span><!-- /.entry-reading-time -->
       
     </div><!-- /.entry-meta -->
@@ -156,12 +156,12 @@
   <div class="entry-content">
     <p>This week I was asked to create a simple web app that allows users to send bitcoins from one address to another using node.js.
 After skimming through some online articles and forums I discovered <a href="https://bitcore.io/api">Bitcore</a>.
-I also looked at an alternative calledc <a href="http://bitcoinjs.org/">BitcoinJs</a></p>
+I also looked at an alternative called <a href="http://bitcoinjs.org/">BitcoinJs</a></p>
 
 <p>After comparing both, I decided to use bitcore as it seemed a little bit ahead of BitcoinJs and they also provide <a href="https://bitcore.io/api/lib/transaction#Transaction+checkedSerialize">nice documentation and development resources on their website</a>. Also, the company that open sourced Bitcore, Bitpay, is an established brand in the Bitcoin industry. BitPay is a payment processor that specializes in processing bitcoin payments and enabling merchants to accept bitcoin using a variety of website plugins and other integrations. Bitcore is their javascript library that allows developers to interface directly with the real bitcoin network.</p>
 
 <h2 id="setting-up-the-app">1. Setting up the app</h2>
-<p>To kickstart my project, I looked for a suitable <a href="http://yeoman.io/">Yeoman</a> generator. I had no desire setting up custom or advanced build automation for thisone. It would literally be a single page app that should make two simple API calls:</p>
+<p>To kickstart my project, I looked for a suitable <a href="http://yeoman.io/">Yeoman</a> generator. I had no desire setting up custom or advanced build automation for thisone. It would literally be a single page app that makes two simple API calls:</p>
 
 <ul>
   <li>Get the transaction history of a Bitcoin address</li>
@@ -238,7 +238,7 @@ To create transactions using bitcore, we first need to install the bitcore and b
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm i --save bitcore-lib <span class="o">&amp;&amp;</span> bitcore-explorers</code></pre></figure>
 
-<p>And import them so we can use them:</p>
+<p>And reference them so we can use them:</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">bitcore</span> <span class="nx">from</span> <span class="s1">&#39;bitcore-lib&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">explorers</span> <span class="nx">from</span> <span class="s1">&#39;bitcore-explorers&#39;</span><span class="p">;</span>
@@ -392,6 +392,9 @@ Because outputs can only be unspent or spent, and not partially spent, there’s
 <blockquote>
   <p>If an output of 10 BTC is available for me to spend, but I only need to transmit 1 BTC, I’ll create a transaction with two outputs, one with 1 BTC that I want to spend, and the other with 9 BTC to a change address, so I can spend this 9 BTC with another private key that I own</p>
 </blockquote>
+
+<p><a href="http://bitzuma.com/posts/five-ways-to-lose-money-with-bitcoin-change-addresses/">Here</a> is a very interesting article on change addresses which explains the concept very well.
+If you haven’t heard of change addresses and are involved in bitcoin transactions in any way, it’s definitely a recommended read.</p>
 
 <h3 id="broadcasting-the-transaction-to-the-blockchain">3.4 Broadcasting the transaction to the blockchain</h3>
 

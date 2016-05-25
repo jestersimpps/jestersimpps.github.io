@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-05-22T11:43:37-04:00</updated>
+<updated>2016-05-25T07:09:36-04:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
@@ -27,12 +27,12 @@
   <content type="html">
     &lt;p&gt;This week I was asked to create a simple web app that allows users to send bitcoins from one address to another using node.js.
 After skimming through some online articles and forums I discovered &lt;a href=&quot;https://bitcore.io/api&quot;&gt;Bitcore&lt;/a&gt;.
-I also looked at an alternative calledc &lt;a href=&quot;http://bitcoinjs.org/&quot;&gt;BitcoinJs&lt;/a&gt;&lt;/p&gt;
+I also looked at an alternative called &lt;a href=&quot;http://bitcoinjs.org/&quot;&gt;BitcoinJs&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;After comparing both, I decided to use bitcore as it seemed a little bit ahead of BitcoinJs and they also provide &lt;a href=&quot;https://bitcore.io/api/lib/transaction#Transaction+checkedSerialize&quot;&gt;nice documentation and development resources on their website&lt;/a&gt;. Also, the company that open sourced Bitcore, Bitpay, is an established brand in the Bitcoin industry. BitPay is a payment processor that specializes in processing bitcoin payments and enabling merchants to accept bitcoin using a variety of website plugins and other integrations. Bitcore is their javascript library that allows developers to interface directly with the real bitcoin network.&lt;/p&gt;
 
 &lt;h2 id=&quot;setting-up-the-app&quot;&gt;1. Setting up the app&lt;/h2&gt;
-&lt;p&gt;To kickstart my project, I looked for a suitable &lt;a href=&quot;http://yeoman.io/&quot;&gt;Yeoman&lt;/a&gt; generator. I had no desire setting up custom or advanced build automation for thisone. It would literally be a single page app that should make two simple API calls:&lt;/p&gt;
+&lt;p&gt;To kickstart my project, I looked for a suitable &lt;a href=&quot;http://yeoman.io/&quot;&gt;Yeoman&lt;/a&gt; generator. I had no desire setting up custom or advanced build automation for thisone. It would literally be a single page app that makes two simple API calls:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Get the transaction history of a Bitcoin address&lt;/li&gt;
@@ -109,7 +109,7 @@ To create transactions using bitcore, we first need to install the bitcore and b
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm i --save bitcore-lib &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bitcore-explorers&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;And import them so we can use them:&lt;/p&gt;
+&lt;p&gt;And reference them so we can use them:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;bitcore-lib&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;explorers&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;bitcore-explorers&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -263,6 +263,9 @@ Because outputs can only be unspent or spent, and not partially spent, there’s
 &lt;blockquote&gt;
   &lt;p&gt;If an output of 10 BTC is available for me to spend, but I only need to transmit 1 BTC, I’ll create a transaction with two outputs, one with 1 BTC that I want to spend, and the other with 9 BTC to a change address, so I can spend this 9 BTC with another private key that I own&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://bitzuma.com/posts/five-ways-to-lose-money-with-bitcoin-change-addresses/&quot;&gt;Here&lt;/a&gt; is a very interesting article on change addresses which explains the concept very well.
+If you haven’t heard of change addresses and are involved in bitcoin transactions in any way, it’s definitely a recommended read.&lt;/p&gt;
 
 &lt;h3 id=&quot;broadcasting-the-transaction-to-the-blockchain&quot;&gt;3.4 Broadcasting the transaction to the blockchain&lt;/h3&gt;
 
