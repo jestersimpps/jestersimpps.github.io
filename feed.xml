@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-06-07T12:43:04-04:00</updated>
+<updated>2016-06-07T12:47:52-04:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
@@ -194,15 +194,11 @@ Blockchain as a Service, Coinstack&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://consensys.net/ventures/core-components/&quot;&gt;Consensys&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://truffle.readthedocs.io/en/latest/&quot;&gt;Truffle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.meteor.com/developers&quot;&gt;Meteor&lt;/a&gt;
+&lt;!-- &lt;iframe width=&quot;1280&quot; height=&quot;720&quot; src=&quot;https://www.youtube.com/embed/GPP6uAq15d8&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt; --&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;iframe width=&quot;1280&quot; height=&quot;720&quot; src=&quot;https://www.youtube.com/embed/GPP6uAq15d8&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.meteor.com/developers&quot;&gt;Meteor&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;iframe width=&quot;1280&quot; height=&quot;720&quot; src=&quot;https://www.youtube.com/embed/SayS1dcMVWU&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;!-- &lt;iframe width=&quot;1280&quot; height=&quot;720&quot; src=&quot;https://www.youtube.com/embed/SayS1dcMVWU&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
 
 &lt;!-- ## Services
 
@@ -229,7 +225,7 @@ Blockchain Technology for Collaborative Commerce
 * [lifesreda](http://lifesreda.com/MoneyOfTheFuture_2015_eng.pdf)
 * [Berkely](http://scet.berkeley.edu/wp-content/uploads/BlockchainPaper.pdf) --&gt;
 
-&lt;p&gt;Over time this list / overview might grow. If you know of any tools or platforms that were not featured in this overview, please comment using the Disqus below, and I will add your insights to the list.&lt;/p&gt;
+&lt;p&gt;Over time this list / overview might grow. If you know of any tools or platforms that were not mentioned in this overview, please comment using the Disqus below, and I will add your insights to the list.&lt;/p&gt;
 
 &lt;link href=&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1&quot; crossorigin=&quot;anonymous&quot; /&gt;
 
