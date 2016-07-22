@@ -136,6 +136,236 @@
   <header>
     
       <div class="entry-image-index">
+        <a href="/automated-e2e-api-testing-documentation-for-node-js/" title="Automated E2e API Testing/Documentation for Node.js"><img src="/images/mocha.jpg" alt="Automated E2e API Testing/Documentation for Node.js"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-07-22T06:46:58-04:00"><a href="/automated-e2e-api-testing-documentation-for-node-js/">July 22, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jester Simpps">Jester Simpps</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~10 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/automated-e2e-api-testing-documentation-for-node-js/" rel="bookmark" title="Automated E2e API Testing/Documentation for Node.js" itemprop="url">Automated E2e API Testing/Documentation for Node.js</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>This was my first time doing test driven API development in Node.js and I must say, I really enjoyed it. I used to fall back on a Chrome plugin called <a href="https://www.getpostman.com/">Postman</a> a lot before getting used to Mocha and test driven development. It was a joy to write code for a test that described what the endpoint should do before actually coding the new endpoint. It made me think more about the code I was going to write and what it should do. It also happened sometimes that there would be a total API overhaul (like the implementation of softdeletes). And, man was I glad I had written unit tests for all my endpoints when that happened!</p>
+
+<h2 id="butwait-wont-i-lose-a-lot-of-time-doing-that">But…wait.. won’t I lose a lot of time doing that?!?</h2>
+
+<p><img src="https://risingstack-blog.s3-eu-west-1.amazonaws.com/2014/Oct/unit_testing.jpeg" alt="unit tests" /></p>
+
+<p>Writing API tests for a node.js API can be a tedious job. We are dealing with a single event loop, so we need to take in account callbacks. Especially when doing API testing, callbacks can quickly become a pain point. A lot of times, checking whether requests work means triggering other requests sequentially to see if the database was updated by previous requests. This is why, after refactoring a bit of my tests, I was able to create a simple end-to-end testscript that I would just call whenever I wrote a new route. Every time with different input data specific to the route of course. I was later able to tie in APIDoc, a documentation generator that will create a frontend containing the documentation for all your endpoints. So in the end all my endpoints were not only fully tested, but also automatically documented in one go. This was very nice and saved me a lot of time.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="testing">Testing</h3>
+
+<ul>
+  <li>We will be using <a href="https://mochajs.org/">Mocha</a> as a testing framework for our Node.js API.</li>
+  <li>Mocha is great, but not perfect, so on top of it, we will include the <a href="https://github.com/visionmedia/supertest">supertest</a> package that will provide abstraction for HTTP testing.</li>
+  <li>As I refactored my end to end tests into one single testscript, we will also need a package called <a href="https://www.npmjs.com/package/partial-compare">partial compare</a> that will do partial matching between test objects and actual return-objects from the api.</li>
+  <li>We will also use <a href="https://www.npmjs.com/package/should">should</a> to make our testing code more human readable and easier to write.</li>
+</ul>
+
+<h3 id="api-documentation">API documentation</h3>
+
+<ul>
+  <li>A great library called <a href="http://apidocjs.com/">APIdoc</a> will take care of documenting all of the endpoints</li>
+  <li>A plugin of that library <a href="https://www.npmjs.com/package/apidoc-plugin-schema">apidoc-plugin-schema</a> will make our life easier.</li>
+</ul>
+
+<p>In the package.json file:</p>
+
+<pre><code>"devDependencies": {
+  "apidoc-plugin-schema": "0.0.4",
+  "body-parser": "~1.8.1",
+  "fs": "0.0.2",
+  "jsonfile": "^2.3.1",
+  "mocha": "^2.1.0",
+  "partial-compare": "^1.0.1",
+  "path": "^0.12.7",
+  "should": "~4.6.2",
+  "supertest": "^0.15.0",
+  "type-of-is": "^3.4.0"
+}
+</code></pre>
+
+<h2 id="end-to-end-testing">End to end testing</h2>
+
+<p>Wikipedia says:</p>
+
+<blockquote>
+  <p>End-to-end testing is a technique used to test whether the flow of an application right from start to finish is behaving as expected. The purpose of performing end-to-end testing is to identify system dependencies and to ensure that the data integrity is maintained between various system components and systems.</p>
+</blockquote>
+
+<p>Translate this to API testing and you get:</p>
+
+<ol>
+  <li>GET an array of existing data</li>
+  <li>POST some new data</li>
+  <li>Test if the new data was posted</li>
+  <li>Change the new data using PUT</li>
+  <li>Test if the new data was changed</li>
+  <li>DELETE the new data</li>
+  <li>Test if the new data was removed</li>
+</ol>
+
+<p>Of course this is the most simple scenario of RESTful API testing, and I know there’s some other endpoints that can be more complex (like counters, searches, etc.) But I will not elaborate on these in this post as these most of the time imply writing custom tests.</p>
+
+<h2 id="a-test-script-that-covers-multiple-endpoints">A test script that covers multiple endpoints</h2>
+
+<p>Because the sequence of testing is the same for all endpoints, I created a general script that will test different endpoints using the same code but different input based on the endpoint’s data. The input data will be stored in an object that will be called from an endpoint file in the ‘test/routes’ folder.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">├── <span class="nb">test</span>
+<span class="p">|</span>    ├── routes  
+<span class="p">|</span>         ├── endpoint1.js
+<span class="p">|</span>         ├── endpoint2.js
+<span class="p">|</span>         ├── endpoint3.js
+<span class="p">|</span>    ├── e2e_tests.js
+<span class="p">|</span>    ├── schema_generator.js
+<span class="p">|</span>              </code></pre></figure>
+
+<p>The content of the endpoint file will contain the e2e_test options object which has some options for the endpoint tests and apidoc generator.
+Next to the options, a testData object contains all data needed to perform the tests. The object attributes are pretty self explanatory:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//define the e2e script</span>
+<span class="kr">const</span> <span class="nx">e2e</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./e2e_tests.js&#39;</span><span class="p">);</span>
+<span class="c1">// this should refer to the express app you have set up for your api</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+
+<span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+	<span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">//timeout between requests</span>
+		<span class="nx">timeout</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="c1">//your express app</span>
+		<span class="nx">api</span><span class="o">:</span> <span class="nx">app</span><span class="p">,</span>
+    <span class="c1">//generate apidoc or not?</span>
+		<span class="nx">apidoc</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="c1">//where do you want to store the schema jsons for the apidoc schema plugin?</span>
+		<span class="nx">schemaDir</span><span class="o">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="err">`</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">apischemas</span><span class="o">/</span><span class="err">`</span>
+	<span class="p">}</span>
+
+
+	<span class="kd">let</span> <span class="nx">testData</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="nx">routeName</span><span class="o">:</span> <span class="s1">&#39;Articles&#39;</span><span class="p">,</span>
+		<span class="nx">postObject</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;this is an article&#39;</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="nx">expectedObjectAfterPost</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;this is an article&#39;</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="nx">putObject</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;this is an article too&#39;</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="nx">expectedObjectAfterPut</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;this is an article too&#39;</span><span class="p">,</span>
+		<span class="p">}</span>
+	<span class="p">};</span>
+
+  <span class="c1">//You can then call a unit test for this endpoint by calling the script:</span>
+	<span class="nx">e2e</span><span class="p">(</span><span class="nx">testData</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+
+
+<span class="p">})();</span></code></pre></figure>
+
+<p>When we run mocha the end-to-end script will be called and run all tests for that endpoint. If you have specified a schemaDir and the apidoc boolean is set to true, the script will also automatically generate json schemas for the apidoc based on the testData.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node_modules/.bin/mocha</code></pre></figure>
+
+<p>Console output for a working API should be similar to:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">-------- Albums tests --------
+
+GET /Albums <span class="m">200</span> 148.080 ms - 2
+Counting Albums: 0
+    ✓ Should <span class="k">return</span> an array of Albums
+--POST shows/: <span class="o">{</span><span class="s2">&quot;general&quot;</span>:<span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;Ascot&quot;</span><span class="o">}</span>,<span class="s2">&quot;time&quot;</span>:<span class="o">{</span><span class="s2">&quot;startDate&quot;</span>:<span class="s2">&quot;2016-04-06T21:51:15.000Z&quot;</span><span class="o">}</span>,<span class="s2">&quot;type&quot;</span>:<span class="s2">&quot;album&quot;</span><span class="o">}</span>
+POST /Albums <span class="m">200</span> 151.935 ms - 1996
+Adding: <span class="m">1</span> Album
+    ✓ Should create a new Album
+GET /Albums/5789159e34150fe84c463f28 <span class="m">200</span> 117.938 ms - 1996
+    ✓ Should get the new Album
+GET /Albums <span class="m">200</span> 103.512 ms - 1998
+Counting Albums: 1, should be: 1
+    ✓ Should <span class="k">return</span> an array of Albums with the correct size
+PUT /Albums/5789159e34150fe84c463f28 <span class="m">200</span> 115.422 ms - 1997
+    ✓ Should change a Album
+GET /Albums/5789159e34150fe84c463f28 <span class="m">200</span> 102.205 ms - 1997
+    ✓ Should get the changed Album
+DELETE /Albums/5789159e34150fe84c463f28 <span class="m">200</span> 116.241 ms - 2018
+Removing: <span class="m">1</span> Album
+    ✓ Should remove a Album
+GET /Albums <span class="m">200</span> 104.573 ms - 2
+Counting Albums: 0, should be: 0
+    ✓ Should get an array without the deleted Album
+
+-------- Articles tests --------
+
+GET /Articles <span class="m">200</span> 92.230 ms - 2
+Counting Articles: 0
+    ✓ Should <span class="k">return</span> an array of Articles
+POST /Articles <span class="m">200</span> 98.047 ms - 300
+Adding: <span class="m">1</span> Article
+    ✓ Should create a new Article
+GET /Articles/578915a134150fe84c463f39 <span class="m">200</span> 99.768 ms - 300
+    ✓ Should get the new Article
+GET /Articles <span class="m">200</span> 107.985 ms - 302
+Counting Articles: 1, should be: 1
+    ✓ Should <span class="k">return</span> an array of Articles with the correct size
+DELETE /Articles/578915a134150fe84c463f39 <span class="m">200</span> 99.193 ms - 329
+Removing: <span class="m">1</span> Article
+    ✓ Should remove a Article
+GET /Articles <span class="m">200</span> 101.275 ms - 304
+Counting Articles: 0, should be: 0
+    ✓ Should get an array without the deleted Article
+
+
+  <span class="m">2</span> passing <span class="o">(</span>4s<span class="o">)</span>
+
+info: Done.</code></pre></figure>
+
+<h2 id="api-documentation-generator">API documentation generator</h2>
+
+<p>In your route files, above your endpoints, you can then add the following comment blocks:</p>
+
+<ul>
+  <li><a href="https://github.com/jestersimpps/node_rest_test_doc/blob/master/test/routes/APIDOC.md">api doc helpers</a></li>
+</ul>
+
+<p>Change them according to your endpoints of course. They will be used by the APIdoc generator to create the documentation frontend.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/**</span>
+<span class="cm">* @apiSchema {jsonschema=../test/data/apischemas/&lt;routecaps&gt;-POST-create-a-new-&lt;routesingle&gt;-PARAMS.json} apiParam</span>
+<span class="cm">* @apiSchema {jsonschema=../test/data/apischemas/&lt;routecaps&gt;-POST-create-a-new-&lt;routesingle&gt;-SUCCESS.json} apiSuccess</span>
+<span class="cm">*/</span></code></pre></figure>
+
+<p>The apiSchema references in the comments displayed above will point at the schema jsons that are generated by the <a href="https://github.com/jestersimpps/node_rest_test_doc/blob/master/test/schema_generator.js">schema_generator</a>.
+The output directory can be changed in the options object in the endpoint test file as illustrated earlier.</p>
+
+<p>Assuming the <code>./routes</code> folder contains your api’s route files and the <code>./public</code> folder is the folder that will contain the apidoc frontend, generate your api documentation by running:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">apidoc -i ./routes -o ./public/</code></pre></figure>
+
+<p>These tests were run using mongoDB, which uses <code>_id</code> as a primary key. You might have to edit the test script to your needs a bit when you are using a different database or key/slug to perform individual GET,PUT,DELETE requests.</p>
+
+<p>The entire code and scripts can be found <a href="https://github.com/jestersimpps/node_rest_test_doc">here</a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
         <a href="/smart-contract-blockchain-platforms/" title="An overview of the Blockchain development Ecosystem"><img src="/images/ether.png" alt="An overview of the Blockchain development Ecosystem"></a>
       </div><!-- /.entry-image -->
     
@@ -783,8 +1013,8 @@ You can find code of the entire app in the following github repo:
     
   </header>
   <div class="entry-content">
-    <p>Recently, I was struggling with some Shopify products that had more than 300 variant combinations.
-Shopify has a product variant limitation of 300 per product, whereas products themselves are unlimited.
+    <p>Recently, I was struggling with some Shopify products that had more than 100 variant combinations.
+Shopify has a product variant limitation of 100 per product, whereas products themselves are unlimited.
 To get around the limitation I wrote a little Node script that creates a unique Shopify product for every variant and links the SKU’s dynamically to option selectors in the product pages.</p>
 
 <p>You can find the script here:</p>
@@ -832,11 +1062,11 @@ One product can now have unlimited ‘variants’ (which are actually Shopify pr
 
 <p>Removing all products:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">node</span> <span class="nx">xls2shop</span><span class="p">.</span><span class="nx">js</span> <span class="nx">clean</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node xls2shop.js clean</code></pre></figure>
 
 <p>Uploading product variants from Excel:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">node</span> <span class="nx">xls2shop</span><span class="p">.</span><span class="nx">js</span> <span class="nx">upload</span> <span class="nx">business</span><span class="err">\</span> <span class="nx">cards</span><span class="err">\</span> <span class="nx">example</span><span class="p">.</span><span class="nx">xlsm</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node xls2shop.js upload business<span class="se">\ </span>cards<span class="se">\ </span>example.xlsm</code></pre></figure>
 
 <h3 id="add-the-following-javascipt-to-the-product-pages-in-shopify">3. Add the following javascipt to the product pages in Shopify:</h3>
 
@@ -947,76 +1177,6 @@ all your life has finally arrived.</p>
 <p><a href="http://gitup.co/">GitUp</a> looks promising:</p>
 
 <p><img src="../images/editing.gif" alt="git1" /></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="/webstorm-vs-atom/" title="WebStorm vs. Atom"><img src="/images/webstorm.jpg" alt="WebStorm vs. Atom"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-09-23T15:19:12-04:00"><a href="/webstorm-vs-atom/">September 23, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jester Simpps">Jester Simpps</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~3 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/webstorm-vs-atom/" rel="bookmark" title="WebStorm vs. Atom" itemprop="url">WebStorm vs. Atom</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>I have recently switched to the Atom editor and really love it.
-I love experimenting with new coding environments and so far PHP- and Webstorm have provided me with the best all round support
-for everything I make Web-related. But now… there is: Atom!!!</p>
-
-<p>My first programming experiences, I remember, were in DOS. There was this editor for Qbasic, which was basically no editor at all. I know there’s always been vi, or vim, but I didn’t know about them as I was 11.
-When I was around 14-15, I started developing Visual Basic 6 applications.
-Visual Basic was awesome! The name Visual comes from it having a drag &amp; drop UI builder. I thought that was really great until I moved to .NET. Dot NET was actually a super visual Basic EDI and I loved it.</p>
-
-<p>When making the switch to web development some time ago I started out using sublime text as everybody was using it at the time. I wanted to get into using predominantly open source tools as they are free,
-and they are developed by a community of people who are also the actual users of the tools they build.
-However, after Sublime came Webstorm / PHPStorm since I loved the terminal-in-edi solution and it had great code inspection and an actual drag and drop file tree.</p>
-
-<p>Today I downloaded Atom and in a matter of minutes I found and installed the packages “Terminal-plus” and “Atom-beautify”.
-I now have the same functionality as I had in the Jetbrains EDI’s but in, what seems to me, an editor package.</p>
-
-<p>The scrolling is smooth and I can have 4 or more projects open at the same time without any hassle. This would be a nogo using the Jetbrains EDI’s. You either had to minimize the Jetbrains instances and only have one open at a time or switch to power saving mode. Not doing this would ramp up the CPU too much and keep them from working smoothly.</p>
-
-<p><img src="../images/atomeditors.png" alt="multipleatom" /></p>
-
-<p>I also love the preinstalled markdown preview package, which I am using right now:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Atom</th>
-      <th style="text-align: center">PHPStorm</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><img src="../images/atomeditor.png" alt="eatom" /></td>
-      <td style="text-align: center"><img src="../images/phpstorm.png" alt="eatom" /></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>PHPStorm also has the markdown preview, but its in a tabswitcher, and I couldn’t figure out how to make it show permanently on the side like the one in Atom.</p>
-
-<p>Overall I enjoy the cleaner, distraction free look of the Atom Editor. A lot of the buttons and tabs that I don’t use in PHPStorm are just not there. You can find all these in the mac top menu bar, which enforces learning keyboard shortcuts. And I don’t mind.
-My work environment is cleaner, and I have a larger area to code. Also, the few seconds it takes to look up a hotkey combination for a common command will shave off countless seconds of work in the future.</p>
-
-<p>Lastly, what I like about Atom is that you can customize it to your own needs. Atom is flexible and I can choose which plug-ins I need, whereas the Jetbrains EDI’s come with a lot of stuff prepackaged. Stuff that I’ll never use in an EDI. for example: vcs and grunt: good try, but I do my gitting and grunting in the terminal.</p>
-
-<p>If you don’t like something, or want to make it better, it is <a href="https://github.com/atom/atom">hackable</a>.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

@@ -4,13 +4,235 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-06-07T12:47:52-04:00</updated>
+<updated>2016-07-22T09:46:01-04:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
   <uri>/</uri>
   <email>jestersimpps@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Automated E2e API Testing/Documentation for Node.js]]></title>
+ <link rel="alternate" type="text/html" href="/automated-e2e-api-testing-documentation-for-node-js/" />
+  <id>/automated-e2e-api-testing-documentation-for-node-js</id>
+  <published>2016-07-22T06:46:58-04:00</published>
+  <updated>2016-07-22T06:46:58-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;This was my first time doing test driven API development in Node.js and I must say, I really enjoyed it. I used to fall back on a Chrome plugin called &lt;a href=&quot;https://www.getpostman.com/&quot;&gt;Postman&lt;/a&gt; a lot before getting used to Mocha and test driven development. It was a joy to write code for a test that described what the endpoint should do before actually coding the new endpoint. It made me think more about the code I was going to write and what it should do. It also happened sometimes that there would be a total API overhaul (like the implementation of softdeletes). And, man was I glad I had written unit tests for all my endpoints when that happened!&lt;/p&gt;
+
+&lt;h2 id=&quot;butwait-wont-i-lose-a-lot-of-time-doing-that&quot;&gt;But…wait.. won’t I lose a lot of time doing that?!?&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://risingstack-blog.s3-eu-west-1.amazonaws.com/2014/Oct/unit_testing.jpeg&quot; alt=&quot;unit tests&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Writing API tests for a node.js API can be a tedious job. We are dealing with a single event loop, so we need to take in account callbacks. Especially when doing API testing, callbacks can quickly become a pain point. A lot of times, checking whether requests work means triggering other requests sequentially to see if the database was updated by previous requests. This is why, after refactoring a bit of my tests, I was able to create a simple end-to-end testscript that I would just call whenever I wrote a new route. Every time with different input data specific to the route of course. I was later able to tie in APIDoc, a documentation generator that will create a frontend containing the documentation for all your endpoints. So in the end all my endpoints were not only fully tested, but also automatically documented in one go. This was very nice and saved me a lot of time.&lt;/p&gt;
+
+&lt;h2 id=&quot;dependencies&quot;&gt;Dependencies&lt;/h2&gt;
+
+&lt;h3 id=&quot;testing&quot;&gt;Testing&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We will be using &lt;a href=&quot;https://mochajs.org/&quot;&gt;Mocha&lt;/a&gt; as a testing framework for our Node.js API.&lt;/li&gt;
+  &lt;li&gt;Mocha is great, but not perfect, so on top of it, we will include the &lt;a href=&quot;https://github.com/visionmedia/supertest&quot;&gt;supertest&lt;/a&gt; package that will provide abstraction for HTTP testing.&lt;/li&gt;
+  &lt;li&gt;As I refactored my end to end tests into one single testscript, we will also need a package called &lt;a href=&quot;https://www.npmjs.com/package/partial-compare&quot;&gt;partial compare&lt;/a&gt; that will do partial matching between test objects and actual return-objects from the api.&lt;/li&gt;
+  &lt;li&gt;We will also use &lt;a href=&quot;https://www.npmjs.com/package/should&quot;&gt;should&lt;/a&gt; to make our testing code more human readable and easier to write.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;api-documentation&quot;&gt;API documentation&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A great library called &lt;a href=&quot;http://apidocjs.com/&quot;&gt;APIdoc&lt;/a&gt; will take care of documenting all of the endpoints&lt;/li&gt;
+  &lt;li&gt;A plugin of that library &lt;a href=&quot;https://www.npmjs.com/package/apidoc-plugin-schema&quot;&gt;apidoc-plugin-schema&lt;/a&gt; will make our life easier.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the package.json file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&quot;devDependencies&quot;: {
+  &quot;apidoc-plugin-schema&quot;: &quot;0.0.4&quot;,
+  &quot;body-parser&quot;: &quot;~1.8.1&quot;,
+  &quot;fs&quot;: &quot;0.0.2&quot;,
+  &quot;jsonfile&quot;: &quot;^2.3.1&quot;,
+  &quot;mocha&quot;: &quot;^2.1.0&quot;,
+  &quot;partial-compare&quot;: &quot;^1.0.1&quot;,
+  &quot;path&quot;: &quot;^0.12.7&quot;,
+  &quot;should&quot;: &quot;~4.6.2&quot;,
+  &quot;supertest&quot;: &quot;^0.15.0&quot;,
+  &quot;type-of-is&quot;: &quot;^3.4.0&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;end-to-end-testing&quot;&gt;End to end testing&lt;/h2&gt;
+
+&lt;p&gt;Wikipedia says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;End-to-end testing is a technique used to test whether the flow of an application right from start to finish is behaving as expected. The purpose of performing end-to-end testing is to identify system dependencies and to ensure that the data integrity is maintained between various system components and systems.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Translate this to API testing and you get:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;GET an array of existing data&lt;/li&gt;
+  &lt;li&gt;POST some new data&lt;/li&gt;
+  &lt;li&gt;Test if the new data was posted&lt;/li&gt;
+  &lt;li&gt;Change the new data using PUT&lt;/li&gt;
+  &lt;li&gt;Test if the new data was changed&lt;/li&gt;
+  &lt;li&gt;DELETE the new data&lt;/li&gt;
+  &lt;li&gt;Test if the new data was removed&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Of course this is the most simple scenario of RESTful API testing, and I know there’s some other endpoints that can be more complex (like counters, searches, etc.) But I will not elaborate on these in this post as these most of the time imply writing custom tests.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-test-script-that-covers-multiple-endpoints&quot;&gt;A test script that covers multiple endpoints&lt;/h2&gt;
+
+&lt;p&gt;Because the sequence of testing is the same for all endpoints, I created a general script that will test different endpoints using the same code but different input based on the endpoint’s data. The input data will be stored in an object that will be called from an endpoint file in the ‘test/routes’ folder.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;├── &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;    ├── routes  
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;         ├── endpoint1.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;         ├── endpoint2.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;         ├── endpoint3.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;    ├── e2e_tests.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;    ├── schema_generator.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;              &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The content of the endpoint file will contain the e2e_test options object which has some options for the endpoint tests and apidoc generator.
+Next to the options, a testData object contains all data needed to perform the tests. The object attributes are pretty self explanatory:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//define the e2e script&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e2e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;./e2e_tests.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// this should refer to the express app you have set up for your api&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;express&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//timeout between requests&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//your express app&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//generate apidoc or not?&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;apidoc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//where do you want to store the schema jsons for the apidoc schema plugin?&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;schemaDir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apischemas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+	&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testData&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;routeName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Articles&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;postObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;this is an article&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;expectedObjectAfterPost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;this is an article&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;putObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;this is an article too&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;expectedObjectAfterPut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;this is an article too&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//You can then call a unit test for this endpoint by calling the script:&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;e2e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;testData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;When we run mocha the end-to-end script will be called and run all tests for that endpoint. If you have specified a schemaDir and the apidoc boolean is set to true, the script will also automatically generate json schemas for the apidoc based on the testData.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node_modules/.bin/mocha&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Console output for a working API should be similar to:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;-------- Albums tests --------
+
+GET /Albums &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 148.080 ms - 2
+Counting Albums: 0
+    ✓ Should &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; an array of Albums
+--POST shows/: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;general&amp;quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&amp;quot;Ascot&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;startDate&amp;quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&amp;quot;2016-04-06T21:51:15.000Z&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&amp;quot;album&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+POST /Albums &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 151.935 ms - 1996
+Adding: &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; Album
+    ✓ Should create a new Album
+GET /Albums/5789159e34150fe84c463f28 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 117.938 ms - 1996
+    ✓ Should get the new Album
+GET /Albums &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 103.512 ms - 1998
+Counting Albums: 1, should be: 1
+    ✓ Should &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; an array of Albums with the correct size
+PUT /Albums/5789159e34150fe84c463f28 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 115.422 ms - 1997
+    ✓ Should change a Album
+GET /Albums/5789159e34150fe84c463f28 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 102.205 ms - 1997
+    ✓ Should get the changed Album
+DELETE /Albums/5789159e34150fe84c463f28 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 116.241 ms - 2018
+Removing: &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; Album
+    ✓ Should remove a Album
+GET /Albums &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 104.573 ms - 2
+Counting Albums: 0, should be: 0
+    ✓ Should get an array without the deleted Album
+
+-------- Articles tests --------
+
+GET /Articles &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 92.230 ms - 2
+Counting Articles: 0
+    ✓ Should &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; an array of Articles
+POST /Articles &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 98.047 ms - 300
+Adding: &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; Article
+    ✓ Should create a new Article
+GET /Articles/578915a134150fe84c463f39 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 99.768 ms - 300
+    ✓ Should get the new Article
+GET /Articles &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 107.985 ms - 302
+Counting Articles: 1, should be: 1
+    ✓ Should &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; an array of Articles with the correct size
+DELETE /Articles/578915a134150fe84c463f39 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 99.193 ms - 329
+Removing: &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; Article
+    ✓ Should remove a Article
+GET /Articles &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 101.275 ms - 304
+Counting Articles: 0, should be: 0
+    ✓ Should get an array without the deleted Article
+
+
+  &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; passing &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+info: Done.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;api-documentation-generator&quot;&gt;API documentation generator&lt;/h2&gt;
+
+&lt;p&gt;In your route files, above your endpoints, you can then add the following comment blocks:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jestersimpps/node_rest_test_doc/blob/master/test/routes/APIDOC.md&quot;&gt;api doc helpers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Change them according to your endpoints of course. They will be used by the APIdoc generator to create the documentation frontend.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;* @apiSchema {jsonschema=../test/data/apischemas/&amp;lt;routecaps&amp;gt;-POST-create-a-new-&amp;lt;routesingle&amp;gt;-PARAMS.json} apiParam&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;* @apiSchema {jsonschema=../test/data/apischemas/&amp;lt;routecaps&amp;gt;-POST-create-a-new-&amp;lt;routesingle&amp;gt;-SUCCESS.json} apiSuccess&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;*/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The apiSchema references in the comments displayed above will point at the schema jsons that are generated by the &lt;a href=&quot;https://github.com/jestersimpps/node_rest_test_doc/blob/master/test/schema_generator.js&quot;&gt;schema_generator&lt;/a&gt;.
+The output directory can be changed in the options object in the endpoint test file as illustrated earlier.&lt;/p&gt;
+
+&lt;p&gt;Assuming the &lt;code&gt;./routes&lt;/code&gt; folder contains your api’s route files and the &lt;code&gt;./public&lt;/code&gt; folder is the folder that will contain the apidoc frontend, generate your api documentation by running:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;apidoc -i ./routes -o ./public/&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;These tests were run using mongoDB, which uses &lt;code&gt;_id&lt;/code&gt; as a primary key. You might have to edit the test script to your needs a bit when you are using a different database or key/slug to perform individual GET,PUT,DELETE requests.&lt;/p&gt;
+
+&lt;p&gt;The entire code and scripts can be found &lt;a href=&quot;https://github.com/jestersimpps/node_rest_test_doc&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/automated-e2e-api-testing-documentation-for-node-js/&quot;&gt;Automated E2e API Testing/Documentation for Node.js&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on July 22, 2016.&lt;/p&gt;
+  </content>
+</entry>
 
 
 <entry>
@@ -638,8 +860,8 @@ You can find code of the entire app in the following github repo:
     <email>jestersimpps@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;Recently, I was struggling with some Shopify products that had more than 300 variant combinations.
-Shopify has a product variant limitation of 300 per product, whereas products themselves are unlimited.
+    &lt;p&gt;Recently, I was struggling with some Shopify products that had more than 100 variant combinations.
+Shopify has a product variant limitation of 100 per product, whereas products themselves are unlimited.
 To get around the limitation I wrote a little Node script that creates a unique Shopify product for every variant and links the SKU’s dynamically to option selectors in the product pages.&lt;/p&gt;
 
 &lt;p&gt;You can find the script here:&lt;/p&gt;
@@ -687,11 +909,11 @@ One product can now have unlimited ‘variants’ (which are actually Shopify pr
 
 &lt;p&gt;Removing all products:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xls2shop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;clean&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node xls2shop.js clean&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Uploading product variants from Excel:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xls2shop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upload&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;business&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cards&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;xlsm&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node xls2shop.js upload business&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;cards&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;example.xlsm&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;add-the-following-javascipt-to-the-product-pages-in-shopify&quot;&gt;3. Add the following javascipt to the product pages in Shopify:&lt;/h3&gt;
 
