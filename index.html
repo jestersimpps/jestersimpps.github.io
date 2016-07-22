@@ -355,7 +355,10 @@ The output directory can be changed in the options object in the endpoint test f
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">apidoc -i ./routes -o ./public/</code></pre></figure>
 
-<p>These tests were run using mongoDB, which uses <code>_id</code> as a primary key. You might have to edit the test script to your needs a bit when you are using a different database or key/slug to perform individual GET,PUT,DELETE requests.</p>
+<ul>
+  <li>These tests were run using mongoDB, which uses <code>_id</code> as a primary key. You might have to edit the test script to your needs a bit when you are using a different database or key/slug to perform individual GET,PUT,DELETE requests.</li>
+  <li>In the e2e_test script, basic authentication was used. You might also need to change this according to the authentication methods of your API.</li>
+</ul>
 
 <p>The entire code and scripts can be found <a href="https://github.com/jestersimpps/node_rest_test_doc">here</a></p>
 
