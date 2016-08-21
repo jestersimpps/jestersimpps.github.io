@@ -4,13 +4,142 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-07-22T10:30:09-04:00</updated>
+<updated>2016-08-21T17:38:22-04:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
   <uri>/</uri>
   <email>jestersimpps@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[From Gulp to Webpack]]></title>
+ <link rel="alternate" type="text/html" href="/from-gulp-to-webpack/" />
+  <id>/from-gulp-to-webpack</id>
+  <published>2016-08-21T14:32:14-04:00</published>
+  <updated>2016-08-21T14:32:14-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;I recently started working on a big Angular 2 webapp. The company I joined has been working on this project since Oktober 2015.
+It is one of the first companies in Belgium that jumps on the ng2 bandwagon and it has been a joy and challenge to learn and work with this framework every day.&lt;/p&gt;
+
+&lt;p&gt;Because gulp experience was already in house, the team has implemented a gulp build coupled with SystemJs. These days ( August 2016 ),
+partly popularized by React, &lt;a href=&quot;https://webpack.github.io/&quot;&gt;Webpack&lt;/a&gt; has become a ‘thing’. My colleagues at the company have been following the trend and have decided to switch to &lt;a href=&quot;https://webpack.github.io/&quot;&gt;Webpack&lt;/a&gt; for their next project.
+Secretly, there’s a common desire to implement it in the current project as well, but… there is this tight deadline, so…&lt;/p&gt;
+
+&lt;p&gt;…I decided to give it a shot myself and tried to hack something together this Saturday and see how far I would get. To be honest, I didn’t know what to expect myself.
+I’ve heard all the buzz but haven’t actually given Webpack any time as I have been working relentlessly on my own startup &lt;a href=&quot;http://www.krackzee.com/search?sortby=distance&amp;amp;order=&amp;amp;radius=50&amp;amp;classes=11th%20Commerce&amp;amp;locality=Sector%2025&amp;amp;city=Pune#&quot;&gt;krackzee&lt;/a&gt; over the past 8 months, which is a php Laravel project. So I have been ‘out’ of the front-end world for quite some time. To all non-javascript developers; 8 months in the javascript realm is like a decade in your language. (
+&lt;a href=&quot;https://www.allenpike.com/2015/javascript-framework-fatigue/&quot;&gt; Read: A JS framework on every table by Allen Pike &lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.allenpike.com/images/2015/cube-drone-angular.jpg&quot; alt=&quot;javascript fatigue&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;webpack&quot;&gt;Webpack&lt;/h2&gt;
+
+&lt;h3 id=&quot;first-impressions&quot;&gt;First impressions&lt;/h3&gt;
+
+&lt;p&gt;The installation has a lot of simalarity to installing grunt or gulp. You pull in some repositories, make sure you save them as devDependencies in your package.json and create some config files to configure your build process. Here’s the interesting part though; It’s almost like a plug and play build process tool. Forget about writing those &lt;a href=&quot;http://jestersimpps.github.io/experimenting-with-google-spreadsheets-assemble-io-and-internationalisation/&quot;&gt;insane&lt;/a&gt;, customized grunt and gulp scripts. Here’s a tool that just works out of the box with minimal configuration. And it works well!&lt;/p&gt;
+
+&lt;h3 id=&quot;getting-started&quot;&gt;Getting started&lt;/h3&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://angular.io/docs/ts/latest/guide/webpack.html&quot;&gt;Angular 2&lt;/a&gt; team has done a pretty good job explaining Webpack on their website. It has also become their build tool of choice. I started by basically going through their guide and adapting their implementation in a seperate branch to our current project. Don’t do this! I made this mistake and I might have learned a bit more about what the Webpack config files do, but it will fail miserably unless you have implemented webpack before and you know how everything works together. My suggestion is to start a different repo alltogether with a clean version of one of the &lt;a href=&quot;https://github.com/search?utf8=%E2%9C%93&amp;amp;q=angular+2+webpack+starter&amp;amp;type=Repositories&amp;amp;ref=searchresults&quot;&gt;Angular 2 webpack starters&lt;/a&gt; out there. Just browse &lt;a href=&quot;http://github.com&quot;&gt;Github&lt;/a&gt; a bit, there’s plenty of them.&lt;/p&gt;
+
+&lt;p&gt;I chose for the &lt;a href=&quot;https://github.com/AngularClass/angular2-webpack-starter&quot;&gt;angular2-webpack-starter&lt;/a&gt; from &lt;a href=&quot;https://angularclass.com/&quot;&gt;AngularClass&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;clone-your-favorite-starter&quot;&gt;Clone your favorite starter&lt;/h3&gt;
+
+&lt;p&gt;Start by cloning your favorite Webpack starter repo somewhere on your hard drive.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone https://github.com/AngularClass/angular2-webpack-starter.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;angular2-webpack-starter
+npm i&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you choose to use the same starter as me, make sure you have Node version &amp;gt;= 5.0 and NPM &amp;gt;= 3 as mentioned in their readme.&lt;/p&gt;
+
+&lt;h3 id=&quot;move-your-code&quot;&gt;Move your code&lt;/h3&gt;
+
+&lt;p&gt;After having a local version of the starter, I removed all of their awesomely, perfected, genius code from the &lt;code&gt;src/app&lt;/code&gt; folder and copied in our own.
+Remove the git directory if you haven’t yet, and set up your own repo. Maybe make a first commit and push.
+From this moment onward there’s a lot of nitty gritty changes to the Webpack configuration, but basically you are almost done!&lt;/p&gt;
+
+&lt;h3 id=&quot;reconfigure-webpack&quot;&gt;Reconfigure Webpack&lt;/h3&gt;
+
+&lt;h4 id=&quot;folders-and-files&quot;&gt;Folders and files&lt;/h4&gt;
+
+&lt;p&gt;Depending on how you have set up your Angular 2 application you will have a different &lt;code&gt;main.ts&lt;/code&gt; file.(assuming you are coding Typescript, I’ll just ignore anyone who isn’t)
+The &lt;code&gt;main.ts&lt;/code&gt; file is that file that holds your main app component (everything starts from there, your JS app big bang). Webpack best practice commands you to split it up into 3 files:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;polyfills&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;./src/polyfills.browser.ts&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;vendor&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;./src/vendor.browser.ts&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;./src/main.browser.ts&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It’s pretty obvious but, define your polyfill imports in the &lt;code&gt;src/polyfills.browser.ts&lt;/code&gt; file, your vendor modules in the &lt;code&gt;src/vendor.browser.ts&lt;/code&gt; file and bootstrap your app in the &lt;code&gt;src/main.browser.ts&lt;/code&gt; file. I just left the polyfill file alone because it was mostly the same of what we already had. Then, in the &lt;code&gt;config/webpack.common.js&lt;/code&gt; file, set your entry points as depicted above. In the platform folder, define your environment &amp;amp; provider settings if you have them.&lt;/p&gt;
+
+&lt;p&gt;Remove all script tags in your &lt;code&gt;index.html&lt;/code&gt; file that point to any application code. These will get injected by a Webpack plugin called &lt;a href=&quot;https://github.com/ampedandwired/html-webpack-plugin&quot;&gt;HtmlWebpackPlugin&lt;/a&gt;. Compare the index files of the starter with your own and basically resolve any merge conflicts :)&lt;/p&gt;
+
+&lt;p&gt;Set your own constants in the &lt;code&gt;config/webpack.common.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;METADATA&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Yourapp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;baseUrl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;isDevServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helpers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isWebpackDevServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you work at a special company and have a designated designer that takes care of the scss for you, there’s a chance you might have to set up some build configuration using the &lt;a href=&quot;http://webpack.github.io/docs/stylesheets.html#separate-css-bundle&quot;&gt;ExtractTextPlugin&lt;/a&gt; that enables you to use an import to define the to-be-converted scss files. (I will not cover this as we are currently moving our styling into a separate repo)&lt;/p&gt;
+
+&lt;h4 id=&quot;environment-config&quot;&gt;Environment config&lt;/h4&gt;
+
+&lt;p&gt;Depending on your environment configuration you will have to make changes to the &lt;code&gt;config/webpack.dev.js&lt;/code&gt;,&lt;code&gt;config/webpack.prod.js&lt;/code&gt;,&lt;code&gt;config/webpack.test.js&lt;/code&gt; files.
+We previously set the environment in a json during the gulp build. In the new Webpack configuration, I am using a constant I set in the ‘DefinePlugin’ that is then used in my code to determine the Api endpoint and such.&lt;/p&gt;
+
+&lt;h4 id=&quot;testing-config&quot;&gt;Testing config&lt;/h4&gt;
+
+&lt;p&gt;If you were already using Karma and Jasmine, just compare the starter’s &lt;code&gt;config/karma.conf.js&lt;/code&gt; file with your own. Make changes to the already existing file - if any.
+Make sure you have a &lt;code&gt;karma.conf.js&lt;/code&gt; pointing to the file in the config folder.&lt;/p&gt;
+
+&lt;h4 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h4&gt;
+
+&lt;p&gt;After all this, cross your fingers and run the Webpack dev server using &lt;code&gt;npm start&lt;/code&gt;.
+In my case there were issues because we are using html template files for our components and have referenced them to our app root directory.&lt;/p&gt;
+
+&lt;p&gt;Refer the HTML template files in relation to the current typescript file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Component({
+    selector: `component1`,
+    templateUrl: &#39;./component1.component.tmpl.html&#39;
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;instead of:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Component({
+    selector: `component1`,
+    templateUrl: &#39;app/../blablablabla/../component1.component.tmpl.html&#39;
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;h4 id=&quot;in-memory-live-reloading&quot;&gt;In memory live reloading&lt;/h4&gt;
+
+&lt;p&gt;Make the move asap, it won’t take too much of your time! Especially if your grunt/gulp build process is currently not sporting any in memory live reloading. The time you save with this feature alone easily makes up for the time invested in figuring out implementing Webpack.&lt;/p&gt;
+
+&lt;h4 id=&quot;lazy-loading-modules&quot;&gt;Lazy loading modules&lt;/h4&gt;
+
+&lt;p&gt;Also, Webpack will pack your modules so that they will be lazy loaded (async) in your application. Often you don’t need all of the dependencies at runtime. Lazy loading will boost your application significantly. Read more about it &lt;a href=&quot;http://survivejs.com/webpack/advanced-techniques/understanding-chunks/#lazy-loading-with-webpack&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Anyways, you won’t be disappointed. Webpack is magic ;)&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/from-gulp-to-webpack/&quot;&gt;From Gulp to Webpack&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on August 21, 2016.&lt;/p&gt;
+  </content>
+</entry>
 
 
 <entry>
