@@ -135,6 +135,31 @@
 <article class="hentry">
   <header>
     
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-11-07T15:31:19-05:00"><a href="/getting-started-with-microservices-and-go/">November 07, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jester Simpps">Jester Simpps</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/getting-started-with-microservices-and-go/" rel="bookmark" title="Getting Started With Microservices and Go" itemprop="url">Getting Started With Microservices and Go</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Traditionally applications have been built as monoliths; single applications which become larger and more complex over time, which limit our ability to react to change. Go is expressive, concise, clean, and efficient. Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines, while its novel type system enables flexible and modular program construction. Go compiles quickly to machine code yet has the convenience of garbage collection and the power of run-time reflection. It’s a fast, statically typed, compiled language that feels like a dynamically typed, interpreted language.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dVnMLtdJzn4" frameborder="0" allowfullscreen=""></iframe>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
       <div class="entry-image-index">
         <a href="/from-gulp-to-webpack/" title="From Gulp to Webpack"><img src="/images/gg-vs-webpack.png" alt="From Gulp to Webpack"></a>
       </div><!-- /.entry-image -->
@@ -1127,151 +1152,6 @@ If you haven’t heard of change addresses and are involved in bitcoin transacti
 <p>We are done! Now we should be able to send Bitcoins using the bitcore library and node.js.
 You can find code of the entire app in the following github repo:
 <a href="https://github.com/jestersimpps/bitcoin-transact">https://github.com/jestersimpps/bitcoin-transact</a>.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="/getting-around-the-product-variant-limitation-in-shopify/" title="Getting Around the Product Variant Limitation in Shopify"><img src="/images/Shopify-Mobile-Event-2.jpg" alt="Getting Around the Product Variant Limitation in Shopify"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-05-13T15:13:37-04:00"><a href="/getting-around-the-product-variant-limitation-in-shopify/">May 13, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jester Simpps">Jester Simpps</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~6 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/getting-around-the-product-variant-limitation-in-shopify/" rel="bookmark" title="Getting Around the Product Variant Limitation in Shopify" itemprop="url">Getting Around the Product Variant Limitation in Shopify</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Recently, I was struggling with some Shopify products that had more than 100 variant combinations.
-Shopify has a product variant limitation of 100 per product, whereas products themselves are unlimited.
-To get around the limitation I wrote a little Node script that creates a unique Shopify product for every variant and links the SKU’s dynamically to option selectors in the product pages.</p>
-
-<p>You can find the script here:</p>
-
-<p><a href="https://github.com/jestersimpps/shopify-node-excel-product-import.git">https://github.com/jestersimpps/shopify-node-excel-product-import.git</a></p>
-
-<p>The script generates HTML for option boxes and javascript combination arrays. This content is then stored in the description body of the products using the Shopify-node API.
-I had to simulate randomly timed API posts since somehow I was getting errors on API POST bursts. (I’ll revise the code after some more experiments)
-The script creates two types of products in Shopify: ‘variants’ and ‘products’. This allows you to set custom search filters in the admin and keep the variants separate from the actual products.
-One product can now have unlimited ‘variants’ (which are actually Shopify products). They are linked in the variant array that is injected in the product descriptions:</p>
-
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">variants</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">13737525511</span><span class="p">,</span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="mf">232.5</span><span class="p">,</span><span class="s2">&quot;variants&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;8.5\&quot; x 11\&quot; &quot;</span><span class="p">,</span><span class="s2">&quot; 100 &quot;</span><span class="p">,</span><span class="s2">&quot; single sided&quot;</span><span class="p">]},{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1232</span> <span class="p">...</span></code></pre></figure>
-
-<h1 id="how-to-get-going">How to get going:</h1>
-
-<h3 id="prepare-the-excel-file">1. Prepare the Excel file</h3>
-
-<ol>
-  <li>Add product rows in the products tab</li>
-  <li>Add the urls to the product images (Shopify will download the images from the urls and add them to your products)</li>
-  <li>Add product options in the options tab</li>
-  <li>Add the option identifiers in the option column on the product page</li>
-  <li>Generate all product variants using the VBA script in the variants page.</li>
-  <li>When adding new products/options, new variants appear in yellow</li>
-  <li>Add correct pricing to the variants</li>
-</ol>
-
-<h3 id="using-the-xls2shop-script">2. Using the xls2shop script</h3>
-
-<h4 id="add-your-shopify-credentials">1. Add your Shopify credentials</h4>
-
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Shopify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">shopifyAPI</span><span class="p">({</span>
-  <span class="nx">shop</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// MYSHOP.myshopify.com</span>
-  <span class="nx">shopify_api_key</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Your API key</span>
-  <span class="nx">shopify_shared_secret</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Your Shared Secret</span>
-  <span class="nx">access_token</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">//permanent token</span>
-  <span class="nx">verbose</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nx">rate_limit_delay</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="c1">// 10 seconds (in ms) =&gt; if Shopify returns 429 response code</span>
-  <span class="nx">backoff</span><span class="o">:</span> <span class="mi">35</span><span class="p">,</span> <span class="c1">// limit X of 40 API calls =&gt; default is 35 of 40 API calls</span>
-  <span class="nx">backoff_delay</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="c1">// 1 second (in ms) =&gt; wait 1 second if backoff option is exceeded</span>
-  <span class="nx">retry_errors</span><span class="o">:</span> <span class="kc">true</span>
-<span class="p">});</span></code></pre></figure>
-
-<h4 id="actions">2. Actions:</h4>
-
-<p>Removing all products:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node xls2shop.js clean</code></pre></figure>
-
-<p>Uploading product variants from Excel:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node xls2shop.js upload business<span class="se">\ </span>cards<span class="se">\ </span>example.xlsm</code></pre></figure>
-
-<h3 id="add-the-following-javascipt-to-the-product-pages-in-shopify">3. Add the following javascipt to the product pages in Shopify:</h3>
-
-<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
-  <span class="nx">$</span><span class="p">(</span> <span class="s2">&quot;#price&quot;</span> <span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">variant</span><span class="p">.</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
-
-
-  <span class="nx">selectors</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">selectorId</span><span class="p">){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="nx">selectorId</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-      <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
-      <span class="nx">$</span><span class="p">(</span> <span class="s2">&quot;#price&quot;</span> <span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span> <span class="nx">variant</span><span class="p">.</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">})</span>
-
-
-  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-        <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span> <span class="s2">&quot;#price&quot;</span> <span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">variant</span><span class="p">.</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
-  <span class="p">});</span>
-
-  <span class="kd">function</span> <span class="nx">addToCart</span><span class="p">(){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">variant</span><span class="p">);</span>
-    <span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/cart/add.js&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">quantity</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
-      <span class="nx">id</span><span class="o">:</span> <span class="nx">variant</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
-      <span class="nx">properties</span><span class="o">:</span> <span class="p">{}</span>
-    <span class="p">}).</span><span class="nx">always</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-      <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/cart.js&#39;</span><span class="p">).</span><span class="nx">always</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">cartData</span><span class="p">){</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">cartData</span><span class="p">.</span><span class="nx">responseText</span><span class="p">));</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#cartItems&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">cartData</span><span class="p">.</span><span class="nx">responseText</span><span class="p">).</span><span class="nx">item_count</span><span class="p">);</span>
-      <span class="p">});</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-
-  <span class="kd">function</span> <span class="nx">findVariant</span><span class="p">(){</span>
-    <span class="nx">dance</span><span class="o">:</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">variants</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">variants</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">variants</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">variants</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">variants</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">selectors</span><span class="p">[</span><span class="nx">i</span><span class="p">]).</span><span class="nx">val</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span> <span class="p">{</span>
-          <span class="k">continue</span> <span class="nx">dance</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-      <span class="k">return</span> <span class="nx">variants</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
-    <span class="p">}</span>
-  <span class="p">}</span></code></pre></figure>
-
-<p>This will take care of passing the SKU of the product variant that was selected to the cart.
-The product description that contains the variant data is injected in the product page. It contains a selector array and a variants array. The variants array contains all the possible combinations of the selectors with the corresponding product-variant SKU.</p>
-
-<p>The add to cart script can be triggered as such:</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick=</span><span class="s">&quot;addToCart()&quot;</span><span class="nt">&gt;</span>
- Add to Cart
-<span class="nt">&lt;/button&gt;</span></code></pre></figure>
-
-<p>Dynamic pricing upon selection change is done by setting an element id to <code>price</code>:</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html">$<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;price&quot;</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre></figure>
-
-<h3 id="finally-hide-the-option-selectors-in-the-collection-pages">4. Finally, hide the option selectors in the collection pages</h3>
-
-<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.productOptions</span><span class="p">{</span>
-  <span class="k">display</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
