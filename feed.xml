@@ -4,13 +4,42 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-11-07T15:36:49-05:00</updated>
+<updated>2016-11-09T18:16:57-05:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
   <uri>/</uri>
   <email>jestersimpps@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[A Post History Scroller]]></title>
+ <link rel="alternate" type="text/html" href="/a-cool-idea-for-scrolling-throough-posts/" />
+  <id>/a-cool-idea-for-scrolling-throough-posts</id>
+  <published>2016-11-09T18:05:30-05:00</published>
+  <updated>2016-11-09T18:05:30-05:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Quite a few months ago I was working on a personal project called : &lt;a href=&quot;http://mailwall.me&quot;&gt;mailwall.me&lt;/a&gt;.
+The idea was a platform that where you can share what you think someone will like using their mailwall.me address.
+As post people in the world have email, but not necessary a fb,twitter,whatsapp,etc. account, people can email media to
+people with a mailwall.me account.  The message would get parsed, media extracted and displayed in the proper way on the platform.
+You could tie it up with &lt;a href=&quot;http://www.ifttt.com&quot;&gt;IFTTT&lt;/a&gt; to mail you on social media events and it would automatically categorize everything
+accordingly. This history posts scroller is an artifact of this project. I was looking for a new way to create a historical overview of the messages.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/jestersimpps/angular-history-scroll/raw/master/fYtRROmnmn.gif&quot; alt=&quot;angular-history-scroller&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://github.com/jestersimpps/angular-history-scroll&quot;&gt;code&lt;/a&gt; is a work in progress and haven’t tested it anymore.
+I was going to make a generic version of it, but didn’t find the time.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/a-cool-idea-for-scrolling-throough-posts/&quot;&gt;A Post History Scroller&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on November 09, 2016.&lt;/p&gt;
+  </content>
+</entry>
 
 
 <entry>
