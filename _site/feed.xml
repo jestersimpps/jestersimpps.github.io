@@ -1,0 +1,1483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Hardcore trial & error</title>
+<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="/feed.xml" />
+<link rel="alternate" type="text/html" href="" />
+<updated>2016-11-10T04:52:23-05:00</updated>
+<id>/</id>
+<author>
+  <name>Jester Simpps</name>
+  <uri>/</uri>
+  <email>jestersimpps@gmail.com</email>
+</author>
+
+
+<entry>
+  <title type="html"><![CDATA[A Post History Scroller]]></title>
+ <link rel="alternate" type="text/html" href="/a-cool-idea-for-scrolling-throough-posts/" />
+  <id>/a-cool-idea-for-scrolling-throough-posts</id>
+  <published>2016-11-09T18:05:30-05:00</published>
+  <updated>2016-11-09T18:05:30-05:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Quite a few months ago I was working on a personal project called : &lt;a href=&quot;http://mailwall.me&quot;&gt;mailwall.me&lt;/a&gt;.
+The idea was a platform that where you can share what you think someone will like using their mailwall.me address.
+As most people in the world have email, but not necessary a fb,twitter,whatsapp,etc. account, people can email media to
+people with a mailwall.me account.  The message would get parsed, media extracted and displayed in the proper way on the platform.
+You could tie it up with &lt;a href=&quot;http://www.ifttt.com&quot;&gt;IFTTT&lt;/a&gt; to mail you on social media events and it would automatically categorize everything
+accordingly. This history posts scroller is an artifact of this project. I was looking for a new way to create a historical overview of the messages.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/jestersimpps/angular-history-scroll/raw/master/fYtRROmnmn.gif&quot; alt=&quot;angular-history-scroller&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://github.com/jestersimpps/angular-history-scroll&quot;&gt;code&lt;/a&gt; is a work in progress and haven’t tested it anymore.
+I was going to make a generic version of it, but didn’t find the time.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/a-cool-idea-for-scrolling-throough-posts/&quot;&gt;A Post History Scroller&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on November 09, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Getting Started With Microservices and Go]]></title>
+ <link rel="alternate" type="text/html" href="/getting-started-with-microservices-and-go/" />
+  <id>/getting-started-with-microservices-and-go</id>
+  <published>2016-11-07T15:31:19-05:00</published>
+  <updated>2016-11-07T15:31:19-05:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Traditionally applications have been built as monoliths; single applications which become larger and more complex over time, which limit our ability to react to change. Go is expressive, concise, clean, and efficient. Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines, while its novel type system enables flexible and modular program construction. Go compiles quickly to machine code yet has the convenience of garbage collection and the power of run-time reflection. It’s a fast, statically typed, compiled language that feels like a dynamically typed, interpreted language.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/dVnMLtdJzn4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/getting-started-with-microservices-and-go/&quot;&gt;Getting Started With Microservices and Go&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on November 07, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[From Gulp to Webpack]]></title>
+ <link rel="alternate" type="text/html" href="/from-gulp-to-webpack/" />
+  <id>/from-gulp-to-webpack</id>
+  <published>2016-08-21T14:32:14-04:00</published>
+  <updated>2016-08-21T14:32:14-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;I recently started working on a big Angular 2 webapp. The company I joined has been working on this project since Oktober 2015.
+It is one of the first companies in Belgium that jumps on the ng2 bandwagon and it has been a joy and challenge to learn and work with this framework every day.&lt;/p&gt;
+
+&lt;p&gt;Because gulp experience was already in house, the team has implemented a gulp build coupled with SystemJs. These days ( August 2016 ),
+partly popularized by React, &lt;a href=&quot;https://webpack.github.io/&quot;&gt;Webpack&lt;/a&gt; has become a ‘thing’. My colleagues at the company have been following the trend and have decided to switch to &lt;a href=&quot;https://webpack.github.io/&quot;&gt;Webpack&lt;/a&gt; for their next project.
+Secretly, there’s a common desire to implement it in the current project as well, but… there is this tight deadline, so…&lt;/p&gt;
+
+&lt;p&gt;…I decided to give it a shot myself and tried to hack something together this Saturday and see how far I would get. To be honest, I didn’t know what to expect myself.
+I’ve heard all the buzz but haven’t actually given Webpack any time as I have been working relentlessly on my own startup &lt;a href=&quot;http://www.krackzee.com/search?sortby=distance&amp;amp;order=&amp;amp;radius=50&amp;amp;classes=11th%20Commerce&amp;amp;locality=Sector%2025&amp;amp;city=Pune#&quot;&gt;krackzee&lt;/a&gt; over the past 8 months, which is a php Laravel project. So I have been ‘out’ of the front-end world for quite some time. To all non-javascript developers; 8 months in the javascript realm is like a decade in your language. (
+&lt;a href=&quot;https://www.allenpike.com/2015/javascript-framework-fatigue/&quot;&gt; Read: A JS framework on every table by Allen Pike &lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.allenpike.com/images/2015/cube-drone-angular.jpg&quot; alt=&quot;javascript fatigue&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;webpack&quot;&gt;Webpack&lt;/h2&gt;
+
+&lt;h3 id=&quot;first-impressions&quot;&gt;First impressions&lt;/h3&gt;
+
+&lt;p&gt;The installation has a lot of simalarity to installing grunt or gulp. You pull in some repositories, make sure you save them as devDependencies in your package.json and create some config files to configure your build process. Here’s the interesting part though; It’s almost like a plug and play build process tool. Forget about writing those &lt;a href=&quot;http://jestersimpps.github.io/experimenting-with-google-spreadsheets-assemble-io-and-internationalisation/&quot;&gt;insane&lt;/a&gt;, customized grunt and gulp scripts. Here’s a tool that just works out of the box with minimal configuration. And it works well!&lt;/p&gt;
+
+&lt;h3 id=&quot;getting-started&quot;&gt;Getting started&lt;/h3&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://angular.io/docs/ts/latest/guide/webpack.html&quot;&gt;Angular 2&lt;/a&gt; team has done a pretty good job explaining Webpack on their website. It has also become their build tool of choice. I started by basically going through their guide and adapting their implementation in a seperate branch to our current project. Don’t do this! I made this mistake and I might have learned a bit more about what the Webpack config files do, but it will fail miserably unless you have implemented webpack before and you know how everything works together. My suggestion is to start a different repo alltogether with a clean version of one of the &lt;a href=&quot;https://github.com/search?utf8=%E2%9C%93&amp;amp;q=angular+2+webpack+starter&amp;amp;type=Repositories&amp;amp;ref=searchresults&quot;&gt;Angular 2 webpack starters&lt;/a&gt; out there. Just browse &lt;a href=&quot;http://github.com&quot;&gt;Github&lt;/a&gt; a bit, there’s plenty of them.&lt;/p&gt;
+
+&lt;p&gt;I chose for the &lt;a href=&quot;https://github.com/AngularClass/angular2-webpack-starter&quot;&gt;angular2-webpack-starter&lt;/a&gt; from &lt;a href=&quot;https://angularclass.com/&quot;&gt;AngularClass&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;clone-your-favorite-starter&quot;&gt;Clone your favorite starter&lt;/h3&gt;
+
+&lt;p&gt;Start by cloning your favorite Webpack starter repo somewhere on your hard drive.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone https://github.com/AngularClass/angular2-webpack-starter.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;angular2-webpack-starter
+npm i&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you choose to use the same starter as me, make sure you have Node version &amp;gt;= 5.0 and NPM &amp;gt;= 3 as mentioned in their readme.&lt;/p&gt;
+
+&lt;h3 id=&quot;move-your-code&quot;&gt;Move your code&lt;/h3&gt;
+
+&lt;p&gt;After having a local version of the starter, I removed all of their awesomely, perfected, genius code from the &lt;code&gt;src/app&lt;/code&gt; folder and copied in our own.
+Remove the git directory if you haven’t yet, and set up your own repo. Maybe make a first commit and push.
+From this moment onward there’s a lot of nitty gritty changes to the Webpack configuration, but basically you are almost done!&lt;/p&gt;
+
+&lt;h3 id=&quot;reconfigure-webpack&quot;&gt;Reconfigure Webpack&lt;/h3&gt;
+
+&lt;h4 id=&quot;folders-and-files&quot;&gt;Folders and files&lt;/h4&gt;
+
+&lt;p&gt;Depending on how you have set up your Angular 2 application you will have a different &lt;code&gt;main.ts&lt;/code&gt; file.(assuming you are coding Typescript, I’ll just ignore anyone who isn’t)
+The &lt;code&gt;main.ts&lt;/code&gt; file is that file that holds your main app component (everything starts from there, your JS app big bang). Webpack best practice commands you to split it up into 3 files:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;polyfills&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;./src/polyfills.browser.ts&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;vendor&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;./src/vendor.browser.ts&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;./src/main.browser.ts&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It’s pretty obvious but, define your polyfill imports in the &lt;code&gt;src/polyfills.browser.ts&lt;/code&gt; file, your vendor modules in the &lt;code&gt;src/vendor.browser.ts&lt;/code&gt; file and bootstrap your app in the &lt;code&gt;src/main.browser.ts&lt;/code&gt; file. I just left the polyfill file alone because it was mostly the same of what we already had. Then, in the &lt;code&gt;config/webpack.common.js&lt;/code&gt; file, set your entry points as depicted above. In the platform folder, define your environment &amp;amp; provider settings if you have them.&lt;/p&gt;
+
+&lt;p&gt;Remove all script tags in your &lt;code&gt;index.html&lt;/code&gt; file that point to any application code. These will get injected by a Webpack plugin called &lt;a href=&quot;https://github.com/ampedandwired/html-webpack-plugin&quot;&gt;HtmlWebpackPlugin&lt;/a&gt;. Compare the index files of the starter with your own and basically resolve any merge conflicts :)&lt;/p&gt;
+
+&lt;p&gt;Set your own constants in the &lt;code&gt;config/webpack.common.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;METADATA&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Yourapp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;baseUrl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;isDevServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helpers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isWebpackDevServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you work at a special company and have a designated designer that takes care of the scss for you, there’s a chance you might have to set up some build configuration using the &lt;a href=&quot;http://webpack.github.io/docs/stylesheets.html#separate-css-bundle&quot;&gt;ExtractTextPlugin&lt;/a&gt; that enables you to use an import to define the to-be-converted scss files. (I will not cover this as we are currently moving our styling into a separate repo)&lt;/p&gt;
+
+&lt;h4 id=&quot;environment-config&quot;&gt;Environment config&lt;/h4&gt;
+
+&lt;p&gt;Depending on your environment configuration you will have to make changes to the &lt;code&gt;config/webpack.dev.js&lt;/code&gt;,&lt;code&gt;config/webpack.prod.js&lt;/code&gt;,&lt;code&gt;config/webpack.test.js&lt;/code&gt; files.
+We previously set the environment in a json during the gulp build. In the new Webpack configuration, I am using a constant I set in the ‘DefinePlugin’ that is then used in my code to determine the Api endpoint and such.&lt;/p&gt;
+
+&lt;h4 id=&quot;testing-config&quot;&gt;Testing config&lt;/h4&gt;
+
+&lt;p&gt;If you were already using Karma and Jasmine, just compare the starter’s &lt;code&gt;config/karma.conf.js&lt;/code&gt; file with your own. Make changes to the already existing file - if any.
+Make sure you have a &lt;code&gt;karma.conf.js&lt;/code&gt; pointing to the file in the config folder.&lt;/p&gt;
+
+&lt;h4 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h4&gt;
+
+&lt;p&gt;After all this, cross your fingers and run the Webpack dev server using &lt;code&gt;npm start&lt;/code&gt;.
+In my case there were issues because we are using html template files for our components and have referenced them to our app root directory.&lt;/p&gt;
+
+&lt;p&gt;Refer the HTML template files in relation to the current typescript file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Component({
+    selector: `component1`,
+    templateUrl: &#39;./component1.component.tmpl.html&#39;
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;instead of:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Component({
+    selector: `component1`,
+    templateUrl: &#39;app/../blablablabla/../component1.component.tmpl.html&#39;
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;h4 id=&quot;in-memory-live-reloading&quot;&gt;In memory live reloading&lt;/h4&gt;
+
+&lt;p&gt;Make the move asap, it won’t take too much of your time! Especially if your grunt/gulp build process is currently not sporting any in memory live reloading. The time you save with this feature alone easily makes up for the time invested in figuring out implementing Webpack.&lt;/p&gt;
+
+&lt;h4 id=&quot;lazy-loading-modules&quot;&gt;Lazy loading modules&lt;/h4&gt;
+
+&lt;p&gt;Also, Webpack will pack your modules so that they will be lazy loaded (async) in your application. Often you don’t need all of the dependencies at runtime. Lazy loading will boost your application significantly. Read more about it &lt;a href=&quot;http://survivejs.com/webpack/advanced-techniques/understanding-chunks/#lazy-loading-with-webpack&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Anyways, you won’t be disappointed. Webpack is magic ;)&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/from-gulp-to-webpack/&quot;&gt;From Gulp to Webpack&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on August 21, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Automated E2e API Testing/Documentation for Node.js]]></title>
+ <link rel="alternate" type="text/html" href="/automated-e2e-api-testing-documentation-for-node-js/" />
+  <id>/automated-e2e-api-testing-documentation-for-node-js</id>
+  <published>2016-07-22T06:46:58-04:00</published>
+  <updated>2016-07-22T06:46:58-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;This was my first time doing test driven API development in Node.js and I must say, I really enjoyed it. I used to fall back on a Chrome plugin called &lt;a href=&quot;https://www.getpostman.com/&quot;&gt;Postman&lt;/a&gt; a lot before getting used to Mocha and test driven development. It was a joy to write code for a test that described what the endpoint should do before actually coding the new endpoint. It made me think more about the code I was going to write and what it should do. It also happened sometimes that there would be a total API overhaul (like the implementation of softdeletes). And, man was I glad I had written unit tests for all my endpoints when that happened!&lt;/p&gt;
+
+&lt;h2 id=&quot;butwait-wont-i-lose-a-lot-of-time-doing-that&quot;&gt;But…wait.. won’t I lose a lot of time doing that?!?&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://risingstack-blog.s3-eu-west-1.amazonaws.com/2014/Oct/unit_testing.jpeg&quot; alt=&quot;unit tests&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Writing API tests for a node.js API can be a tedious job. We are dealing with a single event loop, so we need to take in account callbacks. Especially when doing API testing, callbacks can quickly become a pain point. A lot of times, checking whether requests work means triggering other requests sequentially to see if the database was updated by previous requests. This is why, after refactoring a bit of my tests, I was able to create a simple end-to-end testscript that I would just call whenever I wrote a new route. Every time with different input data specific to the route of course. I was later able to tie in APIDoc, a documentation generator that will create a frontend containing the documentation for all your endpoints. So in the end all my endpoints were not only fully tested, but also automatically documented in one go. This was very nice and saved me a lot of time.&lt;/p&gt;
+
+&lt;h2 id=&quot;dependencies&quot;&gt;Dependencies&lt;/h2&gt;
+
+&lt;h3 id=&quot;testing&quot;&gt;Testing&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We will be using &lt;a href=&quot;https://mochajs.org/&quot;&gt;Mocha&lt;/a&gt; as a testing framework for our Node.js API.&lt;/li&gt;
+  &lt;li&gt;Mocha is great, but not perfect, so on top of it, we will include the &lt;a href=&quot;https://github.com/visionmedia/supertest&quot;&gt;supertest&lt;/a&gt; package that will provide abstraction for HTTP testing.&lt;/li&gt;
+  &lt;li&gt;As I refactored my end to end tests into one single testscript, we will also need a package called &lt;a href=&quot;https://www.npmjs.com/package/partial-compare&quot;&gt;partial compare&lt;/a&gt; that will do partial matching between test objects and actual return-objects from the api.&lt;/li&gt;
+  &lt;li&gt;We will also use &lt;a href=&quot;https://www.npmjs.com/package/should&quot;&gt;should&lt;/a&gt; to make our testing code more human readable and easier to write.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;api-documentation&quot;&gt;API documentation&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A great library called &lt;a href=&quot;http://apidocjs.com/&quot;&gt;APIdoc&lt;/a&gt; will take care of documenting all of the endpoints&lt;/li&gt;
+  &lt;li&gt;A plugin of that library &lt;a href=&quot;https://www.npmjs.com/package/apidoc-plugin-schema&quot;&gt;apidoc-plugin-schema&lt;/a&gt; will make our life easier.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the package.json file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&quot;devDependencies&quot;: {
+  &quot;apidoc-plugin-schema&quot;: &quot;0.0.4&quot;,
+  &quot;body-parser&quot;: &quot;~1.8.1&quot;,
+  &quot;fs&quot;: &quot;0.0.2&quot;,
+  &quot;jsonfile&quot;: &quot;^2.3.1&quot;,
+  &quot;mocha&quot;: &quot;^2.1.0&quot;,
+  &quot;partial-compare&quot;: &quot;^1.0.1&quot;,
+  &quot;path&quot;: &quot;^0.12.7&quot;,
+  &quot;should&quot;: &quot;~4.6.2&quot;,
+  &quot;supertest&quot;: &quot;^0.15.0&quot;,
+  &quot;type-of-is&quot;: &quot;^3.4.0&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;end-to-end-testing&quot;&gt;End to end testing&lt;/h2&gt;
+
+&lt;p&gt;Wikipedia says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;End-to-end testing is a technique used to test whether the flow of an application right from start to finish is behaving as expected. The purpose of performing end-to-end testing is to identify system dependencies and to ensure that the data integrity is maintained between various system components and systems.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Translate this to API testing and you get:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;GET an array of existing data&lt;/li&gt;
+  &lt;li&gt;POST some new data&lt;/li&gt;
+  &lt;li&gt;Test if the new data was posted&lt;/li&gt;
+  &lt;li&gt;Change the new data using PUT&lt;/li&gt;
+  &lt;li&gt;Test if the new data was changed&lt;/li&gt;
+  &lt;li&gt;DELETE the new data&lt;/li&gt;
+  &lt;li&gt;Test if the new data was removed&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Of course this is the most simple scenario of RESTful API testing, and I know there’s some other endpoints that can be more complex (like counters, searches, etc.) But I will not elaborate on these in this post as these most of the time imply writing custom tests.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-test-script-that-covers-multiple-endpoints&quot;&gt;A test script that covers multiple endpoints&lt;/h2&gt;
+
+&lt;p&gt;Because the sequence of testing is the same for all endpoints, I created a general script that will test different endpoints using the same code but different input based on the endpoint’s data. The input data will be stored in an object that will be called from an endpoint file in the ‘test/routes’ folder.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;├── &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;    ├── routes  
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;         ├── endpoint1.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;         ├── endpoint2.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;         ├── endpoint3.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;    ├── e2e_tests.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;    ├── schema_generator.js
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;              &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The content of the endpoint file will contain the e2e_test options object which has some options for the endpoint tests and apidoc generator.
+Next to the options, a testData object contains all data needed to perform the tests. The object attributes are pretty self explanatory:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//define the e2e script&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e2e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;./e2e_tests.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// this should refer to the express app you have set up for your api&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;express&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//timeout between requests&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//your express app&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//generate apidoc or not?&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;apidoc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//where do you want to store the schema jsons for the apidoc schema plugin?&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;schemaDir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apischemas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+	&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testData&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;routeName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Articles&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;postObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;this is an article&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;expectedObjectAfterPost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;this is an article&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;putObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;this is an article too&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;expectedObjectAfterPut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;this is an article too&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//You can then call a unit test for this endpoint by calling the script:&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;e2e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;testData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;When we run mocha the end-to-end script will be called and run all tests for that endpoint. If you have specified a schemaDir and the apidoc boolean is set to true, the script will also automatically generate json schemas for the apidoc based on the testData.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node_modules/.bin/mocha&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Console output for a working API should be similar to:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;-------- Albums tests --------
+
+GET /Albums &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 148.080 ms - 2
+Counting Albums: 0
+    ✓ Should &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; an array of Albums
+--POST shows/: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;general&amp;quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&amp;quot;Ascot&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;startDate&amp;quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&amp;quot;2016-04-06T21:51:15.000Z&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&amp;quot;album&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+POST /Albums &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 151.935 ms - 1996
+Adding: &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; Album
+    ✓ Should create a new Album
+GET /Albums/5789159e34150fe84c463f28 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 117.938 ms - 1996
+    ✓ Should get the new Album
+GET /Albums &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 103.512 ms - 1998
+Counting Albums: 1, should be: 1
+    ✓ Should &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; an array of Albums with the correct size
+PUT /Albums/5789159e34150fe84c463f28 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 115.422 ms - 1997
+    ✓ Should change a Album
+GET /Albums/5789159e34150fe84c463f28 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 102.205 ms - 1997
+    ✓ Should get the changed Album
+DELETE /Albums/5789159e34150fe84c463f28 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 116.241 ms - 2018
+Removing: &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; Album
+    ✓ Should remove a Album
+GET /Albums &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 104.573 ms - 2
+Counting Albums: 0, should be: 0
+    ✓ Should get an array without the deleted Album
+
+-------- Articles tests --------
+
+GET /Articles &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 92.230 ms - 2
+Counting Articles: 0
+    ✓ Should &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; an array of Articles
+POST /Articles &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 98.047 ms - 300
+Adding: &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; Article
+    ✓ Should create a new Article
+GET /Articles/578915a134150fe84c463f39 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 99.768 ms - 300
+    ✓ Should get the new Article
+GET /Articles &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 107.985 ms - 302
+Counting Articles: 1, should be: 1
+    ✓ Should &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; an array of Articles with the correct size
+DELETE /Articles/578915a134150fe84c463f39 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 99.193 ms - 329
+Removing: &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; Article
+    ✓ Should remove a Article
+GET /Articles &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; 101.275 ms - 304
+Counting Articles: 0, should be: 0
+    ✓ Should get an array without the deleted Article
+
+
+  &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; passing &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+info: Done.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;api-documentation-generator&quot;&gt;API documentation generator&lt;/h2&gt;
+
+&lt;p&gt;In your route files, above your endpoints, you can then add the following comment blocks:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jestersimpps/node_rest_test_doc/blob/master/test/routes/APIDOC.md&quot;&gt;api doc helpers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Change them according to your endpoints of course. They will be used by the APIdoc generator to create the documentation frontend.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;* @apiSchema {jsonschema=../test/data/apischemas/&amp;lt;routecaps&amp;gt;-POST-create-a-new-&amp;lt;routesingle&amp;gt;-PARAMS.json} apiParam&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;* @apiSchema {jsonschema=../test/data/apischemas/&amp;lt;routecaps&amp;gt;-POST-create-a-new-&amp;lt;routesingle&amp;gt;-SUCCESS.json} apiSuccess&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;*/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The apiSchema references in the comments displayed above will point at the schema jsons that are generated by the &lt;a href=&quot;https://github.com/jestersimpps/node_rest_test_doc/blob/master/test/schema_generator.js&quot;&gt;schema_generator&lt;/a&gt;.
+The output directory can be changed in the options object in the endpoint test file as illustrated earlier.&lt;/p&gt;
+
+&lt;p&gt;Assuming the &lt;code&gt;./routes&lt;/code&gt; folder contains your api’s route files and the &lt;code&gt;./public&lt;/code&gt; folder is the folder that will contain the apidoc frontend, generate your api documentation by running:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;apidoc -i ./routes -o ./public/&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;These tests were run using mongoDB, which uses &lt;code&gt;_id&lt;/code&gt; as a primary key. You might have to edit the test script to your needs a bit when you are using a different database or key/slug to perform individual GET,PUT,DELETE requests.&lt;/li&gt;
+  &lt;li&gt;In the e2e_test script, basic authentication was used. You might also need to change this according to the authentication methods of your API.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The entire code and scripts can be found &lt;a href=&quot;https://github.com/jestersimpps/node_rest_test_doc&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/automated-e2e-api-testing-documentation-for-node-js/&quot;&gt;Automated E2e API Testing/Documentation for Node.js&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on July 22, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[An overview of the Blockchain development Ecosystem]]></title>
+ <link rel="alternate" type="text/html" href="/smart-contract-blockchain-platforms/" />
+  <id>/smart-contract-blockchain-platforms</id>
+  <published>2016-06-06T15:04:16-04:00</published>
+  <updated>2016-06-06T15:04:16-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;This is an effort in mapping out the current ecosystem of tools and platforms that facilitate development of ‘smart contracts’ or ‘Autonomous agents’ using blockchain technologies.&lt;/p&gt;
+
+&lt;h2 id=&quot;development-platforms&quot;&gt;Development Platforms&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconrescloudinarycomhrscywv4pimageuploadclimith300w300fautov1393946rsklogobndaykpxpnghttpwwwrootstockio&quot;&gt;&lt;a href=&quot;http://www.rootstock.io/&quot;&gt;&lt;img src=&quot;//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_300,w_300,f_auto/v1/393946/RSKLOGOBN_daykpx.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;RSK is the first open-source smart contract platform with a 2-way peg to Bitcoin that also rewards the Bitcoin miners via merge-mining, allowing them to actively participate in the Smart Contract revolution. RSK goal is to add value and functionality to the Bitcoin ecosystem by enabling smart-contracts, near instant payments and higher-scalability.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconhttpwwwmultichaincomassetsmultichain-temp-logo-248x48pnghttpwwwmultichaincom&quot;&gt;&lt;a href=&quot;http://www.multichain.com/&quot;&gt;&lt;img src=&quot;http://www.multichain.com/assets/multichain-temp-logo-248x48.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;MultiChain allows organizations to rapidly design, deploy and operate distributed ledgers&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimagescoloredcoinspnghttpcoloredcoinsorg&quot;&gt;&lt;a href=&quot;http://coloredcoins.org/&quot;&gt;&lt;img src=&quot;../images/coloredcoins.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;The Open Source Protocol for Creating Digital Assets On The Bitcoin Blockchain&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconhttpschaincomimageschain-logo04205b59pnghttpschaincom&quot;&gt;&lt;a href=&quot;https://chain.com/&quot;&gt;&lt;img src=&quot;https://chain.com/images/chain-logo.04205b59.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;We enable our partners to design, deploy, and operate highly scalable blockchain networks that meet the security, privacy, and compliance requirements of the financial services industry.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimagesstratumnpnghttpsstratumncom&quot;&gt;&lt;a href=&quot;https://stratumn.com/&quot;&gt;&lt;img src=&quot;../images/stratumn.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Stratumn’s developer tools leverage blockchain tech to offer extraordinary enhancements into all types of systems and business processes.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconhttpwwwblockchainengineorgwp-contentthemeschainimglogopng-blockchain-enginehttpwwwblockchainengineorg&quot;&gt;&lt;img src=&quot;http://www.blockchainengine.org/wp-content/themes/chain/img/logo.png&quot; alt=&quot;icon&quot; /&gt; &lt;a href=&quot;http://www.blockchainengine.org/&quot;&gt;Blockchain Engine&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Blockchain Engine (BcE) is a platform designed for developers. BcE offers a suite of tools to create applications and services based off of the Emer blockchain. Not only is it simple to install, configure and integrate into any project, it’s widely available, offered in Microsoft’s Azure platform where it can be deployed on Ubuntu, in the cloud. You can manage it via JSON-RPC, a very simple protocol, and a web-interface.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimagesgempng-gemhttpsgemco&quot;&gt;&lt;img src=&quot;../images/gem.png&quot; alt=&quot;icon&quot; /&gt; &lt;a href=&quot;https://gem.co/&quot;&gt;Gem&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Gem’s blockchain application platform transforms the way companies and industries connect to solve impossible problems.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconhttpcounterpartyiowp-contentthemescounterpartyimageslogopng-counterpartyhttpcounterpartyio&quot;&gt;&lt;img src=&quot;http://counterparty.io/wp-content/themes/counterparty/images/logo.png&quot; alt=&quot;icon&quot; /&gt; &lt;a href=&quot;http://counterparty.io/&quot;&gt;Counterparty&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Counterparty is a platform for free and open financial tools on the Bitcoin network.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimageserispnghttpserisindustriescom&quot;&gt;&lt;a href=&quot;https://erisindustries.com/&quot;&gt;&lt;img src=&quot;../images/eris.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Eris is free software that allows anyone to build their own secure, low-cost, run-anywhere applications using blockchain and smart contract technology.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimagesmaidsafepnghttpmaidsafenet&quot;&gt;&lt;a href=&quot;http://maidsafe.net/&quot;&gt;&lt;img src=&quot;../images/maidsafe.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;The SAFE Network is soon to provide access to a world of exciting apps where the security of your data is put above all else. In time, downloading the free SAFE software will provide access to: messaging, apps, email, social networks, data storage, video conferencing, and much more.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimagesstellarpnghttpswwwstellarorg&quot;&gt;&lt;a href=&quot;https://www.stellar.org/&quot;&gt;&lt;img src=&quot;../images/stellar.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Stellar is an open platform for building financial products that connect people everywhere.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimagesrubixpnghttprubixbydeloittecom&quot;&gt;&lt;a href=&quot;http://rubixbydeloitte.com/&quot;&gt;&lt;img src=&quot;../images/rubix.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Rubix is an industry leading blockchain application development team, focusing on interoperability, scalability, performance and security. Rubix supports developers in creating and deploying decentralized applications that are customized for unique industry and business needs&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconhttpsevoluchaincomwp-contentuploads201602evoluchain-logo-hdpngevoluchainhttpsevoluchaincom&quot;&gt;&lt;img src=&quot;https://evoluchain.com/wp-content/uploads/2016/02/evoluchain-logo-HD.png&quot; alt=&quot;icon&quot; /&gt;&lt;a href=&quot;https://evoluchain.com/&quot;&gt;Evoluchain&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Blockchain platform for smart contracts and decentralized organisations&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimagescolupnghttpswwwcoluco&quot;&gt;&lt;a href=&quot;https://www.colu.co/&quot;&gt;&lt;img src=&quot;../images/colu.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;A powerful toolbox for building blockchain based applications.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconhttpswwwblockoioimagesheaderlogopnghttpswwwblockoioindexenhtml&quot;&gt;&lt;a href=&quot;https://www.blocko.io/index_en.html&quot;&gt;&lt;img src=&quot;https://www.blocko.io/images/header_logo.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;CoinStack is a Blockchain-as-a-Service platform of Blocko to build decentralized services on Blockchain.
+Blockchain as a Service, Coinstack&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimagesliskpnghttpsliskiodocumentationilisk-dapps-docsappsdk&quot;&gt;&lt;a href=&quot;https://lisk.io/documentation?i=lisk-dapps-docs/AppSDK&quot;&gt;&lt;img src=&quot;../images/lisk.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;At Lisk you can develop your own blockchain apps with modern web technologies like HTML5, CSS3 and JavaScript.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimageselementsprojectpnghttpselementsprojectorg&quot;&gt;&lt;a href=&quot;https://elementsproject.org/&quot;&gt;&lt;img src=&quot;../images/elementsproject.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Elements is an open source collaborative project where we work on a collection of experiments to more rapidly bring technical innovation to Bitcoin. Elements are features that are proposed and developed in this technical community that in arbitrary combinations can be fashioned into sidechains.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconimagesblockstreampnghttpsblockstreamcom&quot;&gt;&lt;a href=&quot;https://blockstream.com/&quot;&gt;&lt;img src=&quot;../images/blockstream.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Open source code and developer sidechains for advancing Bitcoin.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconhttpswwwfreebsdnewscomwp-contentuploadsethereumnav-bar-logopnghttpswwwethereumorg&quot;&gt;&lt;a href=&quot;https://www.ethereum.org/&quot;&gt;&lt;img src=&quot;https://www.freebsdnews.com/wp-content/uploads/ETHEREUM_NAV-BAR-LOGO.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Ethereum is a decentralized platform that runs smart contracts: applications that run exactly as programmed without any possibility of downtime, censorship, fraud or third party interference.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconhttpblockappsnetimagesheaderlogopnghttpswwwblockappsnet&quot;&gt;&lt;a href=&quot;https://www.blockapps.net/&quot;&gt;&lt;img src=&quot;http://blockapps.net/images/header_logo.png&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;BlockApps STRATO is a scalable Ethereum compliant platform for rapid development, deployment and management of enterprise blockchain applications. Our platform enables enterprises to develop early Proof of Concepts (PoCs) and scales all the way to full production systems.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;iconhttpswwwhyperledgerorgsitesolfileshllogo0svghttpswwwhyperledgerorg&quot;&gt;&lt;a href=&quot;https://www.hyperledger.org/&quot;&gt;&lt;img src=&quot;https://www.hyperledger.org/sites/ol/files/hl_logo_0.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;The Hyperledger Project is a collaborative effort created to advance blockchain technology by identifying and addressing important features for a cross-industry open standard for distributed ledgers that can transform the way business transactions are conducted globally.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;apis-and-blockchain-frameworks&quot;&gt;Api’s and blockchain frameworks&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://bitcoinjs.org/&quot;&gt;BitcoinJs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bitcore.io/&quot;&gt;Bitcore&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dev.blockcypher.com/&quot;&gt;Blockcypher&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- | Platform | Pegged to Bitcoin | T/sec | Managed permissions | Security Model | Production ready | Open Source
+|----------|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| [Rootstock](http://www.rootstock.io/)|  &lt;i class=&quot;fa fa-check&quot;&gt;&lt;/i&gt; | up to 100 | &lt;i class=&quot;fa fa-close&quot;&gt;&lt;/i&gt; | Merged mining ||
+| [Multichain](http://www.multichain.com/)|  &lt;i class=&quot;fa fa-close&quot;&gt;&lt;/i&gt; |  | &lt;i class=&quot;fa fa-check&quot;&gt;&lt;/i&gt; |  ||
+| [Colored coins](http://coloredcoins.org/)|  &lt;i class=&quot;fa fa-check&quot;&gt;&lt;/i&gt; |  | &lt;i class=&quot;fa fa-check&quot;&gt;&lt;/i&gt; |  | &lt;i class=&quot;fa fa-check&quot;&gt;&lt;/i&gt;|
+| [Chain](https://chain.com/)|   |  | &lt;i class=&quot;fa fa-check&quot;&gt;&lt;/i&gt; |  |  |
+| [Stratumn](https://stratumn.com/)|   |  |  |  |  |
+| [Blockchainengine](http://www.blockchainengine.org/)|   |  |  |  |  |
+| [Gem](https://gem.co/)|   |  |  |  |  |
+| [Counterparty](http://counterparty.io/)|   |  |  |  |  |
+| [Eris](https://erisindustries.com/)|   |  |  |  |  |
+| [Maidsafe](http://maidsafe.net/)|   |  |  |  |  |
+| [Stellar](https://www.stellar.org/)|   |  |  |  |  |
+| [Rubix](http://rubixbydeloitte.com/)|   |  |  |  |  |
+| [Evoluchain](https://evoluchain.com/)|   |  |  |  |  |
+| [Colu](https://www.colu.co/)|   |  |  |  |  |
+| [Blocko](https://www.blocko.io/index_en.html)|   |  |  |  |  |
+| [Lisk](https://lisk.io/documentation?i=lisk-dapps-docs/AppSDK)|  |  |  |  |  |
+| [Elementsproject](https://elementsproject.org/)|  |  |  |  |  |
+| [Blockstream](https://blockstream.com/)|  |  |  |  |  |
+| [Ethereum](https://www.ethereum.org/)|  |  |  |  |  |
+| [blockapps](http://blockapps.net/)|  |  |  |  |  | --&gt;
+
+&lt;h2 id=&quot;app-frameworks&quot;&gt;Ðapp Frameworks&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://consensys.net/ventures/core-components/&quot;&gt;Consensys&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://truffle.readthedocs.io/en/latest/&quot;&gt;Truffle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.meteor.com/developers&quot;&gt;Meteor&lt;/a&gt;
+&lt;!-- &lt;iframe width=&quot;1280&quot; height=&quot;720&quot; src=&quot;https://www.youtube.com/embed/GPP6uAq15d8&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt; --&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- &lt;iframe width=&quot;1280&quot; height=&quot;720&quot; src=&quot;https://www.youtube.com/embed/SayS1dcMVWU&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+
+&lt;!-- ## Services
+
+* [pbjcloud](https://pbjcloud.com/)
+
+Hosted private blockchains for developers and devops
+
+* [Tendermint](http://tendermint.com/)
+
+Bringing simplicity, security, and speed to the world’s blockchains.
+
+* [skuchain](https://www.skuchain.com/)
+
+Blockchain Technology for Collaborative Commerce
+
+* [Ripple](https://ripple.com/) --&gt;
+
+&lt;!-- ## Whitepapers
+
+* [Accenture](https://www.accenture.com/cn-en/~/media/Accenture/next-gen/top-ten-challenges/challenge4/pdfs/Accenture-2016-Top-10-Challenges-04-Blockchain-Technology.pdf)
+* [EY](http://www.ey.com/Publication/vwLUAssets/EY-blockchain-technology-as-a-platform-for-digitization/$FILE/EY-blockchain-technology-as-a-platform-for-digitization.pdf)
+* [Evry](https://www.evry.com/globalassets/insight/bank2020/bank-2020---blockchain-powering-the-internet-of-value---whitepaper.pdf)
+* [Deloitte](https://www2.deloitte.com/content/dam/Deloitte/nl/Documents/financial-services/deloitte-nl-fsi-blockchain-enigma-paradox-opportunity-report.pdf)
+* [lifesreda](http://lifesreda.com/MoneyOfTheFuture_2015_eng.pdf)
+* [Berkely](http://scet.berkeley.edu/wp-content/uploads/BlockchainPaper.pdf) --&gt;
+
+&lt;p&gt;Over time this list / overview might grow. If you know of any tools or platforms that were not mentioned in this overview, please comment using the Disqus below, and I will add your insights to the list.&lt;/p&gt;
+
+&lt;link href=&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1&quot; crossorigin=&quot;anonymous&quot; /&gt;
+
+&lt;style&gt;
+
+table
+{
+  font-size: 14px;
+	border-collapse:collapse;
+	margin:20px 0 0;
+	padding:0;
+}
+
+table tr
+{
+	border-top:1px solid #ccc;
+	background-color:#fff;
+	margin:0;
+	padding:0;
+}
+
+table tr:nth-child(2n)
+{
+	background-color:#f8f8f8;
+}
+table tr th[align=&quot;center&quot;], table tr td[align=&quot;center&quot;] {
+	text-align:center;
+}
+table tr th, table tr td
+{
+	border:1px solid #ccc;
+	text-align:left;
+	margin:0;
+	padding:6px 13px;
+}
+img[alt=icon] { height: 50px; border-radius:5px}
+&lt;/style&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;/smart-contract-blockchain-platforms/&quot;&gt;An overview of the Blockchain development Ecosystem&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on June 06, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Sending Bitcoins using Bitcore and node.js]]></title>
+ <link rel="alternate" type="text/html" href="/my-first-experience-with-bitpay-bitcore/" />
+  <id>/my-first-experience-with-bitpay-bitcore</id>
+  <published>2016-05-20T18:14:31-04:00</published>
+  <updated>2016-05-20T18:14:31-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;This week I was asked to create a simple web app that allows users to send bitcoins from one address to another using node.js.
+After skimming through some online articles and forums I discovered &lt;a href=&quot;https://bitcore.io/api&quot;&gt;Bitcore&lt;/a&gt;.
+I also looked at an alternative called &lt;a href=&quot;http://bitcoinjs.org/&quot;&gt;BitcoinJs&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After comparing both, I decided to use bitcore as it seemed a little bit ahead of BitcoinJs and they also provide &lt;a href=&quot;https://bitcore.io/api/lib/transaction#Transaction+checkedSerialize&quot;&gt;nice documentation and development resources on their website&lt;/a&gt;. Also, the company that open sourced Bitcore, Bitpay, is an established brand in the Bitcoin industry. BitPay is a payment processor that specializes in processing bitcoin payments and enabling merchants to accept bitcoin using a variety of website plugins and other integrations. Bitcore is their javascript library that allows developers to interface directly with the real bitcoin network.&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-up-the-app&quot;&gt;1. Setting up the app&lt;/h2&gt;
+&lt;p&gt;To kickstart my project, I looked for a suitable &lt;a href=&quot;http://yeoman.io/&quot;&gt;Yeoman&lt;/a&gt; generator. I had no desire setting up custom or advanced build automation for thisone. It would literally be a single page app that makes two simple API calls:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Get the transaction history of a Bitcoin address&lt;/li&gt;
+  &lt;li&gt;Perform a transaction&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I decided to use the &lt;a href=&quot;https://github.com/ericmdantas/generator-ng-fullstack#readme&quot;&gt;ng-fullstack&lt;/a&gt; generator as it seemed to have all the tools I like to work with, except for sass, which I discovered later, after the project was scaffolded. For a moment I was tempted to go with the Angular 2 configuration, but again… it’s literally a 1 page app, so I  just went with Angular 1.x. The generator includes a simple todo app, which is nice and it provides you some structure to work with.&lt;/p&gt;
+
+&lt;p&gt;After an initial UI overhaul, nothing remained of the todo app, but the UI was kept simple.
+We have 4 input fields, two address verification buttons and a send button in green.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;An input field for the origin address&lt;/li&gt;
+  &lt;li&gt;An input field for the recipient address&lt;/li&gt;
+  &lt;li&gt;An input field for the origin private key&lt;/li&gt;
+  &lt;li&gt;An input field for the amount of mBTC to transact&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/kbt2.png&quot; alt=&quot;kbt&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;fetching-transaction-data&quot;&gt;2. Fetching transaction data&lt;/h2&gt;
+&lt;p&gt;When users enter a Bitcoin address, the app sends an api request to the &lt;a href=&quot;https://blockchain.info&quot;&gt;blockchain.info&lt;/a&gt; api and fetches the transaction history for the address.
+You can see the output of an example request to the Blockchain.info api &lt;a href=&quot;https://blockchain.info/address/15CrPRVdNUaXX1DCZqttnP21wyJLTTmy8y?format=json&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;├── server
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;    ├── api  
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;         ├── wallet
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;               ├── services
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;                     ├── wallet-service.js&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;https://blockchain.info/address/&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;?format=json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;statusCode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;statusCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Before sending actual requests, I verify Bitcoin addresses using a simple regex on the clientside:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BITCOINADDRESS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;(?:[13][1-9A-Za-z][^O0Il]{24,32})&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and the &lt;a href=&quot;https://github.com/defunctzombie/bitcoin-address&quot;&gt;bitcoin-address&lt;/a&gt; library on the server side.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcoinaddress&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;bitcoin-address&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bitcoinaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;validate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Address checksum failed&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;When the address data arrives in my angular client, I display the transaction history table with the dates, transaction results and hashes like so:
+&lt;img src=&quot;../images/kbt3.png&quot; alt=&quot;kbt&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-bitcoin-transactions&quot;&gt;3. Creating Bitcoin transactions&lt;/h2&gt;
+
+&lt;p&gt;To create a Bitcoin transaction, we need 4 things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Bitcoin address of the sender&lt;/li&gt;
+  &lt;li&gt;The private key of the sender&lt;/li&gt;
+  &lt;li&gt;A recipient address&lt;/li&gt;
+  &lt;li&gt;The amount of Bitcoins to be sent&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The information from the input boxes will be checked by a transaction model on the client side and is then sent to the &lt;code&gt;wallet-service.js&lt;/code&gt; in the back end.
+To create transactions using bitcore, we first need to install the bitcore and bitcore-explorers libraries using npm:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm i --save bitcore-lib &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bitcore-explorers&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And reference them so we can use them:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;bitcore-lib&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;explorers&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;bitcore-explorers&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;getting-the-senders-balance&quot;&gt;3.1 Getting the sender’s balance&lt;/h3&gt;
+&lt;p&gt;Before creating a transaction, we have to do some checks.&lt;/p&gt;
+
+&lt;p&gt;Firstly, we have to take in account the miner fee, which is the price we have to pay to send the transaction to the Bitcoin Blockchain.
+This fee can directly influence the time it takes for a transaction to be confirmed on the blockchain.
+At the moment of writing, the approximate minimum mining fee is 12,800 satoshis (0.05$). (&lt;a href=&quot;https://bitcoinfees.21.co/&quot;&gt;https://bitcoinfees.21.co/&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Secondly, we need to check if the private key can sign the inputs. This is done by the bitcore library and is pretty complex, so I will not expand on this, but you can find more on signing transactions &lt;a href=&quot;http://www.righto.com/2014/02/bitcoins-hard-way-using-raw-bitcoin.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, our first check will be to see if the sender address balance can at least cover the mining fee.
+The &lt;code&gt;bitcore-explorers&lt;/code&gt; library includes &lt;a href=&quot;https://insight.is/&quot;&gt;insight&lt;/a&gt;, which is an open-source bitcoin blockchain API that will help us get information regarding our senders’ address.
+To determine the balance of the sender address, we need to go over the unspent outputs of the sender.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Bitcoin works on the concept of discrete inputs and outputs not spending part of a balance. All transactions have as their input a reference to a previous unspent
+output. Each transaction records one or more new outputs (which are referenced in the inputs of some future transactions). Outputs are “spent” when they are referenced
+in a new transaction. Outputs can only be unspent or spent, they can’t be partially spent.
+Wallet balance (or address balance) is an abstraction to help us humans and make Bitcoin more like conventional payment systems. Balances are not used at the protocol level. When the wallet indicates your confirmed balance is 1.2 BTC it is saying that the sum of the value of all unspent outputs in the blockchain which correspond to public keys it has the private key for total 1.2 BTC. In other words the wallet is computing the total value of the outputs which it can spend which requires a) the output be unspent and b) the client has the private key necessary to spend it. ~ Pieter Wuille&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;More information on utxos and balances can be found in &lt;a href=&quot;http://bitcoin.stackexchange.com/questions/22997/how-is-a-wallets-balance-computed&quot;&gt;this answer on stackexchange&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Using insight, we can return the array of utxos or Unspent Transaction Outputs:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;explorers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getUnspentUtxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The output in the terminal should be something like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/kbt4.png&quot; alt=&quot;kbt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The sum of the utxos is basically the balance on the senders’ Bitcoin address, so we can now try the following:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getUnspentUtxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;satoshis&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;balance:&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Which, in my case, returned a balance of 105042196 satoshis:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;0&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; balance:105042196&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;!-- ![kbt](../images/winning.gif) --&gt;
+
+&lt;h3 id=&quot;error-handling-and-input-validation&quot;&gt;3.2 Error handling and input validation&lt;/h3&gt;
+&lt;p&gt;Let’s expand our code, create some constants for the miner fee and the transaction amount and include some error handling.
+We will also make use of the bitcore Unit utility to define and convert our minerfee, transaction amount and balance variables:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;explorers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minerFee&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromMilis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//cost of transaction in satoshis (minerfee)&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;transactionAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromMilis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//convert mBTC to Satoshis using bitcore unit&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getUnspentUtxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//any other error&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//if no transactions have happened, there is no balance on the address.&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;You don&amp;#39;t have enough Satoshis to cover the miner fee.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//get balance&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;satoshis&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//check whether the balance of the address covers the miner fee&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;transactionAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minerFee&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+      &lt;span class=&quot;c1&quot;&gt;//our transaction code will come here&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;You don&amp;#39;t have enough Satoshis to cover the miner fee.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I am also defining the same mining fee in the transaction model on the client side so the send button only becomes enabled once the amount entered exceeds the miner fee:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MININGFEE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.12800&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//mining fee in mBTC&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Let’s also validate the origin and recipient addresses in the backend before any api requests happen.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bitcoinaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;validate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Origin address checksum failed&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bitcoinaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;validate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Recipient address checksum failed&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;creating-a-new-transaction-and-serialization&quot;&gt;3.3 Creating a new transaction and serialization&lt;/h3&gt;
+
+&lt;p&gt;This was a bit of a struggle for me at first since it was the first time I worked with the bitcore library and discovered that the error handling was a bit flaky.
+Hence, I discovered the best way to get around this was to surround the transaction code with a try catch and make use of &lt;a href=&quot;https://bitcore.io/api/lib/transaction#Transaction+getSerializationError&quot;&gt;getSerializationError&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//create a new transaction&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore_transaction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;transactionAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minerFee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;privatekey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//handle serialization errors&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bitcore_transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSerializationError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore_transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSerializationError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Some inputs have not been fully signed&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Please check your private key&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I decided to create a switch case so I could rewrite possible errors in my own language as I found &lt;code&gt;&#39;Some inputs have not been fully signed&#39;&lt;/code&gt; not very clear towards the end user.&lt;/p&gt;
+
+&lt;p&gt;The actual bitcore transaction takes the following inputs:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore_transaction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Feed information about what unspent outputs one can use&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;transactionAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Add an output with the given amount of satoshis&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minerFee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// the miner fee (is automatically calculated when omitted)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Sets up a change address where the rest of the funds will go&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;privatekey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Signs all the inputs it can&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;As you can see I have set the change address to the senders’ address.
+Because outputs can only be unspent or spent, and not partially spent, there’s a concept of “change address” in the bitcoin ecosystem:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If an output of 10 BTC is available for me to spend, but I only need to transmit 1 BTC, I’ll create a transaction with two outputs, one with 1 BTC that I want to spend, and the other with 9 BTC to a change address, so I can spend this 9 BTC with another private key that I own&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://bitzuma.com/posts/five-ways-to-lose-money-with-bitcoin-change-addresses/&quot;&gt;Here&lt;/a&gt; is a very interesting article on change addresses which explains the concept very well.
+If you haven’t heard of change addresses and are involved in bitcoin transactions in any way, it’s definitely a recommended read.&lt;/p&gt;
+
+&lt;h3 id=&quot;broadcasting-the-transaction-to-the-blockchain&quot;&gt;3.4 Broadcasting the transaction to the blockchain&lt;/h3&gt;
+
+&lt;p&gt;Now that our transaction has been signed and created, we can broadcast it to the blockchain. As we are not running our own bitcoin node, this will happen via the &lt;a href=&quot;https://bitcore.io/api/explorers/&quot;&gt;insight api&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//broadcasting the transaction to the blockchain&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;broadcast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bitcore_transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Error in broadcast: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transactionId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;When we put everything together, the entire transaction function looks like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createTransaction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;explorers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minerFee&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromMilis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//cost of transaction in satoshis (minerfee)&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;transactionAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromMilis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//convert mBTC to Satoshis using bitcore unit&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bitcoinaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;validate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Origin address checksum failed&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bitcoinaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;validate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Recipient address checksum failed&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getUnspentUtxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//any other error&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;//if no transactions have happened, there is no balance on the address.&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;You don&amp;#39;t have enough Satoshis to cover the miner fee.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//get balance&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;satoshis&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSatoshis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//check whether the balance of the address covers the miner fee&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;transactionAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minerFee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+          &lt;span class=&quot;c1&quot;&gt;//create a new transaction&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore_transaction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;utxos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;transactionAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minerFee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromaddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;privatekey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//handle serialization errors&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bitcore_transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSerializationError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bitcore_transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getSerializationError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Some inputs have not been fully signed&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+                  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Please check your private key&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                  &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+                  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// broadcast the transaction to the blockchain&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;insight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;broadcast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bitcore_transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Error in broadcast: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+                  &lt;span class=&quot;nx&quot;&gt;transactionId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;You don&amp;#39;t have enough Satoshis to cover the miner fee.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We are done! Now we should be able to send Bitcoins using the bitcore library and node.js.
+You can find code of the entire app in the following github repo:
+&lt;a href=&quot;https://github.com/jestersimpps/bitcoin-transact&quot;&gt;https://github.com/jestersimpps/bitcoin-transact&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/my-first-experience-with-bitpay-bitcore/&quot;&gt;Sending Bitcoins using Bitcore and node.js&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on May 20, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Getting Around the Product Variant Limitation in Shopify]]></title>
+ <link rel="alternate" type="text/html" href="/getting-around-the-product-variant-limitation-in-shopify/" />
+  <id>/getting-around-the-product-variant-limitation-in-shopify</id>
+  <published>2016-05-13T15:13:37-04:00</published>
+  <updated>2016-05-13T15:13:37-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Recently, I was struggling with some Shopify products that had more than 100 variant combinations.
+Shopify has a product variant limitation of 100 per product, whereas products themselves are unlimited.
+To get around the limitation I wrote a little Node script that creates a unique Shopify product for every variant and links the SKU’s dynamically to option selectors in the product pages.&lt;/p&gt;
+
+&lt;p&gt;You can find the script here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/jestersimpps/shopify-node-excel-product-import.git&quot;&gt;https://github.com/jestersimpps/shopify-node-excel-product-import.git&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The script generates HTML for option boxes and javascript combination arrays. This content is then stored in the description body of the products using the Shopify-node API.
+I had to simulate randomly timed API posts since somehow I was getting errors on API POST bursts. (I’ll revise the code after some more experiments)
+The script creates two types of products in Shopify: ‘variants’ and ‘products’. This allows you to set custom search filters in the admin and keep the variants separate from the actual products.
+One product can now have unlimited ‘variants’ (which are actually Shopify products). They are linked in the variant array that is injected in the product descriptions:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;variants&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13737525511&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;price&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;232.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;variants&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;8.5\&amp;quot; x 11\&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot; 100 &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot; single sided&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]},{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1232&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;how-to-get-going&quot;&gt;How to get going:&lt;/h1&gt;
+
+&lt;h3 id=&quot;prepare-the-excel-file&quot;&gt;1. Prepare the Excel file&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Add product rows in the products tab&lt;/li&gt;
+  &lt;li&gt;Add the urls to the product images (Shopify will download the images from the urls and add them to your products)&lt;/li&gt;
+  &lt;li&gt;Add product options in the options tab&lt;/li&gt;
+  &lt;li&gt;Add the option identifiers in the option column on the product page&lt;/li&gt;
+  &lt;li&gt;Generate all product variants using the VBA script in the variants page.&lt;/li&gt;
+  &lt;li&gt;When adding new products/options, new variants appear in yellow&lt;/li&gt;
+  &lt;li&gt;Add correct pricing to the variants&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;using-the-xls2shop-script&quot;&gt;2. Using the xls2shop script&lt;/h3&gt;
+
+&lt;h4 id=&quot;add-your-shopify-credentials&quot;&gt;1. Add your Shopify credentials&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Shopify&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;shopifyAPI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;shop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// MYSHOP.myshopify.com&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;shopify_api_key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Your API key&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;shopify_shared_secret&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Your Shared Secret&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;access_token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//permanent token&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;verbose&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;rate_limit_delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 10 seconds (in ms) =&amp;gt; if Shopify returns 429 response code&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;backoff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// limit X of 40 API calls =&amp;gt; default is 35 of 40 API calls&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;backoff_delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 1 second (in ms) =&amp;gt; wait 1 second if backoff option is exceeded&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;retry_errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;actions&quot;&gt;2. Actions:&lt;/h4&gt;
+
+&lt;p&gt;Removing all products:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node xls2shop.js clean&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Uploading product variants from Excel:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;node xls2shop.js upload business&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;cards&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;example.xlsm&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;add-the-following-javascipt-to-the-product-pages-in-shopify&quot;&gt;3. Add the following javascipt to the product pages in Shopify:&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;variant&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;findVariant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;#price&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;parseFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#Quantity&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toFixed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+
+  &lt;span class=&quot;nx&quot;&gt;selectors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectorId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectorId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;variant&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;findVariant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;#price&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;parseFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#Quantity&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toFixed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+
+  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#Quantity&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;variant&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;findVariant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;#price&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;parseFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#Quantity&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toFixed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addToCart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/cart/add.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;quantity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#Quantity&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;always&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/cart.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;always&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cartData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cartData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;responseText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#cartItems&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cartData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;responseText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;findVariant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;dance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;variants&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;variants&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;variants&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;variants&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;variants&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/\s/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/\s/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;variants&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This will take care of passing the SKU of the product variant that was selected to the cart.
+The product description that contains the variant data is injected in the product page. It contains a selector array and a variants array. The variants array contains all the possible combinations of the selectors with the corresponding product-variant SKU.&lt;/p&gt;
+
+&lt;p&gt;The add to cart script can be triggered as such:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;button&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addToCart()&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+ Add to Cart
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Dynamic pricing upon selection change is done by setting an element id to &lt;code&gt;price&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;$&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;price&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;finally-hide-the-option-selectors-in-the-collection-pages&quot;&gt;4. Finally, hide the option selectors in the collection pages&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nc&quot;&gt;.productOptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;/getting-around-the-product-variant-limitation-in-shopify/&quot;&gt;Getting Around the Product Variant Limitation in Shopify&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on May 13, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Gitup, the New Git Manager]]></title>
+ <link rel="alternate" type="text/html" href="/gitup-the-new-git-manager/" />
+  <id>/gitup-the-new-git-manager</id>
+  <published>2015-09-26T16:34:57-04:00</published>
+  <updated>2015-09-26T16:34:57-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Work quickly, safely, and without headaches.
+The Git interface you’ve been missing
+all your life has finally arrived.&lt;/p&gt;
+
+&lt;p&gt;I’m used to gitting in the terminal and visualizing branches like:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;graph&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pretty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oneline&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;abbrev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;lol, which, I &lt;a href=&quot;http://www.moncefbelyamani.com/create-aliases-in-bash-profile-to-assign-shortcuts-for-common-terminal-commands/&quot;&gt;changed in my bash config&lt;/a&gt; to:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;gt&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/gittree.png&quot; alt=&quot;git1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;but…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gitup.co/&quot;&gt;GitUp&lt;/a&gt; looks promising:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/editing.gif&quot; alt=&quot;git1&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/gitup-the-new-git-manager/&quot;&gt;Gitup, the New Git Manager&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on September 26, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[WebStorm vs. Atom]]></title>
+ <link rel="alternate" type="text/html" href="/webstorm-vs-atom/" />
+  <id>/webstorm-vs-atom</id>
+  <published>2015-09-23T15:19:12-04:00</published>
+  <updated>2015-09-23T15:19:12-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;I have recently switched to the Atom editor and really love it.
+I love experimenting with new coding environments and so far PHP- and Webstorm have provided me with the best all round support
+for everything I make Web-related. But now… there is: Atom!!!&lt;/p&gt;
+
+&lt;p&gt;My first programming experiences, I remember, were in DOS. There was this editor for Qbasic, which was basically no editor at all. I know there’s always been vi, or vim, but I didn’t know about them as I was 11.
+When I was around 14-15, I started developing Visual Basic 6 applications.
+Visual Basic was awesome! The name Visual comes from it having a drag &amp;amp; drop UI builder. I thought that was really great until I moved to .NET. Dot NET was actually a super visual Basic EDI and I loved it.&lt;/p&gt;
+
+&lt;p&gt;When making the switch to web development some time ago I started out using sublime text as everybody was using it at the time. I wanted to get into using predominantly open source tools as they are free,
+and they are developed by a community of people who are also the actual users of the tools they build.
+However, after Sublime came Webstorm / PHPStorm since I loved the terminal-in-edi solution and it had great code inspection and an actual drag and drop file tree.&lt;/p&gt;
+
+&lt;p&gt;Today I downloaded Atom and in a matter of minutes I found and installed the packages “Terminal-plus” and “Atom-beautify”.
+I now have the same functionality as I had in the Jetbrains EDI’s but in, what seems to me, an editor package.&lt;/p&gt;
+
+&lt;p&gt;The scrolling is smooth and I can have 4 or more projects open at the same time without any hassle. This would be a nogo using the Jetbrains EDI’s. You either had to minimize the Jetbrains instances and only have one open at a time or switch to power saving mode. Not doing this would ramp up the CPU too much and keep them from working smoothly.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/atomeditors.png&quot; alt=&quot;multipleatom&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I also love the preinstalled markdown preview package, which I am using right now:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Atom&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;PHPStorm&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;../images/atomeditor.png&quot; alt=&quot;eatom&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;../images/phpstorm.png&quot; alt=&quot;eatom&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;PHPStorm also has the markdown preview, but its in a tabswitcher, and I couldn’t figure out how to make it show permanently on the side like the one in Atom.&lt;/p&gt;
+
+&lt;p&gt;Overall I enjoy the cleaner, distraction free look of the Atom Editor. A lot of the buttons and tabs that I don’t use in PHPStorm are just not there. You can find all these in the mac top menu bar, which enforces learning keyboard shortcuts. And I don’t mind.
+My work environment is cleaner, and I have a larger area to code. Also, the few seconds it takes to look up a hotkey combination for a common command will shave off countless seconds of work in the future.&lt;/p&gt;
+
+&lt;p&gt;Lastly, what I like about Atom is that you can customize it to your own needs. Atom is flexible and I can choose which plug-ins I need, whereas the Jetbrains EDI’s come with a lot of stuff prepackaged. Stuff that I’ll never use in an EDI. for example: vcs and grunt: good try, but I do my gitting and grunting in the terminal.&lt;/p&gt;
+
+&lt;p&gt;If you don’t like something, or want to make it better, it is &lt;a href=&quot;https://github.com/atom/atom&quot;&gt;hackable&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/webstorm-vs-atom/&quot;&gt;WebStorm vs. Atom&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on September 23, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Experimenting with google spreadsheets, assemble.io and internationalisation]]></title>
+ <link rel="alternate" type="text/html" href="/experimenting-with-google-spreadsheets-assemble-io-and-internationalisation/" />
+  <id>/experimenting-with-google-spreadsheets-assemble-io-and-internationalisation</id>
+  <published>2015-05-12T01:02:40-04:00</published>
+  <updated>2015-05-12T01:02:40-04:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;&lt;a href=&quot;http://assemble.io/&quot;&gt;Assemble.io&lt;/a&gt; is a really cool static page generator that ties neatly into Grunt, currently my favorite build tool.
+Assemble works with handlebar templates which allows you to slice up your HTML files into reusable pieces that get assembled at build.
+One of the cool features is that it allows you to tie in data coming from json or yaml files. If you are not familiar with assemble yet,
+please go through the &lt;a href=&quot;http://assemble.io/docs/&quot;&gt;documentation&lt;/a&gt; before continuing.&lt;/p&gt;
+
+&lt;p&gt;A few months ago I discovered this awesome Grunt plugin that parses Google spreadsheet files into i18n files. You can find it here: &lt;a href=&quot;https://github.com/theoephraim/Grunt-i18n-gspreadsheet&quot;&gt;i18n_gspreadsheet&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Combining Assemble.io with this Grunt plugin provides for easy internationalisation for static websites. I prefer using this free workaround now for my static web projects.
+It can be hooked up with Jenkins in a way that you can provide clients with a basic CMS for their website. I’ll try and explain how to set that up in a future post.
+For now let’s take a look at the Grunt file and how we can make these two plugins work together.&lt;/p&gt;
+
+&lt;h4 id=&quot;setting-up-a-google-spreadsheet-file&quot;&gt;1. Setting up a Google spreadsheet file&lt;/h4&gt;
+
+&lt;p&gt;Go to your Google drive and create a new spreadsheet file. Name it as you want. I generally use the url of the website I’m going to create.
+Set it up so that it has a key column which is named: “key” and two letter syllables for the different languages you want to translate to.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/googlespreadsheet1.png&quot; alt=&quot;google spreadsheet file&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;making-the-google-spreadsheet-file-publicly-viewable&quot;&gt;2. Making the google spreadsheet file publicly viewable&lt;/h4&gt;
+
+&lt;p&gt;Make the Spreadsheet file publicly viewable so that the Grunt plugin can pick up the contents.
+Click on the sharing button in the top right:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/share1.png&quot; alt=&quot;google spreadsheet file&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click on the advanced button:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/share2.png&quot; alt=&quot;google spreadsheet file&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Switch link sharing on:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/share3.png&quot; alt=&quot;google spreadsheet file&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And publish the file on the web:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/share4.png&quot; alt=&quot;google spreadsheet file&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, copy the google spreadsheet key for later use, or leave the browser window or tab open so you can copy the key later.
+To find the key, look in the url for a sequence of randomness:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/gdockey.png&quot; alt=&quot;google spreadsheet file&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;installing-the-dependencies&quot;&gt;3. Installing the dependencies&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install Assemble.io using npm:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;npm i assemble --save-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install the required Grunt plugin that parses the spreadsheet file:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;npm i Grunt-i18n-gspreadsheet --save-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install Grunt-convert to convert the i18n files to json:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;npm i Grunt-convert --save-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;setting-up-the-grunt-tasks&quot;&gt;4. Setting up the Grunt tasks&lt;/h4&gt;
+
+&lt;p&gt;In our Grunt file, we enable the tasks and add the following constants and the key to your google spreadsheet file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loadNpmTasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Grunt-i18n-gspreadsheet&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loadNpmTasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Grunt-convert&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loadNpmTasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;assemble&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;                &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;src&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;dist&lt;/span&gt;               &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dist&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;locales&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;locales&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;google_document_key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;1gA-5lpURCmllQAuTkc5vDvAv6Y4eXJDyr8XS-QJntes&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;default_locale&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;en&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We add the task that will parse your google spreadsheet file.
+It will automaticall create 3 &lt;code&gt;.js&lt;/code&gt; language files in a &lt;code&gt;/locales&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;i18n_gspreadsheet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;document_key&lt;/span&gt;              &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.google_document_key %&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;key_column&lt;/span&gt;                &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;key&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;default_locale&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.default_locale %&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;write_default_translations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;your_target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We use the Grunt-convert task to convert these files into json files and write them to the the correct folders we will use in the assemble process.
+In this example, we use t.json for the data file name that the assemble process will use in the build process.
+This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars templates, which will get replaced by the correct translations.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;convert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;explicitArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;en2json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;locales/en.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;locales/en/t.json&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fr2json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;locales/fr.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;locales/fr/t.json&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;es2json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;locales/es.js&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;locales/es/t.json&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We can add a clean task to the entire process and package the sequence in a new task: &lt;code&gt;translate&lt;/code&gt; that is to be executed before the assemble process.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;npm i Grunt-contrib-clean --save-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loadNpmTasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Grunt-contrib-clean&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;Grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;translate&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;clean:locales&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;i18n_gspreadsheet&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;convert&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;locales&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;locales&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Finally, we add the assemble tasks that will take care of assembling the website in the different languages using the json files in the locale folders.
+The following code will assemble to the root folder &lt;code&gt;/&lt;/code&gt; and the different subfolders &lt;code&gt;/fr&lt;/code&gt; en &lt;code&gt;/es&lt;/code&gt; from the different locale files
+(&lt;code&gt;locales/en/t.json&lt;/code&gt;, &lt;code&gt;locales/fr/t.json&lt;/code&gt; and &lt;code&gt;locales/es/t.json&lt;/code&gt;) created by the Grunt-convert task.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;assemble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;flatten&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.locales %&amp;gt;/en/t.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;assets&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.dist %&amp;gt;/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;layout&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/layouts/default.hbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;partials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+                &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/partials/*.hbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/content/*.md&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/sections/*.hbs&amp;#39;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.dist %&amp;gt;/&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/pages/*.hbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;flatten&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.locales %&amp;gt;/fr/t.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;assets&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.dist %&amp;gt;/fr&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  
+            &lt;span class=&quot;nx&quot;&gt;layout&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/layouts/default.hbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;partials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+                &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/partials/*.hbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/content/*.md&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/sections/*.hbs&amp;#39;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.dist %&amp;gt;/fr&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/pages/*.hbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;es&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;flatten&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.locales %&amp;gt;/es/t.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;assets&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.dist %&amp;gt;/es&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;layout&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/layouts/default.hbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;nx&quot;&gt;partials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+                 &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/partials/*.hbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                 &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/content/*.md&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                 &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/sections/*.hbs&amp;#39;&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+         &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+             &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.dist %&amp;gt;/es&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;%= config.src %&amp;gt;/templates/pages/*.hbs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The build process will now scaffold our &lt;code&gt;/dist&lt;/code&gt; directory like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;...
+fr/...
+es/...&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We can now use the translation keys in our assemble .hbs files that will be replaced by the language content in the google spreadsheet file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt; {{ t.HELLO }}, {{ t.WORLD }}  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;/experimenting-with-google-spreadsheets-assemble-io-and-internationalisation/&quot;&gt;Experimenting with google spreadsheets, assemble.io and internationalisation&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on May 12, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+</feed>
