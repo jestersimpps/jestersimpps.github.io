@@ -1,0 +1,346 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>From Gulp to Webpack &#8211; Hardcore trial & error</title>
+<meta name="description" content="My journey through code and development">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/gg-vs-webpack.png">
+
+<meta name="twitter:title" content="From Gulp to Webpack">
+<meta name="twitter:description" content="My journey through code and development">
+<meta name="twitter:creator" content="@jestersimpps">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="From Gulp to Webpack">
+<meta property="og:description" content="My journey through code and development">
+<meta property="og:url" content="/from-gulp-to-webpack/">
+<meta property="og:site_name" content="Hardcore trial & error">
+
+
+
+
+
+<link rel="canonical" href="/from-gulp-to-webpack/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Hardcore trial & error Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/bio-photo.png" alt="Jester Simpps photo" class="author-photo">
+					<h4>Jester Simpps</h4>
+					<p></p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:jestersimpps@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/jestersimpps"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				
+				<li>
+					<a href="http://linkedin.com/in/jo-vinkenroye/63/a79/459"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="http://github.com/jestersimpps"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				<li>
+					<a href="http://instagram.com/jestersimpps"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+				</li>
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+<div class="entry-header">
+  <div class="image-credit">Image source: <a href="https://mistakster.github.io/fronttalks-webpack/#intro">mistakster</a></div><!-- /.image-credit -->
+  <div class="entry-image">
+    <img src="/images/gg-vs-webpack.png" alt="From Gulp to Webpack">
+  </div><!-- /.entry-image -->
+</div><!-- /.entry-header -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/from-gulp-to-webpack/" rel="bookmark" title="From Gulp to Webpack">From Gulp to Webpack</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2016-08-21T14:32:14-04:00">August 21, 2016</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Reading time ~7 minutes
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>I recently started working on a big Angular 2 webapp. The company I joined has been working on this project since Oktober 2015.
+It is one of the first companies in Belgium that jumps on the ng2 bandwagon and it has been a joy and challenge to learn and work with this framework every day.</p>
+
+<p>Because gulp experience was already in house, the team has implemented a gulp build coupled with SystemJs. These days ( August 2016 ),
+partly popularized by React, <a href="https://webpack.github.io/">Webpack</a> has become a ‘thing’. My colleagues at the company have been following the trend and have decided to switch to <a href="https://webpack.github.io/">Webpack</a> for their next project.
+Secretly, there’s a common desire to implement it in the current project as well, but… there is this tight deadline, so…</p>
+
+<p>…I decided to give it a shot myself and tried to hack something together this Saturday and see how far I would get. To be honest, I didn’t know what to expect myself.
+I’ve heard all the buzz but haven’t actually given Webpack any time as I have been working relentlessly on my own startup <a href="http://www.krackzee.com/search?sortby=distance&amp;order=&amp;radius=50&amp;classes=11th%20Commerce&amp;locality=Sector%2025&amp;city=Pune#">krackzee</a> over the past 8 months, which is a php Laravel project. So I have been ‘out’ of the front-end world for quite some time. To all non-javascript developers; 8 months in the javascript realm is like a decade in your language. (
+<a href="https://www.allenpike.com/2015/javascript-framework-fatigue/"> Read: A JS framework on every table by Allen Pike </a>)</p>
+
+<p><img src="https://www.allenpike.com/images/2015/cube-drone-angular.jpg" alt="javascript fatigue" /></p>
+
+<h2 id="webpack">Webpack</h2>
+
+<h3 id="first-impressions">First impressions</h3>
+
+<p>The installation has a lot of simalarity to installing grunt or gulp. You pull in some repositories, make sure you save them as devDependencies in your package.json and create some config files to configure your build process. Here’s the interesting part though; It’s almost like a plug and play build process tool. Forget about writing those <a href="http://jestersimpps.github.io/experimenting-with-google-spreadsheets-assemble-io-and-internationalisation/">insane</a>, customized grunt and gulp scripts. Here’s a tool that just works out of the box with minimal configuration. And it works well!</p>
+
+<h3 id="getting-started">Getting started</h3>
+
+<p>The <a href="https://angular.io/docs/ts/latest/guide/webpack.html">Angular 2</a> team has done a pretty good job explaining Webpack on their website. It has also become their build tool of choice. I started by basically going through their guide and adapting their implementation in a seperate branch to our current project. Don’t do this! I made this mistake and I might have learned a bit more about what the Webpack config files do, but it will fail miserably unless you have implemented webpack before and you know how everything works together. My suggestion is to start a different repo alltogether with a clean version of one of the <a href="https://github.com/search?utf8=%E2%9C%93&amp;q=angular+2+webpack+starter&amp;type=Repositories&amp;ref=searchresults">Angular 2 webpack starters</a> out there. Just browse <a href="http://github.com">Github</a> a bit, there’s plenty of them.</p>
+
+<p>I chose for the <a href="https://github.com/AngularClass/angular2-webpack-starter">angular2-webpack-starter</a> from <a href="https://angularclass.com/">AngularClass</a></p>
+
+<h3 id="clone-your-favorite-starter">Clone your favorite starter</h3>
+
+<p>Start by cloning your favorite Webpack starter repo somewhere on your hard drive.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/AngularClass/angular2-webpack-starter.git
+<span class="nb">cd </span>angular2-webpack-starter
+npm i</code></pre></figure>
+
+<p>If you choose to use the same starter as me, make sure you have Node version &gt;= 5.0 and NPM &gt;= 3 as mentioned in their readme.</p>
+
+<h3 id="move-your-code">Move your code</h3>
+
+<p>After having a local version of the starter, I removed all of their awesomely, perfected, genius code from the <code>src/app</code> folder and copied in our own.
+Remove the git directory if you haven’t yet, and set up your own repo. Maybe make a first commit and push.
+From this moment onward there’s a lot of nitty gritty changes to the Webpack configuration, but basically you are almost done!</p>
+
+<h3 id="reconfigure-webpack">Reconfigure Webpack</h3>
+
+<h4 id="folders-and-files">Folders and files</h4>
+
+<p>Depending on how you have set up your Angular 2 application you will have a different <code>main.ts</code> file.(assuming you are coding Typescript, I’ll just ignore anyone who isn’t)
+The <code>main.ts</code> file is that file that holds your main app component (everything starts from there, your JS app big bang). Webpack best practice commands you to split it up into 3 files:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
+
+  <span class="s1">&#39;polyfills&#39;</span><span class="o">:</span> <span class="s1">&#39;./src/polyfills.browser.ts&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;vendor&#39;</span><span class="o">:</span> <span class="s1">&#39;./src/vendor.browser.ts&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;main&#39;</span><span class="o">:</span> <span class="s1">&#39;./src/main.browser.ts&#39;</span>
+
+<span class="p">},</span></code></pre></figure>
+
+<p>It’s pretty obvious but, define your polyfill imports in the <code>src/polyfills.browser.ts</code> file, your vendor modules in the <code>src/vendor.browser.ts</code> file and bootstrap your app in the <code>src/main.browser.ts</code> file. I just left the polyfill file alone because it was mostly the same of what we already had. Then, in the <code>config/webpack.common.js</code> file, set your entry points as depicted above. In the platform folder, define your environment &amp; provider settings if you have them.</p>
+
+<p>Remove all script tags in your <code>index.html</code> file that point to any application code. These will get injected by a Webpack plugin called <a href="https://github.com/ampedandwired/html-webpack-plugin">HtmlWebpackPlugin</a>. Compare the index files of the starter with your own and basically resolve any merge conflicts :)</p>
+
+<p>Set your own constants in the <code>config/webpack.common.js</code>:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">METADATA</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Yourapp&#39;</span><span class="p">,</span>
+  <span class="nx">baseUrl</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+  <span class="nx">isDevServer</span><span class="o">:</span> <span class="nx">helpers</span><span class="p">.</span><span class="nx">isWebpackDevServer</span><span class="p">()</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>If you work at a special company and have a designated designer that takes care of the scss for you, there’s a chance you might have to set up some build configuration using the <a href="http://webpack.github.io/docs/stylesheets.html#separate-css-bundle">ExtractTextPlugin</a> that enables you to use an import to define the to-be-converted scss files. (I will not cover this as we are currently moving our styling into a separate repo)</p>
+
+<h4 id="environment-config">Environment config</h4>
+
+<p>Depending on your environment configuration you will have to make changes to the <code>config/webpack.dev.js</code>,<code>config/webpack.prod.js</code>,<code>config/webpack.test.js</code> files.
+We previously set the environment in a json during the gulp build. In the new Webpack configuration, I am using a constant I set in the ‘DefinePlugin’ that is then used in my code to determine the Api endpoint and such.</p>
+
+<h4 id="testing-config">Testing config</h4>
+
+<p>If you were already using Karma and Jasmine, just compare the starter’s <code>config/karma.conf.js</code> file with your own. Make changes to the already existing file - if any.
+Make sure you have a <code>karma.conf.js</code> pointing to the file in the config folder.</p>
+
+<h4 id="troubleshooting">Troubleshooting</h4>
+
+<p>After all this, cross your fingers and run the Webpack dev server using <code>npm start</code>.
+In my case there were issues because we are using html template files for our components and have referenced them to our app root directory.</p>
+
+<p>Refer the HTML template files in relation to the current typescript file:</p>
+
+<pre><code>@Component({
+    selector: `component1`,
+    templateUrl: './component1.component.tmpl.html'
+})
+</code></pre>
+<p>instead of:</p>
+
+<pre><code>@Component({
+    selector: `component1`,
+    templateUrl: 'app/../blablablabla/../component1.component.tmpl.html'
+})
+</code></pre>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<h4 id="in-memory-live-reloading">In memory live reloading</h4>
+
+<p>Make the move asap, it won’t take too much of your time! Especially if your grunt/gulp build process is currently not sporting any in memory live reloading. The time you save with this feature alone easily makes up for the time invested in figuring out implementing Webpack.</p>
+
+<h4 id="lazy-loading-modules">Lazy loading modules</h4>
+
+<p>Also, Webpack will pack your modules so that they will be lazy loaded (async) in your application. Often you don’t need all of the dependencies at runtime. Lazy loading will boost your application significantly. Read more about it <a href="http://survivejs.com/webpack/advanced-techniques/understanding-chunks/#lazy-loading-with-webpack">here</a>.</p>
+
+<p>Anyways, you won’t be disappointed. Webpack is magic ;)</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/from-gulp-to-webpack/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/from-gulp-to-webpack/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/from-gulp-to-webpack/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/automated-e2e-api-testing-documentation-for-node-js/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h3>
+      <p>Quite a few months ago I was working on a personal project called : [mailwall.me](http://mailwall.me).The idea was a platform that where ...&hellip; <a href="/a-cool-idea-for-scrolling-throough-posts/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/getting-started-with-microservices-and-go/" title="Getting Started With Microservices and Go">Getting Started With Microservices and Go</a></h4>
+        <span>Published on November 07, 2016</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/automated-e2e-api-testing-documentation-for-node-js/" title="Automated E2e API Testing/Documentation for Node.js">Automated E2e API Testing/Documentation for Node.js</a></h4>
+        <span>Published on July 22, 2016</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2016 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67531656-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jestersimpps'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+</body>
+</html>
