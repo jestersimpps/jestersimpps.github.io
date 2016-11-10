@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-11-09T18:16:57-05:00</updated>
+<updated>2016-11-10T04:52:23-05:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
@@ -27,7 +27,7 @@
   <content type="html">
     &lt;p&gt;Quite a few months ago I was working on a personal project called : &lt;a href=&quot;http://mailwall.me&quot;&gt;mailwall.me&lt;/a&gt;.
 The idea was a platform that where you can share what you think someone will like using their mailwall.me address.
-As post people in the world have email, but not necessary a fb,twitter,whatsapp,etc. account, people can email media to
+As most people in the world have email, but not necessary a fb,twitter,whatsapp,etc. account, people can email media to
 people with a mailwall.me account.  The message would get parsed, media extracted and displayed in the proper way on the platform.
 You could tie it up with &lt;a href=&quot;http://www.ifttt.com&quot;&gt;IFTTT&lt;/a&gt; to mail you on social media events and it would automatically categorize everything
 accordingly. This history posts scroller is an artifact of this project. I was looking for a new way to create a historical overview of the messages.&lt;/p&gt;
