@@ -4,13 +4,91 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-11-10T05:38:21-05:00</updated>
+<updated>2016-12-05T08:30:21-05:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
   <uri>/</uri>
   <email>jestersimpps@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Setting Up a Private Npm Registry With Sinopia]]></title>
+ <link rel="alternate" type="text/html" href="/setting-up-a-private-npm-registry-with-sinopia/" />
+  <id>/setting-up-a-private-npm-registry-with-sinopia</id>
+  <published>2016-12-05T06:24:06-05:00</published>
+  <updated>2016-12-05T06:24:06-05:00</updated>
+  <author>
+    <name>Jester Simpps</name>
+    <uri></uri>
+    <email>jestersimpps@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;When you have several front end projects going in the same company, and you are using a component based framework like Angular 2, it is important that you can reuse those components over all projects. It is possible to pay npm for private repositories, or to make use of npm link, but in this post, I will:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Implement a private npm registry using &lt;a href=&quot;https://github.com/rlidwka/sinopia&quot;&gt;Sinopia&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Create a dummy Angular 2 module.&lt;/li&gt;
+  &lt;li&gt;Publish the module to my private npm registry&lt;/li&gt;
+  &lt;li&gt;Access the module from secondary application.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;installing-sinopia&quot;&gt;Installing Sinopia&lt;/h3&gt;
+
+&lt;p&gt;Do a global install of the package:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install -g sinopia
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Set your npm registry to your local Sinopia:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm set registry http://localhost:4873/
+# if you wish to set it back to the default npmjs:
+npm set registry https://registry.npmjs.org/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Run Sinopia using:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sinopia
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If everything works well, you should see that Sinopia automatically generated a config file and is now running at &lt;code&gt;http://localhost:4873/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;warn  --- config file  - /Users/jestersimpps/.config/sinopia/config.yaml
+warn  --- http address - http://localhost:4873/&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The Default configuration will allow all users to do anything. I’m going to leave this for now as I want to focus more on publishing and installing my own packages instead. If you are interested in setting up your own configuration file, you can find a full config file &lt;a href=&quot;https://github.com/rlidwka/sinopia/blob/master/conf/full.yaml&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-a-packaged-angular-2-module&quot;&gt;Creating a packaged Angular 2 module&lt;/h3&gt;
+
+&lt;p&gt;We will create an angular module from the ground up. Cd into the folder (&lt;code&gt;./dummy&lt;/code&gt; in my case) you wish to use for your module and generate a &lt;code&gt;package.json&lt;/code&gt; file by typing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir dummy
+cd dummy
+npm init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will ask you some questions about the library you wish to create, but don’t worry about those, you can just skip through them. Next, we have to include Angular 2 as a dependency, so we will do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm i --save @angular/core
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;--save&lt;/code&gt; command will add the installed dependency to the previously creatde &lt;code&gt;package.json&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Once Angular2 is installed, we will create a &lt;code&gt;.ts&lt;/code&gt; source file at the root of our library with the name of our library:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dummy.ts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will be the name we will use later on when we will import our library from a secondary application:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dummy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;dummy/dummy&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This main file in the root will be used to export all of the files we will create next that make our module work.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/setting-up-a-private-npm-registry-with-sinopia/&quot;&gt;Setting Up a Private Npm Registry With Sinopia&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on December 05, 2016.&lt;/p&gt;
+  </content>
+</entry>
 
 
 <entry>
@@ -26,7 +104,7 @@
   </author>
   <content type="html">
     &lt;p&gt;Quite a few months ago I was working on a personal project called : &lt;a href=&quot;http://mailwall.me&quot;&gt;mailwall.me&lt;/a&gt;.
-The idea was a platform that where you can share what you think someone will like using their mailwall.me address.
+The idea was a platform where you can share what you think someone will like using their mailwall.me address.
 As most people in the world have email, but not necessary a fb,twitter,whatsapp,etc. account, people can email media to
 people with a mailwall.me account.  The message would get parsed, media extracted and displayed in the proper way on the platform.
 You could tie it up with &lt;a href=&quot;http://www.ifttt.com&quot;&gt;IFTTT&lt;/a&gt; to mail you on social media events and it would automatically categorize everything

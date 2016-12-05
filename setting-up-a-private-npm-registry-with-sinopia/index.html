@@ -5,31 +5,31 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Gitup, the New Git Manager &#8211; Hardcore trial & error</title>
+<title>Setting Up a Private Npm Registry With Sinopia &#8211; Hardcore trial & error</title>
 <meta name="description" content="My journey through code and development">
-<meta name="keywords" content="git, devtools, repositories">
+<meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="/images/speed.png">
+<meta name="twitter:image" content="/images/sinopia.png">
 
-<meta name="twitter:title" content="Gitup, the New Git Manager">
+<meta name="twitter:title" content="Setting Up a Private Npm Registry With Sinopia">
 <meta name="twitter:description" content="My journey through code and development">
 <meta name="twitter:creator" content="@jestersimpps">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gitup, the New Git Manager">
+<meta property="og:title" content="Setting Up a Private Npm Registry With Sinopia">
 <meta property="og:description" content="My journey through code and development">
-<meta property="og:url" content="/gitup-the-new-git-manager/">
+<meta property="og:url" content="/setting-up-a-private-npm-registry-with-sinopia/">
 <meta property="og:site_name" content="Hardcore trial & error">
 
 
 
 
 
-<link rel="canonical" href="/gitup-the-new-git-manager/">
+<link rel="canonical" href="/setting-up-a-private-npm-registry-with-sinopia/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Hardcore trial & error Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -117,9 +117,9 @@
 
 
 <div class="entry-header">
-  <div class="image-credit">Image source: <a href="http://gitup.co/">gitup</a></div><!-- /.image-credit -->
+  <div class="image-credit">Image source: <a href="jestersimpps.github.io">jestersimpps</a></div><!-- /.image-credit -->
   <div class="entry-image">
-    <img src="/images/speed.png" alt="Gitup, the New Git Manager">
+    <img src="/images/sinopia.png" alt="Setting Up a Private Npm Registry With Sinopia">
   </div><!-- /.entry-image -->
 </div><!-- /.entry-header -->
 
@@ -129,47 +129,88 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="/gitup-the-new-git-manager/" rel="bookmark" title="Gitup, the New Git Manager">Gitup, the New Git Manager</a></h1>
+          <h1 class="entry-title"><a href="/setting-up-a-private-npm-registry-with-sinopia/" rel="bookmark" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h1>
         
-        <h2><span class="entry-date date published"><time datetime="2015-09-26T16:34:57-04:00">September 26, 2015</time></span></h2>
+        <h2><span class="entry-date date published"><time datetime="2016-12-05T06:24:06-05:00">December 05, 2016</time></span></h2>
         
         <p class="entry-reading-time">
           <i class="fa fa-clock-o"></i>
           
-          Reading time ~1 minute
+          Reading time ~2 minutes
         </p><!-- /.entry-reading-time -->
         
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>Work quickly, safely, and without headaches.
-The Git interface you’ve been missing
-all your life has finally arrived.</p>
+      <p>When you have several front end projects going in the same company, and you are using a component based framework like Angular 2, it is important that you can reuse those components over all projects. It is possible to pay npm for private repositories, or to make use of npm link, but in this post, I will:</p>
 
-<p>I’m used to gitting in the terminal and visualizing branches like:</p>
+<ul>
+  <li>Implement a private npm registry using <a href="https://github.com/rlidwka/sinopia">Sinopia</a>.</li>
+  <li>Create a dummy Angular 2 module.</li>
+  <li>Publish the module to my private npm registry</li>
+  <li>Access the module from secondary application.</li>
+</ul>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">git</span> <span class="nx">log</span> <span class="o">--</span><span class="nx">graph</span> <span class="o">--</span><span class="nx">pretty</span><span class="o">=</span><span class="nx">oneline</span> <span class="o">--</span><span class="nx">abbrev</span><span class="o">-</span><span class="nx">commit</span></code></pre></figure>
+<h3 id="installing-sinopia">Installing Sinopia</h3>
 
-<p>lol, which, I <a href="http://www.moncefbelyamani.com/create-aliases-in-bash-profile-to-assign-shortcuts-for-common-terminal-commands/">changed in my bash config</a> to:</p>
+<p>Do a global install of the package:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">gt</span></code></pre></figure>
+<pre><code>npm install -g sinopia
+</code></pre>
 
-<p><img src="../images/gittree.png" alt="git1" /></p>
+<p>Set your npm registry to your local Sinopia:</p>
 
-<p>but…</p>
+<pre><code>npm set registry http://localhost:4873/
+# if you wish to set it back to the default npmjs:
+npm set registry https://registry.npmjs.org/
+</code></pre>
 
-<p><a href="http://gitup.co/">GitUp</a> looks promising:</p>
+<p>Run Sinopia using:</p>
 
-<p><img src="../images/editing.gif" alt="git1" /></p>
+<pre><code>sinopia
+</code></pre>
+
+<p>If everything works well, you should see that Sinopia automatically generated a config file and is now running at <code>http://localhost:4873/</code>.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">warn  --- config file  - /Users/jestersimpps/.config/sinopia/config.yaml
+warn  --- http address - http://localhost:4873/</code></pre></figure>
+
+<p>The Default configuration will allow all users to do anything. I’m going to leave this for now as I want to focus more on publishing and installing my own packages instead. If you are interested in setting up your own configuration file, you can find a full config file <a href="https://github.com/rlidwka/sinopia/blob/master/conf/full.yaml">here</a>.</p>
+
+<h3 id="creating-a-packaged-angular-2-module">Creating a packaged Angular 2 module</h3>
+
+<p>We will create an angular module from the ground up. Cd into the folder (<code>./dummy</code> in my case) you wish to use for your module and generate a <code>package.json</code> file by typing:</p>
+
+<pre><code>mkdir dummy
+cd dummy
+npm init
+</code></pre>
+
+<p>This will ask you some questions about the library you wish to create, but don’t worry about those, you can just skip through them. Next, we have to include Angular 2 as a dependency, so we will do:</p>
+
+<pre><code>npm i --save @angular/core
+</code></pre>
+
+<p>The <code>--save</code> command will add the installed dependency to the previously creatde <code>package.json</code> file.</p>
+
+<p>Once Angular2 is installed, we will create a <code>.ts</code> source file at the root of our library with the name of our library:</p>
+
+<pre><code>dummy.ts
+</code></pre>
+<p>This will be the name we will use later on when we will import our library from a secondary application:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="p">{</span><span class="nx">dummy</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;dummy/dummy&quot;</span><span class="p">;</span></code></pre></figure>
+
+<p>This main file in the root will be used to export all of the files we will create next that make our module work.</p>
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="/tags/#git" title="Pages tagged git" class="tag"><span class="term">git</span></a><a href="/tags/#devtools" title="Pages tagged devtools" class="tag"><span class="term">devtools</span></a><a href="/tags/#repositories" title="Pages tagged repositories" class="tag"><span class="term">repositories</span></a></span>
+        <span class="entry-tags"></span>
         
         <div class="social-share">
   <ul class="socialcount socialcount-small inline-list">
-    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/gitup-the-new-git-manager/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
-    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/gitup-the-new-git-manager/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
-    <li class="googleplus"><a href="https://plus.google.com/share?url=/gitup-the-new-git-manager/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/setting-up-a-private-npm-registry-with-sinopia/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/setting-up-a-private-npm-registry-with-sinopia/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/setting-up-a-private-npm-registry-with-sinopia/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
   </ul>
 </div><!-- /.social-share -->
       </footer>
@@ -178,23 +219,23 @@ all your life has finally arrived.</p>
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="/webstorm-vs-atom/" class="read-more-btn">Read More</a>
+      <a href="/a-cool-idea-for-scrolling-throough-posts/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h3>
-      <p>When you have several front end projects going in the same company, and you are using a component based framework like Angular 2, it is i...&hellip; <a href="/setting-up-a-private-npm-registry-with-sinopia/">Continue reading</a></p>
+      <h3><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h3>
+      <p>Quite a few months ago I was working on a personal project called : mailwall.me.The idea was a platform where you can share what you thin...&hellip; <a href="/a-cool-idea-for-scrolling-throough-posts/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
-        <span>Published on November 09, 2016</span>
+        <h4><a href="/getting-started-with-microservices-and-go/" title="Getting Started With Microservices and Go">Getting Started With Microservices and Go</a></h4>
+        <span>Published on November 07, 2016</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="/getting-started-with-microservices-and-go/" title="Getting Started With Microservices and Go">Getting Started With Microservices and Go</a></h4>
-        <span>Published on November 07, 2016</span>
+        <h4><a href="/from-gulp-to-webpack/" title="From Gulp to Webpack">From Gulp to Webpack</a></h4>
+        <span>Published on August 21, 2016</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
