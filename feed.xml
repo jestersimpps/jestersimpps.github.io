@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-12-05T08:30:21-05:00</updated>
+<updated>2016-12-06T01:47:07-05:00</updated>
 <id>/</id>
 <author>
   <name>Jester Simpps</name>
@@ -85,6 +85,12 @@ npm init
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dummy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;dummy/dummy&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This main file in the root will be used to export all of the files we will create next that make our module work.&lt;/p&gt;
+
+&lt;p&gt;to be continued…
+&lt;!-- https://github.com/rlidwka/sinopia
+https://medium.com/@OCombe/how-to-publish-a-library-for-angular-2-on-npm-5f48cdabf435#.zed9c9ru3
+https://blog.dylants.com/2014/05/10/creating-a-private-npm-registry-with-sinopia/
+http://stackoverflow.com/questions/22385092/npm-config-set-registry-https-registry-npmjs-org-is-not-working-in-windows --&gt;&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;/setting-up-a-private-npm-registry-with-sinopia/&quot;&gt;Setting Up a Private Npm Registry With Sinopia&lt;/a&gt; was originally published by Jester Simpps at &lt;a href=&quot;&quot;&gt;Hardcore trial & error&lt;/a&gt; on December 05, 2016.&lt;/p&gt;
   </content>
