@@ -136,6 +136,76 @@
   <header>
     
       <div class="entry-image-index">
+        <a href="/webstorm-vs-atom/" title="WebStorm vs. Atom"><img src="/images/webstorm.jpg" alt="WebStorm vs. Atom"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-09-23T15:19:12-04:00"><a href="/webstorm-vs-atom/">September 23, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jester Simpps">Jester Simpps</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~3 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/webstorm-vs-atom/" rel="bookmark" title="WebStorm vs. Atom" itemprop="url">WebStorm vs. Atom</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I have recently switched to the Atom editor and really love it.
+I love experimenting with new coding environments and so far PHP- and Webstorm have provided me with the best all round support
+for everything I make Web-related. But now… there is: Atom!!!</p>
+
+<p>My first programming experiences, I remember, were in DOS. There was this editor for Qbasic, which was basically no editor at all. I know there’s always been vi, or vim, but I didn’t know about them as I was 11.
+When I was around 14-15, I started developing Visual Basic 6 applications.
+Visual Basic was awesome! The name Visual comes from it having a drag &amp; drop UI builder. I thought that was really great until I moved to .NET. Dot NET was actually a super visual Basic EDI and I loved it.</p>
+
+<p>When making the switch to web development some time ago I started out using sublime text as everybody was using it at the time. I wanted to get into using predominantly open source tools as they are free,
+and they are developed by a community of people who are also the actual users of the tools they build.
+However, after Sublime came Webstorm / PHPStorm since I loved the terminal-in-edi solution and it had great code inspection and an actual drag and drop file tree.</p>
+
+<p>Today I downloaded Atom and in a matter of minutes I found and installed the packages “Terminal-plus” and “Atom-beautify”.
+I now have the same functionality as I had in the Jetbrains EDI’s but in, what seems to me, an editor package.</p>
+
+<p>The scrolling is smooth and I can have 4 or more projects open at the same time without any hassle. This would be a nogo using the Jetbrains EDI’s. You either had to minimize the Jetbrains instances and only have one open at a time or switch to power saving mode. Not doing this would ramp up the CPU too much and keep them from working smoothly.</p>
+
+<p><img src="../images/atomeditors.png" alt="multipleatom" /></p>
+
+<p>I also love the preinstalled markdown preview package, which I am using right now:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Atom</th>
+      <th style="text-align: center">PHPStorm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="../images/atomeditor.png" alt="eatom" /></td>
+      <td style="text-align: center"><img src="../images/phpstorm.png" alt="eatom" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>PHPStorm also has the markdown preview, but its in a tabswitcher, and I couldn’t figure out how to make it show permanently on the side like the one in Atom.</p>
+
+<p>Overall I enjoy the cleaner, distraction free look of the Atom Editor. A lot of the buttons and tabs that I don’t use in PHPStorm are just not there. You can find all these in the mac top menu bar, which enforces learning keyboard shortcuts. And I don’t mind.
+My work environment is cleaner, and I have a larger area to code. Also, the few seconds it takes to look up a hotkey combination for a common command will shave off countless seconds of work in the future.</p>
+
+<p>Lastly, what I like about Atom is that you can customize it to your own needs. Atom is flexible and I can choose which plug-ins I need, whereas the Jetbrains EDI’s come with a lot of stuff prepackaged. Stuff that I’ll never use in an EDI. for example: vcs and grunt: good try, but I do my gitting and grunting in the terminal.</p>
+
+<p>If you don’t like something, or want to make it better, it is <a href="https://github.com/atom/atom">hackable</a>.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
         <a href="/experimenting-with-google-spreadsheets-assemble-io-and-internationalisation/" title="Experimenting with google spreadsheets, assemble.io and internationalisation"><img src="/images/assemble.jpeg" alt="Experimenting with google spreadsheets, assemble.io and internationalisation"></a>
       </div><!-- /.entry-image -->
     
@@ -165,14 +235,14 @@ please go through the <a href="http://assemble.io/docs/">documentation</a> befor
 It can be hooked up with Jenkins in a way that you can provide clients with a basic CMS for their website. I’ll try and explain how to set that up in a future post.
 For now let’s take a look at the Grunt file and how we can make these two plugins work together.</p>
 
-<h4 id="setting-up-a-google-spreadsheet-file">1. Setting up a Google spreadsheet file</h4>
+<h4 id="1-setting-up-a-google-spreadsheet-file">1. Setting up a Google spreadsheet file</h4>
 
 <p>Go to your Google drive and create a new spreadsheet file. Name it as you want. I generally use the url of the website I’m going to create.
 Set it up so that it has a key column which is named: “key” and two letter syllables for the different languages you want to translate to.</p>
 
 <p><img src="../images/googlespreadsheet1.png" alt="google spreadsheet file" /></p>
 
-<h4 id="making-the-google-spreadsheet-file-publicly-viewable">2. Making the google spreadsheet file publicly viewable</h4>
+<h4 id="2-making-the-google-spreadsheet-file-publicly-viewable">2. Making the google spreadsheet file publicly viewable</h4>
 
 <p>Make the Spreadsheet file publicly viewable so that the Grunt plugin can pick up the contents.
 Click on the sharing button in the top right:</p>
@@ -196,7 +266,7 @@ To find the key, look in the url for a sequence of randomness:</p>
 
 <p><img src="../images/gdockey.png" alt="google spreadsheet file" /></p>
 
-<h4 id="installing-the-dependencies">3. Installing the dependencies</h4>
+<h4 id="3-installing-the-dependencies">3. Installing the dependencies</h4>
 
 <ul>
   <li>Install Assemble.io using npm:</li>
@@ -216,15 +286,15 @@ To find the key, look in the url for a sequence of randomness:</p>
 
 <p><code>npm i Grunt-convert --save-dev</code></p>
 
-<h4 id="setting-up-the-grunt-tasks">4. Setting up the Grunt tasks</h4>
+<h4 id="4-setting-up-the-grunt-tasks">4. Setting up the Grunt tasks</h4>
 
 <p>In our Grunt file, we enable the tasks and add the following constants and the key to your google spreadsheet file:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-i18n-gspreadsheet&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-i18n-gspreadsheet&#39;</span><span class="p">);</span>
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-convert&#39;</span><span class="p">);</span>
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;assemble&#39;</span><span class="p">);</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">Grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
     <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">src</span>                <span class="o">:</span> <span class="s1">&#39;src&#39;</span><span class="p">,</span>
         <span class="nx">dist</span>               <span class="o">:</span> <span class="s1">&#39;dist&#39;</span><span class="p">,</span>
@@ -236,7 +306,7 @@ To find the key, look in the url for a sequence of randomness:</p>
 <p>We add the task that will parse your google spreadsheet file.
 It will automaticall create 3 <code>.js</code> language files in a <code>/locales</code> folder.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">i18n_gspreadsheet</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">i18n_gspreadsheet</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">options</span>    <span class="o">:</span> <span class="p">{</span>
         <span class="nx">document_key</span>              <span class="o">:</span> <span class="s1">&#39;&lt;%= config.google_document_key %&gt;&#39;</span><span class="p">,</span>
         <span class="nx">key_column</span>                <span class="o">:</span> <span class="s1">&#39;key&#39;</span><span class="p">,</span>
@@ -250,7 +320,7 @@ It will automaticall create 3 <code>.js</code> language files in a <code>/locale
 In this example, we use t.json for the data file name that the assemble process will use in the build process.
 This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars templates, which will get replaced by the correct translations.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">convert</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">convert</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">explicitArray</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
@@ -272,7 +342,7 @@ This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars t
 
 <p><code>npm i Grunt-contrib-clean --save-dev</code></p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-contrib-clean&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-contrib-clean&#39;</span><span class="p">);</span>
 
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">&#39;translate&#39;</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">&#39;clean:locales&#39;</span><span class="p">,</span>
@@ -280,7 +350,7 @@ This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars t
     <span class="s1">&#39;convert&#39;</span>
 <span class="p">]);</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">clean</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">clean</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">locales</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;locales&quot;</span><span class="p">]</span>
     <span class="p">}</span>
@@ -290,7 +360,7 @@ This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars t
 The following code will assemble to the root folder <code>/</code> and the different subfolders <code>/fr</code> en <code>/es</code> from the different locale files
 (<code>locales/en/t.json</code>, <code>locales/fr/t.json</code> and <code>locales/es/t.json</code>) created by the Grunt-convert task.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">assemble</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">assemble</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">en</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
             <span class="nx">flatten</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -343,13 +413,13 @@ The following code will assemble to the root folder <code>/</code> and the diffe
 
 <p>The build process will now scaffold our <code>/dist</code> directory like this:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">...
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>...
 fr/...
 es/...</code></pre></figure>
 
 <p>We can now use the translation keys in our assemble .hbs files that will be replaced by the language content in the google spreadsheet file:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">   <span class="nt">&lt;h1&gt;</span> {{ t.HELLO }}, {{ t.WORLD }}  <span class="nt">&lt;/h1&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span></span>   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span> {{ t.HELLO }}, {{ t.WORLD }}  <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span></code></pre></figure>
 
 
   </div><!-- /.entry-content -->
@@ -391,7 +461,7 @@ es/...</code></pre></figure>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2017 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

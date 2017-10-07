@@ -210,7 +210,7 @@
 
 <p>Because the sequence of testing is the same for all endpoints, I created a general script that will test different endpoints using the same code but different input based on the endpoint’s data. The input data will be stored in an object that will be called from an endpoint file in the ‘test/routes’ folder.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">├── <span class="nb">test</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>├── <span class="nb">test</span>
 <span class="p">|</span>    ├── routes  
 <span class="p">|</span>         ├── endpoint1.js
 <span class="p">|</span>         ├── endpoint2.js
@@ -222,14 +222,14 @@
 <p>The content of the endpoint file will contain the e2e_test options object which has some options for the endpoint tests and apidoc generator.
 Next to the options, a testData object contains all data needed to perform the tests. The object attributes are pretty self explanatory:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//define the e2e script</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="c1">//define the e2e script</span>
 <span class="kr">const</span> <span class="nx">e2e</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./e2e_tests.js&#39;</span><span class="p">);</span>
 <span class="c1">// this should refer to the express app you have set up for your api</span>
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
 
 <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
-<span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
 
 	<span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1">//timeout between requests</span>
@@ -239,7 +239,7 @@ Next to the options, a testData object contains all data needed to perform the t
     <span class="c1">//generate apidoc or not?</span>
 		<span class="nx">apidoc</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="c1">//where do you want to store the schema jsons for the apidoc schema plugin?</span>
-		<span class="nx">schemaDir</span><span class="o">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="err">`</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">apischemas</span><span class="o">/</span><span class="err">`</span>
+		<span class="nx">schemaDir</span><span class="o">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="sb">`/../data/apischemas/`</span>
 	<span class="p">}</span>
 
 
@@ -267,53 +267,53 @@ Next to the options, a testData object contains all data needed to perform the t
 
 <p>When we run mocha the end-to-end script will be called and run all tests for that endpoint. If you have specified a schemaDir and the apidoc boolean is set to true, the script will also automatically generate json schemas for the apidoc based on the testData.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node_modules/.bin/mocha</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>node_modules/.bin/mocha</code></pre></figure>
 
 <p>Console output for a working API should be similar to:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">-------- Albums tests --------
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>-------- Albums tests --------
 
-GET /Albums <span class="m">200</span> 148.080 ms - 2
-Counting Albums: 0
+GET /Albums <span class="m">200</span> <span class="m">148</span>.080 ms - <span class="m">2</span>
+Counting Albums: <span class="m">0</span>
     ✓ Should <span class="k">return</span> an array of Albums
 --POST shows/: <span class="o">{</span><span class="s2">&quot;general&quot;</span>:<span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;Ascot&quot;</span><span class="o">}</span>,<span class="s2">&quot;time&quot;</span>:<span class="o">{</span><span class="s2">&quot;startDate&quot;</span>:<span class="s2">&quot;2016-04-06T21:51:15.000Z&quot;</span><span class="o">}</span>,<span class="s2">&quot;type&quot;</span>:<span class="s2">&quot;album&quot;</span><span class="o">}</span>
-POST /Albums <span class="m">200</span> 151.935 ms - 1996
+POST /Albums <span class="m">200</span> <span class="m">151</span>.935 ms - <span class="m">1996</span>
 Adding: <span class="m">1</span> Album
     ✓ Should create a new Album
-GET /Albums/5789159e34150fe84c463f28 <span class="m">200</span> 117.938 ms - 1996
+GET /Albums/5789159e34150fe84c463f28 <span class="m">200</span> <span class="m">117</span>.938 ms - <span class="m">1996</span>
     ✓ Should get the new Album
-GET /Albums <span class="m">200</span> 103.512 ms - 1998
-Counting Albums: 1, should be: 1
+GET /Albums <span class="m">200</span> <span class="m">103</span>.512 ms - <span class="m">1998</span>
+Counting Albums: <span class="m">1</span>, should be: <span class="m">1</span>
     ✓ Should <span class="k">return</span> an array of Albums with the correct size
-PUT /Albums/5789159e34150fe84c463f28 <span class="m">200</span> 115.422 ms - 1997
+PUT /Albums/5789159e34150fe84c463f28 <span class="m">200</span> <span class="m">115</span>.422 ms - <span class="m">1997</span>
     ✓ Should change a Album
-GET /Albums/5789159e34150fe84c463f28 <span class="m">200</span> 102.205 ms - 1997
+GET /Albums/5789159e34150fe84c463f28 <span class="m">200</span> <span class="m">102</span>.205 ms - <span class="m">1997</span>
     ✓ Should get the changed Album
-DELETE /Albums/5789159e34150fe84c463f28 <span class="m">200</span> 116.241 ms - 2018
+DELETE /Albums/5789159e34150fe84c463f28 <span class="m">200</span> <span class="m">116</span>.241 ms - <span class="m">2018</span>
 Removing: <span class="m">1</span> Album
     ✓ Should remove a Album
-GET /Albums <span class="m">200</span> 104.573 ms - 2
-Counting Albums: 0, should be: 0
+GET /Albums <span class="m">200</span> <span class="m">104</span>.573 ms - <span class="m">2</span>
+Counting Albums: <span class="m">0</span>, should be: <span class="m">0</span>
     ✓ Should get an array without the deleted Album
 
 -------- Articles tests --------
 
-GET /Articles <span class="m">200</span> 92.230 ms - 2
-Counting Articles: 0
+GET /Articles <span class="m">200</span> <span class="m">92</span>.230 ms - <span class="m">2</span>
+Counting Articles: <span class="m">0</span>
     ✓ Should <span class="k">return</span> an array of Articles
-POST /Articles <span class="m">200</span> 98.047 ms - 300
+POST /Articles <span class="m">200</span> <span class="m">98</span>.047 ms - <span class="m">300</span>
 Adding: <span class="m">1</span> Article
     ✓ Should create a new Article
-GET /Articles/578915a134150fe84c463f39 <span class="m">200</span> 99.768 ms - 300
+GET /Articles/578915a134150fe84c463f39 <span class="m">200</span> <span class="m">99</span>.768 ms - <span class="m">300</span>
     ✓ Should get the new Article
-GET /Articles <span class="m">200</span> 107.985 ms - 302
-Counting Articles: 1, should be: 1
+GET /Articles <span class="m">200</span> <span class="m">107</span>.985 ms - <span class="m">302</span>
+Counting Articles: <span class="m">1</span>, should be: <span class="m">1</span>
     ✓ Should <span class="k">return</span> an array of Articles with the correct size
-DELETE /Articles/578915a134150fe84c463f39 <span class="m">200</span> 99.193 ms - 329
+DELETE /Articles/578915a134150fe84c463f39 <span class="m">200</span> <span class="m">99</span>.193 ms - <span class="m">329</span>
 Removing: <span class="m">1</span> Article
     ✓ Should remove a Article
-GET /Articles <span class="m">200</span> 101.275 ms - 304
-Counting Articles: 0, should be: 0
+GET /Articles <span class="m">200</span> <span class="m">101</span>.275 ms - <span class="m">304</span>
+Counting Articles: <span class="m">0</span>, should be: <span class="m">0</span>
     ✓ Should get an array without the deleted Article
 
 
@@ -331,7 +331,7 @@ info: Done.</code></pre></figure>
 
 <p>Change them according to your endpoints of course. They will be used by the APIdoc generator to create the documentation frontend.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/**</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="cm">/**</span>
 <span class="cm">* @apiSchema {jsonschema=../test/data/apischemas/&lt;routecaps&gt;-POST-create-a-new-&lt;routesingle&gt;-PARAMS.json} apiParam</span>
 <span class="cm">* @apiSchema {jsonschema=../test/data/apischemas/&lt;routecaps&gt;-POST-create-a-new-&lt;routesingle&gt;-SUCCESS.json} apiSuccess</span>
 <span class="cm">*/</span></code></pre></figure>
@@ -341,7 +341,7 @@ The output directory can be changed in the options object in the endpoint test f
 
 <p>Assuming the <code>./routes</code> folder contains your api’s route files and the <code>./public</code> folder is the folder that will contain the apidoc frontend, generate your api documentation by running:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">apidoc -i ./routes -o ./public/</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>apidoc -i ./routes -o ./public/</code></pre></figure>
 
 <ul>
   <li>These tests were run using mongoDB, which uses <code>_id</code> as a primary key. You might have to edit the test script to your needs a bit when you are using a different database or key/slug to perform individual GET,PUT,DELETE requests.</li>
@@ -369,20 +369,20 @@ The output directory can be changed in the options object in the endpoint test f
       <a href="/smart-contract-blockchain-platforms/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h3>
-      <p>When you have several front end projects going in the same company, and you are using a component based framework like Angular 2, it is i...&hellip; <a href="/setting-up-a-private-npm-registry-with-sinopia/">Continue reading</a></p>
+      <h3><a href="/decentralized-microservices-with-ipfs/" title="Decentralized Microservices With IPFS">Decentralized Microservices With IPFS</a></h3>
+      <p># What is IPFS?IPFS (the InterPlanetary File System) is a distributed file system that seeks to connect all computing devices with the sa...&hellip; <a href="/decentralized-microservices-with-ipfs/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
-        <span>Published on November 09, 2016</span>
+        <h4><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h4>
+        <span>Published on December 05, 2016</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="/getting-started-with-microservices-and-go/" title="Getting Started With Microservices and Go">Getting Started With Microservices and Go</a></h4>
-        <span>Published on November 07, 2016</span>
+        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
+        <span>Published on November 09, 2016</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
@@ -392,7 +392,7 @@ The output directory can be changed in the options object in the endpoint test f
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2017 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

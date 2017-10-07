@@ -171,8 +171,8 @@ I’ve heard all the buzz but haven’t actually given Webpack any time as I hav
 
 <p>Start by cloning your favorite Webpack starter repo somewhere on your hard drive.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/AngularClass/angular2-webpack-starter.git
-<span class="nb">cd </span>angular2-webpack-starter
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git clone https://github.com/AngularClass/angular2-webpack-starter.git
+<span class="nb">cd</span> angular2-webpack-starter
 npm i</code></pre></figure>
 
 <p>If you choose to use the same starter as me, make sure you have Node version &gt;= 5.0 and NPM &gt;= 3 as mentioned in their readme.</p>
@@ -190,7 +190,7 @@ From this moment onward there’s a lot of nitty gritty changes to the Webpack c
 <p>Depending on how you have set up your Angular 2 application you will have a different <code>main.ts</code> file.(assuming you are coding Typescript, I’ll just ignore anyone who isn’t)
 The <code>main.ts</code> file is that file that holds your main app component (everything starts from there, your JS app big bang). Webpack best practice commands you to split it up into 3 files:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
 
   <span class="s1">&#39;polyfills&#39;</span><span class="o">:</span> <span class="s1">&#39;./src/polyfills.browser.ts&#39;</span><span class="p">,</span>
   <span class="s1">&#39;vendor&#39;</span><span class="o">:</span> <span class="s1">&#39;./src/vendor.browser.ts&#39;</span><span class="p">,</span>
@@ -204,7 +204,7 @@ The <code>main.ts</code> file is that file that holds your main app component (e
 
 <p>Set your own constants in the <code>config/webpack.common.js</code>:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">METADATA</span> <span class="o">=</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">const</span> <span class="nx">METADATA</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Yourapp&#39;</span><span class="p">,</span>
   <span class="nx">baseUrl</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
   <span class="nx">isDevServer</span><span class="o">:</span> <span class="nx">helpers</span><span class="p">.</span><span class="nx">isWebpackDevServer</span><span class="p">()</span>
@@ -273,20 +273,20 @@ In my case there were issues because we are using html template files for our co
       <a href="/automated-e2e-api-testing-documentation-for-node-js/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h3>
-      <p>When you have several front end projects going in the same company, and you are using a component based framework like Angular 2, it is i...&hellip; <a href="/setting-up-a-private-npm-registry-with-sinopia/">Continue reading</a></p>
+      <h3><a href="/decentralized-microservices-with-ipfs/" title="Decentralized Microservices With IPFS">Decentralized Microservices With IPFS</a></h3>
+      <p># What is IPFS?IPFS (the InterPlanetary File System) is a distributed file system that seeks to connect all computing devices with the sa...&hellip; <a href="/decentralized-microservices-with-ipfs/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
-        <span>Published on November 09, 2016</span>
+        <h4><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h4>
+        <span>Published on December 05, 2016</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="/getting-started-with-microservices-and-go/" title="Getting Started With Microservices and Go">Getting Started With Microservices and Go</a></h4>
-        <span>Published on November 07, 2016</span>
+        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
+        <span>Published on November 09, 2016</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
@@ -296,7 +296,7 @@ In my case there were issues because we are using html template files for our co
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2017 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

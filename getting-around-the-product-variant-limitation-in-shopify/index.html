@@ -155,11 +155,11 @@ I had to simulate randomly timed API posts since somehow I was getting errors on
 The script creates two types of products in Shopify: ‘variants’ and ‘products’. This allows you to set custom search filters in the admin and keep the variants separate from the actual products.
 One product can now have unlimited ‘variants’ (which are actually Shopify products). They are linked in the variant array that is injected in the product descriptions:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">variants</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">13737525511</span><span class="p">,</span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="mf">232.5</span><span class="p">,</span><span class="s2">&quot;variants&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;8.5\&quot; x 11\&quot; &quot;</span><span class="p">,</span><span class="s2">&quot; 100 &quot;</span><span class="p">,</span><span class="s2">&quot; single sided&quot;</span><span class="p">]},{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1232</span> <span class="p">...</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">var</span> <span class="nx">variants</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">13737525511</span><span class="p">,</span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="mf">232.5</span><span class="p">,</span><span class="s2">&quot;variants&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;8.5\&quot; x 11\&quot; &quot;</span><span class="p">,</span><span class="s2">&quot; 100 &quot;</span><span class="p">,</span><span class="s2">&quot; single sided&quot;</span><span class="p">]},{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1232</span> <span class="p">...</span></code></pre></figure>
 
 <h1 id="how-to-get-going">How to get going:</h1>
 
-<h3 id="prepare-the-excel-file">1. Prepare the Excel file</h3>
+<h3 id="1-prepare-the-excel-file">1. Prepare the Excel file</h3>
 
 <ol>
   <li>Add product rows in the products tab</li>
@@ -171,11 +171,11 @@ One product can now have unlimited ‘variants’ (which are actually Shopify pr
   <li>Add correct pricing to the variants</li>
 </ol>
 
-<h3 id="using-the-xls2shop-script">2. Using the xls2shop script</h3>
+<h3 id="2-using-the-xls2shop-script">2. Using the xls2shop script</h3>
 
-<h4 id="add-your-shopify-credentials">1. Add your Shopify credentials</h4>
+<h4 id="1-add-your-shopify-credentials">1. Add your Shopify credentials</h4>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Shopify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">shopifyAPI</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">var</span> <span class="nx">Shopify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">shopifyAPI</span><span class="p">({</span>
   <span class="nx">shop</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// MYSHOP.myshopify.com</span>
   <span class="nx">shopify_api_key</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Your API key</span>
   <span class="nx">shopify_shared_secret</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Your Shared Secret</span>
@@ -187,19 +187,19 @@ One product can now have unlimited ‘variants’ (which are actually Shopify pr
   <span class="nx">retry_errors</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">});</span></code></pre></figure>
 
-<h4 id="actions">2. Actions:</h4>
+<h4 id="2-actions">2. Actions:</h4>
 
 <p>Removing all products:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node xls2shop.js clean</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>node xls2shop.js clean</code></pre></figure>
 
 <p>Uploading product variants from Excel:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node xls2shop.js upload business<span class="se">\ </span>cards<span class="se">\ </span>example.xlsm</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>node xls2shop.js upload business<span class="se">\ </span>cards<span class="se">\ </span>example.xlsm</code></pre></figure>
 
-<h3 id="add-the-following-javascipt-to-the-product-pages-in-shopify">3. Add the following javascipt to the product pages in Shopify:</h3>
+<h3 id="3-add-the-following-javascipt-to-the-product-pages-in-shopify">3. Add the following javascipt to the product pages in Shopify:</h3>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span>  <span class="kd">var</span> <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
   <span class="nx">$</span><span class="p">(</span> <span class="s2">&quot;#price&quot;</span> <span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">variant</span><span class="p">.</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
 
 
@@ -247,18 +247,18 @@ The product description that contains the variant data is injected in the produc
 
 <p>The add to cart script can be triggered as such:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick=</span><span class="s">&quot;addToCart()&quot;</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;addToCart()&quot;</span><span class="p">&gt;</span>
  Add to Cart
-<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span></code></pre></figure>
 
 <p>Dynamic pricing upon selection change is done by setting an element id to <code>price</code>:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">$<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;price&quot;</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span></span>$<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;price&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span></code></pre></figure>
 
-<h3 id="finally-hide-the-option-selectors-in-the-collection-pages">4. Finally, hide the option selectors in the collection pages</h3>
+<h3 id="4-finally-hide-the-option-selectors-in-the-collection-pages">4. Finally, hide the option selectors in the collection pages</h3>
 
-<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.productOptions</span><span class="p">{</span>
-  <span class="k">display</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span></span><span class="p">.</span><span class="nc">productOptions</span><span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
 
@@ -281,20 +281,20 @@ The product description that contains the variant data is injected in the produc
       <a href="/gitup-the-new-git-manager/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h3>
-      <p>When you have several front end projects going in the same company, and you are using a component based framework like Angular 2, it is i...&hellip; <a href="/setting-up-a-private-npm-registry-with-sinopia/">Continue reading</a></p>
+      <h3><a href="/decentralized-microservices-with-ipfs/" title="Decentralized Microservices With IPFS">Decentralized Microservices With IPFS</a></h3>
+      <p># What is IPFS?IPFS (the InterPlanetary File System) is a distributed file system that seeks to connect all computing devices with the sa...&hellip; <a href="/decentralized-microservices-with-ipfs/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
-        <span>Published on November 09, 2016</span>
+        <h4><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h4>
+        <span>Published on December 05, 2016</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="/getting-started-with-microservices-and-go/" title="Getting Started With Microservices and Go">Getting Started With Microservices and Go</a></h4>
-        <span>Published on November 07, 2016</span>
+        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
+        <span>Published on November 09, 2016</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
@@ -304,7 +304,7 @@ The product description that contains the variant data is injected in the produc
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2017 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

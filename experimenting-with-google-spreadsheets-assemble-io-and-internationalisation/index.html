@@ -153,14 +153,14 @@ please go through the <a href="http://assemble.io/docs/">documentation</a> befor
 It can be hooked up with Jenkins in a way that you can provide clients with a basic CMS for their website. I’ll try and explain how to set that up in a future post.
 For now let’s take a look at the Grunt file and how we can make these two plugins work together.</p>
 
-<h4 id="setting-up-a-google-spreadsheet-file">1. Setting up a Google spreadsheet file</h4>
+<h4 id="1-setting-up-a-google-spreadsheet-file">1. Setting up a Google spreadsheet file</h4>
 
 <p>Go to your Google drive and create a new spreadsheet file. Name it as you want. I generally use the url of the website I’m going to create.
 Set it up so that it has a key column which is named: “key” and two letter syllables for the different languages you want to translate to.</p>
 
 <p><img src="../images/googlespreadsheet1.png" alt="google spreadsheet file" /></p>
 
-<h4 id="making-the-google-spreadsheet-file-publicly-viewable">2. Making the google spreadsheet file publicly viewable</h4>
+<h4 id="2-making-the-google-spreadsheet-file-publicly-viewable">2. Making the google spreadsheet file publicly viewable</h4>
 
 <p>Make the Spreadsheet file publicly viewable so that the Grunt plugin can pick up the contents.
 Click on the sharing button in the top right:</p>
@@ -184,7 +184,7 @@ To find the key, look in the url for a sequence of randomness:</p>
 
 <p><img src="../images/gdockey.png" alt="google spreadsheet file" /></p>
 
-<h4 id="installing-the-dependencies">3. Installing the dependencies</h4>
+<h4 id="3-installing-the-dependencies">3. Installing the dependencies</h4>
 
 <ul>
   <li>Install Assemble.io using npm:</li>
@@ -204,15 +204,15 @@ To find the key, look in the url for a sequence of randomness:</p>
 
 <p><code>npm i Grunt-convert --save-dev</code></p>
 
-<h4 id="setting-up-the-grunt-tasks">4. Setting up the Grunt tasks</h4>
+<h4 id="4-setting-up-the-grunt-tasks">4. Setting up the Grunt tasks</h4>
 
 <p>In our Grunt file, we enable the tasks and add the following constants and the key to your google spreadsheet file:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-i18n-gspreadsheet&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-i18n-gspreadsheet&#39;</span><span class="p">);</span>
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-convert&#39;</span><span class="p">);</span>
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;assemble&#39;</span><span class="p">);</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">Grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
     <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">src</span>                <span class="o">:</span> <span class="s1">&#39;src&#39;</span><span class="p">,</span>
         <span class="nx">dist</span>               <span class="o">:</span> <span class="s1">&#39;dist&#39;</span><span class="p">,</span>
@@ -224,7 +224,7 @@ To find the key, look in the url for a sequence of randomness:</p>
 <p>We add the task that will parse your google spreadsheet file.
 It will automaticall create 3 <code>.js</code> language files in a <code>/locales</code> folder.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">i18n_gspreadsheet</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">i18n_gspreadsheet</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">options</span>    <span class="o">:</span> <span class="p">{</span>
         <span class="nx">document_key</span>              <span class="o">:</span> <span class="s1">&#39;&lt;%= config.google_document_key %&gt;&#39;</span><span class="p">,</span>
         <span class="nx">key_column</span>                <span class="o">:</span> <span class="s1">&#39;key&#39;</span><span class="p">,</span>
@@ -238,7 +238,7 @@ It will automaticall create 3 <code>.js</code> language files in a <code>/locale
 In this example, we use t.json for the data file name that the assemble process will use in the build process.
 This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars templates, which will get replaced by the correct translations.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">convert</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">convert</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">explicitArray</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
@@ -260,7 +260,7 @@ This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars t
 
 <p><code>npm i Grunt-contrib-clean --save-dev</code></p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-contrib-clean&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">Grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;Grunt-contrib-clean&#39;</span><span class="p">);</span>
 
 <span class="nx">Grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">&#39;translate&#39;</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">&#39;clean:locales&#39;</span><span class="p">,</span>
@@ -268,7 +268,7 @@ This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars t
     <span class="s1">&#39;convert&#39;</span>
 <span class="p">]);</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">clean</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">clean</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">locales</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;locales&quot;</span><span class="p">]</span>
     <span class="p">}</span>
@@ -278,7 +278,7 @@ This will allow us to use   {{ t.HELLO }} and {{ t.WORLD }}  in our handlebars t
 The following code will assemble to the root folder <code>/</code> and the different subfolders <code>/fr</code> en <code>/es</code> from the different locale files
 (<code>locales/en/t.json</code>, <code>locales/fr/t.json</code> and <code>locales/es/t.json</code>) created by the Grunt-convert task.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">assemble</span><span class="o">:</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">assemble</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">en</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
             <span class="nx">flatten</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -331,13 +331,13 @@ The following code will assemble to the root folder <code>/</code> and the diffe
 
 <p>The build process will now scaffold our <code>/dist</code> directory like this:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">...
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>...
 fr/...
 es/...</code></pre></figure>
 
 <p>We can now use the translation keys in our assemble .hbs files that will be replaced by the language content in the google spreadsheet file:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">   <span class="nt">&lt;h1&gt;</span> {{ t.HELLO }}, {{ t.WORLD }}  <span class="nt">&lt;/h1&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span></span>   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span> {{ t.HELLO }}, {{ t.WORLD }}  <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span></code></pre></figure>
 
 
       <footer class="entry-meta">
@@ -359,20 +359,20 @@ es/...</code></pre></figure>
       <a href="" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h3>
-      <p>When you have several front end projects going in the same company, and you are using a component based framework like Angular 2, it is i...&hellip; <a href="/setting-up-a-private-npm-registry-with-sinopia/">Continue reading</a></p>
+      <h3><a href="/decentralized-microservices-with-ipfs/" title="Decentralized Microservices With IPFS">Decentralized Microservices With IPFS</a></h3>
+      <p># What is IPFS?IPFS (the InterPlanetary File System) is a distributed file system that seeks to connect all computing devices with the sa...&hellip; <a href="/decentralized-microservices-with-ipfs/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
-        <span>Published on November 09, 2016</span>
+        <h4><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h4>
+        <span>Published on December 05, 2016</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="/getting-started-with-microservices-and-go/" title="Getting Started With Microservices and Go">Getting Started With Microservices and Go</a></h4>
-        <span>Published on November 07, 2016</span>
+        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
+        <span>Published on November 09, 2016</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
@@ -382,7 +382,7 @@ es/...</code></pre></figure>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2017 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 

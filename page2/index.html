@@ -136,6 +136,239 @@
   <header>
     
       <div class="entry-image-index">
+        <a href="/automated-e2e-api-testing-documentation-for-node-js/" title="Automated E2e API Testing/Documentation for Node.js"><img src="/images/mocha.jpg" alt="Automated E2e API Testing/Documentation for Node.js"></a>
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-07-22T06:46:58-04:00"><a href="/automated-e2e-api-testing-documentation-for-node-js/">July 22, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jester Simpps">Jester Simpps</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~10 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/automated-e2e-api-testing-documentation-for-node-js/" rel="bookmark" title="Automated E2e API Testing/Documentation for Node.js" itemprop="url">Automated E2e API Testing/Documentation for Node.js</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>This was my first time doing test driven API development in Node.js and I must say, I really enjoyed it. I used to fall back on a Chrome plugin called <a href="https://www.getpostman.com/">Postman</a> a lot before getting used to Mocha and test driven development. It was a joy to write code for a test that described what the endpoint should do before actually coding the new endpoint. It made me think more about the code I was going to write and what it should do. It also happened sometimes that there would be a total API overhaul (like the implementation of softdeletes). And, man was I glad I had written unit tests for all my endpoints when that happened!</p>
+
+<h2 id="butwait-wont-i-lose-a-lot-of-time-doing-that">But…wait.. won’t I lose a lot of time doing that?!?</h2>
+
+<p><img src="https://risingstack-blog.s3-eu-west-1.amazonaws.com/2014/Oct/unit_testing.jpeg" alt="unit tests" /></p>
+
+<p>Writing API tests for a node.js API can be a tedious job. We are dealing with a single event loop, so we need to take in account callbacks. Especially when doing API testing, callbacks can quickly become a pain point. A lot of times, checking whether requests work means triggering other requests sequentially to see if the database was updated by previous requests. This is why, after refactoring a bit of my tests, I was able to create a simple end-to-end testscript that I would just call whenever I wrote a new route. Every time with different input data specific to the route of course. I was later able to tie in APIDoc, a documentation generator that will create a frontend containing the documentation for all your endpoints. So in the end all my endpoints were not only fully tested, but also automatically documented in one go. This was very nice and saved me a lot of time.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="testing">Testing</h3>
+
+<ul>
+  <li>We will be using <a href="https://mochajs.org/">Mocha</a> as a testing framework for our Node.js API.</li>
+  <li>Mocha is great, but not perfect, so on top of it, we will include the <a href="https://github.com/visionmedia/supertest">supertest</a> package that will provide abstraction for HTTP testing.</li>
+  <li>As I refactored my end to end tests into one single testscript, we will also need a package called <a href="https://www.npmjs.com/package/partial-compare">partial compare</a> that will do partial matching between test objects and actual return-objects from the api.</li>
+  <li>We will also use <a href="https://www.npmjs.com/package/should">should</a> to make our testing code more human readable and easier to write.</li>
+</ul>
+
+<h3 id="api-documentation">API documentation</h3>
+
+<ul>
+  <li>A great library called <a href="http://apidocjs.com/">APIdoc</a> will take care of documenting all of the endpoints</li>
+  <li>A plugin of that library <a href="https://www.npmjs.com/package/apidoc-plugin-schema">apidoc-plugin-schema</a> will make our life easier.</li>
+</ul>
+
+<p>In the package.json file:</p>
+
+<pre><code>"devDependencies": {
+  "apidoc-plugin-schema": "0.0.4",
+  "body-parser": "~1.8.1",
+  "fs": "0.0.2",
+  "jsonfile": "^2.3.1",
+  "mocha": "^2.1.0",
+  "partial-compare": "^1.0.1",
+  "path": "^0.12.7",
+  "should": "~4.6.2",
+  "supertest": "^0.15.0",
+  "type-of-is": "^3.4.0"
+}
+</code></pre>
+
+<h2 id="end-to-end-testing">End to end testing</h2>
+
+<p>Wikipedia says:</p>
+
+<blockquote>
+  <p>End-to-end testing is a technique used to test whether the flow of an application right from start to finish is behaving as expected. The purpose of performing end-to-end testing is to identify system dependencies and to ensure that the data integrity is maintained between various system components and systems.</p>
+</blockquote>
+
+<p>Translate this to API testing and you get:</p>
+
+<ol>
+  <li>GET an array of existing data</li>
+  <li>POST some new data</li>
+  <li>Test if the new data was posted</li>
+  <li>Change the new data using PUT</li>
+  <li>Test if the new data was changed</li>
+  <li>DELETE the new data</li>
+  <li>Test if the new data was removed</li>
+</ol>
+
+<p>Of course this is the most simple scenario of RESTful API testing, and I know there’s some other endpoints that can be more complex (like counters, searches, etc.) But I will not elaborate on these in this post as these most of the time imply writing custom tests.</p>
+
+<h2 id="a-test-script-that-covers-multiple-endpoints">A test script that covers multiple endpoints</h2>
+
+<p>Because the sequence of testing is the same for all endpoints, I created a general script that will test different endpoints using the same code but different input based on the endpoint’s data. The input data will be stored in an object that will be called from an endpoint file in the ‘test/routes’ folder.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>├── <span class="nb">test</span>
+<span class="p">|</span>    ├── routes  
+<span class="p">|</span>         ├── endpoint1.js
+<span class="p">|</span>         ├── endpoint2.js
+<span class="p">|</span>         ├── endpoint3.js
+<span class="p">|</span>    ├── e2e_tests.js
+<span class="p">|</span>    ├── schema_generator.js
+<span class="p">|</span>              </code></pre></figure>
+
+<p>The content of the endpoint file will contain the e2e_test options object which has some options for the endpoint tests and apidoc generator.
+Next to the options, a testData object contains all data needed to perform the tests. The object attributes are pretty self explanatory:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="c1">//define the e2e script</span>
+<span class="kr">const</span> <span class="nx">e2e</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./e2e_tests.js&#39;</span><span class="p">);</span>
+<span class="c1">// this should refer to the express app you have set up for your api</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+
+<span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+	<span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">//timeout between requests</span>
+		<span class="nx">timeout</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="c1">//your express app</span>
+		<span class="nx">api</span><span class="o">:</span> <span class="nx">app</span><span class="p">,</span>
+    <span class="c1">//generate apidoc or not?</span>
+		<span class="nx">apidoc</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="c1">//where do you want to store the schema jsons for the apidoc schema plugin?</span>
+		<span class="nx">schemaDir</span><span class="o">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="sb">`/../data/apischemas/`</span>
+	<span class="p">}</span>
+
+
+	<span class="kd">let</span> <span class="nx">testData</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="nx">routeName</span><span class="o">:</span> <span class="s1">&#39;Articles&#39;</span><span class="p">,</span>
+		<span class="nx">postObject</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;this is an article&#39;</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="nx">expectedObjectAfterPost</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;this is an article&#39;</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="nx">putObject</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;this is an article too&#39;</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="nx">expectedObjectAfterPut</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;this is an article too&#39;</span><span class="p">,</span>
+		<span class="p">}</span>
+	<span class="p">};</span>
+
+  <span class="c1">//You can then call a unit test for this endpoint by calling the script:</span>
+	<span class="nx">e2e</span><span class="p">(</span><span class="nx">testData</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+
+
+<span class="p">})();</span></code></pre></figure>
+
+<p>When we run mocha the end-to-end script will be called and run all tests for that endpoint. If you have specified a schemaDir and the apidoc boolean is set to true, the script will also automatically generate json schemas for the apidoc based on the testData.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>node_modules/.bin/mocha</code></pre></figure>
+
+<p>Console output for a working API should be similar to:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>-------- Albums tests --------
+
+GET /Albums <span class="m">200</span> <span class="m">148</span>.080 ms - <span class="m">2</span>
+Counting Albums: <span class="m">0</span>
+    ✓ Should <span class="k">return</span> an array of Albums
+--POST shows/: <span class="o">{</span><span class="s2">&quot;general&quot;</span>:<span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;Ascot&quot;</span><span class="o">}</span>,<span class="s2">&quot;time&quot;</span>:<span class="o">{</span><span class="s2">&quot;startDate&quot;</span>:<span class="s2">&quot;2016-04-06T21:51:15.000Z&quot;</span><span class="o">}</span>,<span class="s2">&quot;type&quot;</span>:<span class="s2">&quot;album&quot;</span><span class="o">}</span>
+POST /Albums <span class="m">200</span> <span class="m">151</span>.935 ms - <span class="m">1996</span>
+Adding: <span class="m">1</span> Album
+    ✓ Should create a new Album
+GET /Albums/5789159e34150fe84c463f28 <span class="m">200</span> <span class="m">117</span>.938 ms - <span class="m">1996</span>
+    ✓ Should get the new Album
+GET /Albums <span class="m">200</span> <span class="m">103</span>.512 ms - <span class="m">1998</span>
+Counting Albums: <span class="m">1</span>, should be: <span class="m">1</span>
+    ✓ Should <span class="k">return</span> an array of Albums with the correct size
+PUT /Albums/5789159e34150fe84c463f28 <span class="m">200</span> <span class="m">115</span>.422 ms - <span class="m">1997</span>
+    ✓ Should change a Album
+GET /Albums/5789159e34150fe84c463f28 <span class="m">200</span> <span class="m">102</span>.205 ms - <span class="m">1997</span>
+    ✓ Should get the changed Album
+DELETE /Albums/5789159e34150fe84c463f28 <span class="m">200</span> <span class="m">116</span>.241 ms - <span class="m">2018</span>
+Removing: <span class="m">1</span> Album
+    ✓ Should remove a Album
+GET /Albums <span class="m">200</span> <span class="m">104</span>.573 ms - <span class="m">2</span>
+Counting Albums: <span class="m">0</span>, should be: <span class="m">0</span>
+    ✓ Should get an array without the deleted Album
+
+-------- Articles tests --------
+
+GET /Articles <span class="m">200</span> <span class="m">92</span>.230 ms - <span class="m">2</span>
+Counting Articles: <span class="m">0</span>
+    ✓ Should <span class="k">return</span> an array of Articles
+POST /Articles <span class="m">200</span> <span class="m">98</span>.047 ms - <span class="m">300</span>
+Adding: <span class="m">1</span> Article
+    ✓ Should create a new Article
+GET /Articles/578915a134150fe84c463f39 <span class="m">200</span> <span class="m">99</span>.768 ms - <span class="m">300</span>
+    ✓ Should get the new Article
+GET /Articles <span class="m">200</span> <span class="m">107</span>.985 ms - <span class="m">302</span>
+Counting Articles: <span class="m">1</span>, should be: <span class="m">1</span>
+    ✓ Should <span class="k">return</span> an array of Articles with the correct size
+DELETE /Articles/578915a134150fe84c463f39 <span class="m">200</span> <span class="m">99</span>.193 ms - <span class="m">329</span>
+Removing: <span class="m">1</span> Article
+    ✓ Should remove a Article
+GET /Articles <span class="m">200</span> <span class="m">101</span>.275 ms - <span class="m">304</span>
+Counting Articles: <span class="m">0</span>, should be: <span class="m">0</span>
+    ✓ Should get an array without the deleted Article
+
+
+  <span class="m">2</span> passing <span class="o">(</span>4s<span class="o">)</span>
+
+info: Done.</code></pre></figure>
+
+<h2 id="api-documentation-generator">API documentation generator</h2>
+
+<p>In your route files, above your endpoints, you can then add the following comment blocks:</p>
+
+<ul>
+  <li><a href="https://github.com/jestersimpps/node_rest_test_doc/blob/master/test/routes/APIDOC.md">api doc helpers</a></li>
+</ul>
+
+<p>Change them according to your endpoints of course. They will be used by the APIdoc generator to create the documentation frontend.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="cm">/**</span>
+<span class="cm">* @apiSchema {jsonschema=../test/data/apischemas/&lt;routecaps&gt;-POST-create-a-new-&lt;routesingle&gt;-PARAMS.json} apiParam</span>
+<span class="cm">* @apiSchema {jsonschema=../test/data/apischemas/&lt;routecaps&gt;-POST-create-a-new-&lt;routesingle&gt;-SUCCESS.json} apiSuccess</span>
+<span class="cm">*/</span></code></pre></figure>
+
+<p>The apiSchema references in the comments displayed above will point at the schema jsons that are generated by the <a href="https://github.com/jestersimpps/node_rest_test_doc/blob/master/test/schema_generator.js">schema_generator</a>.
+The output directory can be changed in the options object in the endpoint test file as illustrated earlier.</p>
+
+<p>Assuming the <code>./routes</code> folder contains your api’s route files and the <code>./public</code> folder is the folder that will contain the apidoc frontend, generate your api documentation by running:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>apidoc -i ./routes -o ./public/</code></pre></figure>
+
+<ul>
+  <li>These tests were run using mongoDB, which uses <code>_id</code> as a primary key. You might have to edit the test script to your needs a bit when you are using a different database or key/slug to perform individual GET,PUT,DELETE requests.</li>
+  <li>In the e2e_test script, basic authentication was used. You might also need to change this according to the authentication methods of your API.</li>
+</ul>
+
+<p>The entire code and scripts can be found <a href="https://github.com/jestersimpps/node_rest_test_doc">here</a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
         <a href="/smart-contract-blockchain-platforms/" title="An overview of the Blockchain development Ecosystem"><img src="/images/ether.png" alt="An overview of the Blockchain development Ecosystem"></a>
       </div><!-- /.entry-image -->
     
@@ -160,128 +393,128 @@
 
 <hr />
 
-<h3 id="iconrescloudinarycomhrscywv4pimageuploadclimith300w300fautov1393946rsklogobndaykpxpnghttpwwwrootstockio"><a href="http://www.rootstock.io/"><img src="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_300,w_300,f_auto/v1/393946/RSKLOGOBN_daykpx.png" alt="icon" /></a></h3>
+<h3><a href="http://www.rootstock.io/"><img src="//res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_300,w_300,f_auto/v1/393946/RSKLOGOBN_daykpx.png" alt="icon" /></a></h3>
 
 <p>RSK is the first open-source smart contract platform with a 2-way peg to Bitcoin that also rewards the Bitcoin miners via merge-mining, allowing them to actively participate in the Smart Contract revolution. RSK goal is to add value and functionality to the Bitcoin ecosystem by enabling smart-contracts, near instant payments and higher-scalability.</p>
 
 <hr />
 
-<h3 id="iconhttpwwwmultichaincomassetsmultichain-temp-logo-248x48pnghttpwwwmultichaincom"><a href="http://www.multichain.com/"><img src="http://www.multichain.com/assets/multichain-temp-logo-248x48.png" alt="icon" /></a></h3>
+<h3 id="-1"><a href="http://www.multichain.com/"><img src="http://www.multichain.com/assets/multichain-temp-logo-248x48.png" alt="icon" /></a></h3>
 
 <p>MultiChain allows organizations to rapidly design, deploy and operate distributed ledgers</p>
 
 <hr />
 
-<h3 id="iconimagescoloredcoinspnghttpcoloredcoinsorg"><a href="http://coloredcoins.org/"><img src="../images/coloredcoins.png" alt="icon" /></a></h3>
+<h3 id="-2"><a href="http://coloredcoins.org/"><img src="../images/coloredcoins.png" alt="icon" /></a></h3>
 
 <p>The Open Source Protocol for Creating Digital Assets On The Bitcoin Blockchain</p>
 
 <hr />
 
-<h3 id="iconhttpschaincomimageschain-logo04205b59pnghttpschaincom"><a href="https://chain.com/"><img src="https://chain.com/images/chain-logo.04205b59.png" alt="icon" /></a></h3>
+<h3 id="-3"><a href="https://chain.com/"><img src="https://chain.com/images/chain-logo.04205b59.png" alt="icon" /></a></h3>
 
 <p>We enable our partners to design, deploy, and operate highly scalable blockchain networks that meet the security, privacy, and compliance requirements of the financial services industry.</p>
 
 <hr />
 
-<h3 id="iconimagesstratumnpnghttpsstratumncom"><a href="https://stratumn.com/"><img src="../images/stratumn.png" alt="icon" /></a></h3>
+<h3 id="-4"><a href="https://stratumn.com/"><img src="../images/stratumn.png" alt="icon" /></a></h3>
 
 <p>Stratumn’s developer tools leverage blockchain tech to offer extraordinary enhancements into all types of systems and business processes.</p>
 
 <hr />
 
-<h3 id="iconhttpwwwblockchainengineorgwp-contentthemeschainimglogopng-blockchain-enginehttpwwwblockchainengineorg"><img src="http://www.blockchainengine.org/wp-content/themes/chain/img/logo.png" alt="icon" /> <a href="http://www.blockchainengine.org/">Blockchain Engine</a></h3>
+<h3 id="-blockchain-engine"><img src="http://www.blockchainengine.org/wp-content/themes/chain/img/logo.png" alt="icon" /> <a href="http://www.blockchainengine.org/">Blockchain Engine</a></h3>
 
 <p>Blockchain Engine (BcE) is a platform designed for developers. BcE offers a suite of tools to create applications and services based off of the Emer blockchain. Not only is it simple to install, configure and integrate into any project, it’s widely available, offered in Microsoft’s Azure platform where it can be deployed on Ubuntu, in the cloud. You can manage it via JSON-RPC, a very simple protocol, and a web-interface.</p>
 
 <hr />
 
-<h3 id="iconimagesgempng-gemhttpsgemco"><img src="../images/gem.png" alt="icon" /> <a href="https://gem.co/">Gem</a></h3>
+<h3 id="-gem"><img src="../images/gem.png" alt="icon" /> <a href="https://gem.co/">Gem</a></h3>
 
 <p>Gem’s blockchain application platform transforms the way companies and industries connect to solve impossible problems.</p>
 
 <hr />
 
-<h3 id="iconhttpcounterpartyiowp-contentthemescounterpartyimageslogopng-counterpartyhttpcounterpartyio"><img src="http://counterparty.io/wp-content/themes/counterparty/images/logo.png" alt="icon" /> <a href="http://counterparty.io/">Counterparty</a></h3>
+<h3 id="-counterparty"><img src="http://counterparty.io/wp-content/themes/counterparty/images/logo.png" alt="icon" /> <a href="http://counterparty.io/">Counterparty</a></h3>
 
 <p>Counterparty is a platform for free and open financial tools on the Bitcoin network.</p>
 
 <hr />
 
-<h3 id="iconimageserispnghttpserisindustriescom"><a href="https://erisindustries.com/"><img src="../images/eris.png" alt="icon" /></a></h3>
+<h3 id="-5"><a href="https://erisindustries.com/"><img src="../images/eris.png" alt="icon" /></a></h3>
 
 <p>Eris is free software that allows anyone to build their own secure, low-cost, run-anywhere applications using blockchain and smart contract technology.</p>
 
 <hr />
 
-<h3 id="iconimagesmaidsafepnghttpmaidsafenet"><a href="http://maidsafe.net/"><img src="../images/maidsafe.png" alt="icon" /></a></h3>
+<h3 id="-6"><a href="http://maidsafe.net/"><img src="../images/maidsafe.png" alt="icon" /></a></h3>
 
 <p>The SAFE Network is soon to provide access to a world of exciting apps where the security of your data is put above all else. In time, downloading the free SAFE software will provide access to: messaging, apps, email, social networks, data storage, video conferencing, and much more.</p>
 
 <hr />
 
-<h3 id="iconimagesstellarpnghttpswwwstellarorg"><a href="https://www.stellar.org/"><img src="../images/stellar.png" alt="icon" /></a></h3>
+<h3 id="-7"><a href="https://www.stellar.org/"><img src="../images/stellar.png" alt="icon" /></a></h3>
 
 <p>Stellar is an open platform for building financial products that connect people everywhere.</p>
 
 <hr />
 
-<h3 id="iconimagesrubixpnghttprubixbydeloittecom"><a href="http://rubixbydeloitte.com/"><img src="../images/rubix.png" alt="icon" /></a></h3>
+<h3 id="-8"><a href="http://rubixbydeloitte.com/"><img src="../images/rubix.png" alt="icon" /></a></h3>
 
 <p>Rubix is an industry leading blockchain application development team, focusing on interoperability, scalability, performance and security. Rubix supports developers in creating and deploying decentralized applications that are customized for unique industry and business needs</p>
 
 <hr />
 
-<h3 id="iconhttpsevoluchaincomwp-contentuploads201602evoluchain-logo-hdpngevoluchainhttpsevoluchaincom"><img src="https://evoluchain.com/wp-content/uploads/2016/02/evoluchain-logo-HD.png" alt="icon" /><a href="https://evoluchain.com/">Evoluchain</a></h3>
+<h3 id="evoluchain"><img src="https://evoluchain.com/wp-content/uploads/2016/02/evoluchain-logo-HD.png" alt="icon" /><a href="https://evoluchain.com/">Evoluchain</a></h3>
 
 <p>Blockchain platform for smart contracts and decentralized organisations</p>
 
 <hr />
 
-<h3 id="iconimagescolupnghttpswwwcoluco"><a href="https://www.colu.co/"><img src="../images/colu.png" alt="icon" /></a></h3>
+<h3 id="-9"><a href="https://www.colu.co/"><img src="../images/colu.png" alt="icon" /></a></h3>
 
 <p>A powerful toolbox for building blockchain based applications.</p>
 
 <hr />
 
-<h3 id="iconhttpswwwblockoioimagesheaderlogopnghttpswwwblockoioindexenhtml"><a href="https://www.blocko.io/index_en.html"><img src="https://www.blocko.io/images/header_logo.png" alt="icon" /></a></h3>
+<h3 id="-10"><a href="https://www.blocko.io/index_en.html"><img src="https://www.blocko.io/images/header_logo.png" alt="icon" /></a></h3>
 
 <p>CoinStack is a Blockchain-as-a-Service platform of Blocko to build decentralized services on Blockchain.
 Blockchain as a Service, Coinstack</p>
 
 <hr />
 
-<h3 id="iconimagesliskpnghttpsliskiodocumentationilisk-dapps-docsappsdk"><a href="https://lisk.io/documentation?i=lisk-dapps-docs/AppSDK"><img src="../images/lisk.png" alt="icon" /></a></h3>
+<h3 id="-11"><a href="https://lisk.io/documentation?i=lisk-dapps-docs/AppSDK"><img src="../images/lisk.png" alt="icon" /></a></h3>
 
 <p>At Lisk you can develop your own blockchain apps with modern web technologies like HTML5, CSS3 and JavaScript.</p>
 
 <hr />
 
-<h3 id="iconimageselementsprojectpnghttpselementsprojectorg"><a href="https://elementsproject.org/"><img src="../images/elementsproject.png" alt="icon" /></a></h3>
+<h3 id="-12"><a href="https://elementsproject.org/"><img src="../images/elementsproject.png" alt="icon" /></a></h3>
 
 <p>Elements is an open source collaborative project where we work on a collection of experiments to more rapidly bring technical innovation to Bitcoin. Elements are features that are proposed and developed in this technical community that in arbitrary combinations can be fashioned into sidechains.</p>
 
 <hr />
 
-<h3 id="iconimagesblockstreampnghttpsblockstreamcom"><a href="https://blockstream.com/"><img src="../images/blockstream.png" alt="icon" /></a></h3>
+<h3 id="-13"><a href="https://blockstream.com/"><img src="../images/blockstream.png" alt="icon" /></a></h3>
 
 <p>Open source code and developer sidechains for advancing Bitcoin.</p>
 
 <hr />
 
-<h3 id="iconhttpswwwfreebsdnewscomwp-contentuploadsethereumnav-bar-logopnghttpswwwethereumorg"><a href="https://www.ethereum.org/"><img src="https://www.freebsdnews.com/wp-content/uploads/ETHEREUM_NAV-BAR-LOGO.png" alt="icon" /></a></h3>
+<h3 id="-14"><a href="https://www.ethereum.org/"><img src="https://www.freebsdnews.com/wp-content/uploads/ETHEREUM_NAV-BAR-LOGO.png" alt="icon" /></a></h3>
 
 <p>Ethereum is a decentralized platform that runs smart contracts: applications that run exactly as programmed without any possibility of downtime, censorship, fraud or third party interference.</p>
 
 <hr />
 
-<h3 id="iconhttpblockappsnetimagesheaderlogopnghttpswwwblockappsnet"><a href="https://www.blockapps.net/"><img src="http://blockapps.net/images/header_logo.png" alt="icon" /></a></h3>
+<h3 id="-15"><a href="https://www.blockapps.net/"><img src="http://blockapps.net/images/header_logo.png" alt="icon" /></a></h3>
 
 <p>BlockApps STRATO is a scalable Ethereum compliant platform for rapid development, deployment and management of enterprise blockchain applications. Our platform enables enterprises to develop early Proof of Concepts (PoCs) and scales all the way to full production systems.</p>
 
 <hr />
 
-<h3 id="iconhttpswwwhyperledgerorgsitesolfileshllogo0svghttpswwwhyperledgerorg"><a href="https://www.hyperledger.org/"><img src="https://www.hyperledger.org/sites/ol/files/hl_logo_0.svg" alt="icon" /></a></h3>
+<h3 id="-16"><a href="https://www.hyperledger.org/"><img src="https://www.hyperledger.org/sites/ol/files/hl_logo_0.svg" alt="icon" /></a></h3>
 
 <p>The Hyperledger Project is a collaborative effort created to advance blockchain technology by identifying and addressing important features for a cross-industry open standard for distributed ledgers that can transform the way business transactions are conducted globally.</p>
 
@@ -318,7 +551,7 @@ Blockchain as a Service, Coinstack</p>
 | [Ethereum](https://www.ethereum.org/)|  |  |  |  |  |
 | [blockapps](http://blockapps.net/)|  |  |  |  |  | -->
 
-<h2 id="app-frameworks">Ðapp Frameworks</h2>
+<h2 id="ðapp-frameworks">Ðapp Frameworks</h2>
 
 <ul>
   <li><a href="https://consensys.net/ventures/core-components/">Consensys</a></li>
@@ -425,7 +658,7 @@ I also looked at an alternative called <a href="http://bitcoinjs.org/">BitcoinJs
 
 <p>After comparing both, I decided to use bitcore as it seemed a little bit ahead of BitcoinJs and they also provide <a href="https://bitcore.io/api/lib/transaction#Transaction+checkedSerialize">nice documentation and development resources on their website</a>. Also, the company that open sourced Bitcore, Bitpay, is an established brand in the Bitcoin industry. BitPay is a payment processor that specializes in processing bitcoin payments and enabling merchants to accept bitcoin using a variety of website plugins and other integrations. Bitcore is their javascript library that allows developers to interface directly with the real bitcoin network.</p>
 
-<h2 id="setting-up-the-app">1. Setting up the app</h2>
+<h2 id="1-setting-up-the-app">1. Setting up the app</h2>
 <p>To kickstart my project, I looked for a suitable <a href="http://yeoman.io/">Yeoman</a> generator. I had no desire setting up custom or advanced build automation for thisone. It would literally be a single page app that makes two simple API calls:</p>
 
 <ul>
@@ -447,17 +680,17 @@ We have 4 input fields, two address verification buttons and a send button in gr
 
 <p><img src="../images/kbt2.png" alt="kbt" /></p>
 
-<h2 id="fetching-transaction-data">2. Fetching transaction data</h2>
+<h2 id="2-fetching-transaction-data">2. Fetching transaction data</h2>
 <p>When users enter a Bitcoin address, the app sends an api request to the <a href="https://blockchain.info">blockchain.info</a> api and fetches the transaction history for the address.
 You can see the output of an example request to the Blockchain.info api <a href="https://blockchain.info/address/15CrPRVdNUaXX1DCZqttnP21wyJLTTmy8y?format=json">here</a></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">├── server
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>├── server
 <span class="p">|</span>    ├── api  
 <span class="p">|</span>         ├── wallet
 <span class="p">|</span>               ├── services
 <span class="p">|</span>                     ├── wallet-service.js</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;https://blockchain.info/address/&#39;</span> <span class="o">+</span> <span class="nx">address</span> <span class="o">+</span> <span class="s1">&#39;?format=json&#39;</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;https://blockchain.info/address/&#39;</span> <span class="o">+</span> <span class="nx">address</span> <span class="o">+</span> <span class="s1">&#39;?format=json&#39;</span><span class="p">;</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
@@ -472,12 +705,12 @@ You can see the output of an example request to the Blockchain.info api <a href=
 
 <p>Before sending actual requests, I verify Bitcoin addresses using a simple regex on the clientside:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">BITCOINADDRESS</span> <span class="o">=</span> <span class="s1">&#39;(?:[13][1-9A-Za-z][^O0Il]{24,32})&#39;</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">var</span> <span class="nx">BITCOINADDRESS</span> <span class="o">=</span> <span class="s1">&#39;(?:[13][1-9A-Za-z][^O0Il]{24,32})&#39;</span><span class="p">;</span>
  </code></pre></figure>
 
 <p>and the <a href="https://github.com/defunctzombie/bitcoin-address">bitcoin-address</a> library on the server side.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">bitcoinaddress</span> <span class="nx">from</span> <span class="s1">&#39;bitcoin-address&#39;</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">import</span> <span class="nx">bitcoinaddress</span> <span class="nx">from</span> <span class="s1">&#39;bitcoin-address&#39;</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">address</span><span class="p">))</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Address checksum failed&#39;</span><span class="p">);</span>
@@ -487,7 +720,7 @@ You can see the output of an example request to the Blockchain.info api <a href=
 <p>When the address data arrives in my angular client, I display the transaction history table with the dates, transaction results and hashes like so:
 <img src="../images/kbt3.png" alt="kbt" /></p>
 
-<h2 id="creating-bitcoin-transactions">3. Creating Bitcoin transactions</h2>
+<h2 id="3-creating-bitcoin-transactions">3. Creating Bitcoin transactions</h2>
 
 <p>To create a Bitcoin transaction, we need 4 things:</p>
 
@@ -501,15 +734,15 @@ You can see the output of an example request to the Blockchain.info api <a href=
 <p>The information from the input boxes will be checked by a transaction model on the client side and is then sent to the <code>wallet-service.js</code> in the back end.
 To create transactions using bitcore, we first need to install the bitcore and bitcore-explorers libraries using npm:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm i --save bitcore-lib <span class="o">&amp;&amp;</span> bitcore-explorers</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>npm i --save bitcore-lib <span class="o">&amp;&amp;</span> bitcore-explorers</code></pre></figure>
 
 <p>And reference them so we can use them:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">bitcore</span> <span class="nx">from</span> <span class="s1">&#39;bitcore-lib&#39;</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">import</span> <span class="nx">bitcore</span> <span class="nx">from</span> <span class="s1">&#39;bitcore-lib&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">explorers</span> <span class="nx">from</span> <span class="s1">&#39;bitcore-explorers&#39;</span><span class="p">;</span>
  </code></pre></figure>
 
-<h3 id="getting-the-senders-balance">3.1 Getting the sender’s balance</h3>
+<h3 id="31-getting-the-senders-balance">3.1 Getting the sender’s balance</h3>
 <p>Before creating a transaction, we have to do some checks.</p>
 
 <p>Firstly, we have to take in account the miner fee, which is the price we have to pay to send the transaction to the Bitcoin Blockchain.
@@ -533,9 +766,9 @@ Wallet balance (or address balance) is an abstraction to help us humans and make
 
 <p>Using insight, we can return the array of utxos or Unspent Transaction Outputs:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">insight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">explorers</span><span class="p">.</span><span class="nx">Insight</span><span class="p">();</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">const</span> <span class="nx">insight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">explorers</span><span class="p">.</span><span class="nx">Insight</span><span class="p">();</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">utxos</span><span class="p">);</span>
 <span class="p">});</span></code></pre></figure>
 
@@ -545,7 +778,7 @@ Wallet balance (or address balance) is an abstraction to help us humans and make
 
 <p>The sum of the utxos is basically the balance on the senders’ Bitcoin address, so we can now try the following:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">utxos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">balance</span> <span class="o">+=</span><span class="nx">utxos</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;satoshis&#39;</span><span class="p">];</span>
@@ -555,20 +788,20 @@ Wallet balance (or address balance) is an abstraction to help us humans and make
 
 <p>Which, in my case, returned a balance of 105042196 satoshis:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>0<span class="o">]</span> balance:105042196</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="o">[</span><span class="m">0</span><span class="o">]</span> balance:105042196</code></pre></figure>
 
 <!-- ![kbt](../images/winning.gif) -->
 
-<h3 id="error-handling-and-input-validation">3.2 Error handling and input validation</h3>
+<h3 id="32-error-handling-and-input-validation">3.2 Error handling and input validation</h3>
 <p>Let’s expand our code, create some constants for the miner fee and the transaction amount and include some error handling.
 We will also make use of the bitcore Unit utility to define and convert our minerfee, transaction amount and balance variables:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">unit</span> <span class="o">=</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Unit</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">const</span> <span class="nx">unit</span> <span class="o">=</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Unit</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">insight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">explorers</span><span class="p">.</span><span class="nx">Insight</span><span class="p">();</span>
 <span class="kr">const</span> <span class="nx">minerFee</span> <span class="o">=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromMilis</span><span class="p">(</span><span class="mf">0.128</span><span class="p">).</span><span class="nx">toSatoshis</span><span class="p">();</span> <span class="c1">//cost of transaction in satoshis (minerfee)</span>
 <span class="kr">const</span> <span class="nx">transactionAmount</span> <span class="o">=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromMilis</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">amount</span><span class="p">).</span><span class="nx">toSatoshis</span><span class="p">();</span> <span class="c1">//convert mBTC to Satoshis using bitcore unit</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
 
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">//any other error</span>
@@ -600,23 +833,23 @@ We will also make use of the bitcore Unit utility to define and convert our mine
 
 <p>I am also defining the same mining fee in the transaction model on the client side so the send button only becomes enabled once the amount entered exceeds the miner fee:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">MININGFEE</span> <span class="o">=</span> <span class="mf">0.12800</span><span class="p">;</span> <span class="c1">//mining fee in mBTC</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">var</span> <span class="nx">MININGFEE</span> <span class="o">=</span> <span class="mf">0.12800</span><span class="p">;</span> <span class="c1">//mining fee in mBTC</span></code></pre></figure>
 
 <p>Let’s also validate the origin and recipient addresses in the backend before any api requests happen.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">))</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">))</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Origin address checksum failed&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">))</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Recipient address checksum failed&#39;</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<h3 id="creating-a-new-transaction-and-serialization">3.3 Creating a new transaction and serialization</h3>
+<h3 id="33-creating-a-new-transaction-and-serialization">3.3 Creating a new transaction and serialization</h3>
 
 <p>This was a bit of a struggle for me at first since it was the first time I worked with the bitcore library and discovered that the error handling was a bit flaky.
 Hence, I discovered the best way to get around this was to surround the transaction code with a try catch and make use of <a href="https://bitcore.io/api/lib/transaction#Transaction+getSerializationError">getSerializationError</a>.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//create a new transaction</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="c1">//create a new transaction</span>
 <span class="k">try</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">bitcore_transaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Transaction</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">utxos</span><span class="p">)</span>
@@ -644,7 +877,7 @@ Hence, I discovered the best way to get around this was to surround the transact
 
 <p>The actual bitcore transaction takes the following inputs:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">bitcore_transaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Transaction</span><span class="p">()</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">let</span> <span class="nx">bitcore_transaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Transaction</span><span class="p">()</span>
   <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">utxos</span><span class="p">)</span> <span class="c1">// Feed information about what unspent outputs one can use</span>
   <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">,</span> <span class="nx">transactionAmount</span><span class="p">)</span> <span class="c1">// Add an output with the given amount of satoshis</span>
   <span class="p">.</span><span class="nx">fee</span><span class="p">(</span><span class="nx">minerFee</span><span class="p">)</span> <span class="c1">// the miner fee (is automatically calculated when omitted)</span>
@@ -661,11 +894,11 @@ Because outputs can only be unspent or spent, and not partially spent, there’s
 <p><a href="http://bitzuma.com/posts/five-ways-to-lose-money-with-bitcoin-change-addresses/">Here</a> is a very interesting article on change addresses which explains the concept very well.
 If you haven’t heard of change addresses and are involved in bitcoin transactions in any way, it’s definitely a recommended read.</p>
 
-<h3 id="broadcasting-the-transaction-to-the-blockchain">3.4 Broadcasting the transaction to the blockchain</h3>
+<h3 id="34-broadcasting-the-transaction-to-the-blockchain">3.4 Broadcasting the transaction to the blockchain</h3>
 
 <p>Now that our transaction has been signed and created, we can broadcast it to the blockchain. As we are not running our own bitcoin node, this will happen via the <a href="https://bitcore.io/api/explorers/">insight api</a>.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//broadcasting the transaction to the blockchain</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="c1">//broadcasting the transaction to the blockchain</span>
 <span class="nx">insight</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">(</span><span class="nx">bitcore_transaction</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Error in broadcast: &#39;</span> <span class="o">+</span> <span class="nx">error</span><span class="p">);</span>
@@ -676,8 +909,8 @@ If you haven’t heard of change addresses and are involved in bitcoin transacti
 
 <p>When we put everything together, the entire transaction function looks like this:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">static</span> <span class="nx">createTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">static</span> <span class="nx">createTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
 
     <span class="kr">const</span> <span class="nx">unit</span> <span class="o">=</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Unit</span><span class="p">;</span>
     <span class="kr">const</span> <span class="nx">insight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">explorers</span><span class="p">.</span><span class="nx">Insight</span><span class="p">();</span>
@@ -796,11 +1029,11 @@ I had to simulate randomly timed API posts since somehow I was getting errors on
 The script creates two types of products in Shopify: ‘variants’ and ‘products’. This allows you to set custom search filters in the admin and keep the variants separate from the actual products.
 One product can now have unlimited ‘variants’ (which are actually Shopify products). They are linked in the variant array that is injected in the product descriptions:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">variants</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">13737525511</span><span class="p">,</span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="mf">232.5</span><span class="p">,</span><span class="s2">&quot;variants&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;8.5\&quot; x 11\&quot; &quot;</span><span class="p">,</span><span class="s2">&quot; 100 &quot;</span><span class="p">,</span><span class="s2">&quot; single sided&quot;</span><span class="p">]},{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1232</span> <span class="p">...</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">var</span> <span class="nx">variants</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">13737525511</span><span class="p">,</span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="mf">232.5</span><span class="p">,</span><span class="s2">&quot;variants&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;8.5\&quot; x 11\&quot; &quot;</span><span class="p">,</span><span class="s2">&quot; 100 &quot;</span><span class="p">,</span><span class="s2">&quot; single sided&quot;</span><span class="p">]},{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1232</span> <span class="p">...</span></code></pre></figure>
 
 <h1 id="how-to-get-going">How to get going:</h1>
 
-<h3 id="prepare-the-excel-file">1. Prepare the Excel file</h3>
+<h3 id="1-prepare-the-excel-file">1. Prepare the Excel file</h3>
 
 <ol>
   <li>Add product rows in the products tab</li>
@@ -812,11 +1045,11 @@ One product can now have unlimited ‘variants’ (which are actually Shopify pr
   <li>Add correct pricing to the variants</li>
 </ol>
 
-<h3 id="using-the-xls2shop-script">2. Using the xls2shop script</h3>
+<h3 id="2-using-the-xls2shop-script">2. Using the xls2shop script</h3>
 
-<h4 id="add-your-shopify-credentials">1. Add your Shopify credentials</h4>
+<h4 id="1-add-your-shopify-credentials">1. Add your Shopify credentials</h4>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Shopify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">shopifyAPI</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">var</span> <span class="nx">Shopify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">shopifyAPI</span><span class="p">({</span>
   <span class="nx">shop</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// MYSHOP.myshopify.com</span>
   <span class="nx">shopify_api_key</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Your API key</span>
   <span class="nx">shopify_shared_secret</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Your Shared Secret</span>
@@ -828,19 +1061,19 @@ One product can now have unlimited ‘variants’ (which are actually Shopify pr
   <span class="nx">retry_errors</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">});</span></code></pre></figure>
 
-<h4 id="actions">2. Actions:</h4>
+<h4 id="2-actions">2. Actions:</h4>
 
 <p>Removing all products:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node xls2shop.js clean</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>node xls2shop.js clean</code></pre></figure>
 
 <p>Uploading product variants from Excel:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">node xls2shop.js upload business<span class="se">\ </span>cards<span class="se">\ </span>example.xlsm</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>node xls2shop.js upload business<span class="se">\ </span>cards<span class="se">\ </span>example.xlsm</code></pre></figure>
 
-<h3 id="add-the-following-javascipt-to-the-product-pages-in-shopify">3. Add the following javascipt to the product pages in Shopify:</h3>
+<h3 id="3-add-the-following-javascipt-to-the-product-pages-in-shopify">3. Add the following javascipt to the product pages in Shopify:</h3>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span>  <span class="kd">var</span> <span class="nx">variant</span> <span class="o">=</span> <span class="nx">findVariant</span><span class="p">();</span>
   <span class="nx">$</span><span class="p">(</span> <span class="s2">&quot;#price&quot;</span> <span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">variant</span><span class="p">.</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#Quantity&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
 
 
@@ -888,18 +1121,18 @@ The product description that contains the variant data is injected in the produc
 
 <p>The add to cart script can be triggered as such:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick=</span><span class="s">&quot;addToCart()&quot;</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;addToCart()&quot;</span><span class="p">&gt;</span>
  Add to Cart
-<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span></code></pre></figure>
 
 <p>Dynamic pricing upon selection change is done by setting an element id to <code>price</code>:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">$<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;price&quot;</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span></span>$<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;price&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span></code></pre></figure>
 
-<h3 id="finally-hide-the-option-selectors-in-the-collection-pages">4. Finally, hide the option selectors in the collection pages</h3>
+<h3 id="4-finally-hide-the-option-selectors-in-the-collection-pages">4. Finally, hide the option selectors in the collection pages</h3>
 
-<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.productOptions</span><span class="p">{</span>
-  <span class="k">display</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span></span><span class="p">.</span><span class="nc">productOptions</span><span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
 
@@ -934,11 +1167,11 @@ all your life has finally arrived.</p>
 
 <p>I’m used to gitting in the terminal and visualizing branches like:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">git</span> <span class="nx">log</span> <span class="o">--</span><span class="nx">graph</span> <span class="o">--</span><span class="nx">pretty</span><span class="o">=</span><span class="nx">oneline</span> <span class="o">--</span><span class="nx">abbrev</span><span class="o">-</span><span class="nx">commit</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">git</span> <span class="nx">log</span> <span class="o">--</span><span class="nx">graph</span> <span class="o">--</span><span class="nx">pretty</span><span class="o">=</span><span class="nx">oneline</span> <span class="o">--</span><span class="nx">abbrev</span><span class="o">-</span><span class="nx">commit</span></code></pre></figure>
 
 <p>lol, which, I <a href="http://www.moncefbelyamani.com/create-aliases-in-bash-profile-to-assign-shortcuts-for-common-terminal-commands/">changed in my bash config</a> to:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">gt</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">gt</span></code></pre></figure>
 
 <p><img src="../images/gittree.png" alt="git1" /></p>
 
@@ -947,76 +1180,6 @@ all your life has finally arrived.</p>
 <p><a href="http://gitup.co/">GitUp</a> looks promising:</p>
 
 <p><img src="../images/editing.gif" alt="git1" /></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="/webstorm-vs-atom/" title="WebStorm vs. Atom"><img src="/images/webstorm.jpg" alt="WebStorm vs. Atom"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-09-23T15:19:12-04:00"><a href="/webstorm-vs-atom/">September 23, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jester Simpps">Jester Simpps</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~3 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/webstorm-vs-atom/" rel="bookmark" title="WebStorm vs. Atom" itemprop="url">WebStorm vs. Atom</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>I have recently switched to the Atom editor and really love it.
-I love experimenting with new coding environments and so far PHP- and Webstorm have provided me with the best all round support
-for everything I make Web-related. But now… there is: Atom!!!</p>
-
-<p>My first programming experiences, I remember, were in DOS. There was this editor for Qbasic, which was basically no editor at all. I know there’s always been vi, or vim, but I didn’t know about them as I was 11.
-When I was around 14-15, I started developing Visual Basic 6 applications.
-Visual Basic was awesome! The name Visual comes from it having a drag &amp; drop UI builder. I thought that was really great until I moved to .NET. Dot NET was actually a super visual Basic EDI and I loved it.</p>
-
-<p>When making the switch to web development some time ago I started out using sublime text as everybody was using it at the time. I wanted to get into using predominantly open source tools as they are free,
-and they are developed by a community of people who are also the actual users of the tools they build.
-However, after Sublime came Webstorm / PHPStorm since I loved the terminal-in-edi solution and it had great code inspection and an actual drag and drop file tree.</p>
-
-<p>Today I downloaded Atom and in a matter of minutes I found and installed the packages “Terminal-plus” and “Atom-beautify”.
-I now have the same functionality as I had in the Jetbrains EDI’s but in, what seems to me, an editor package.</p>
-
-<p>The scrolling is smooth and I can have 4 or more projects open at the same time without any hassle. This would be a nogo using the Jetbrains EDI’s. You either had to minimize the Jetbrains instances and only have one open at a time or switch to power saving mode. Not doing this would ramp up the CPU too much and keep them from working smoothly.</p>
-
-<p><img src="../images/atomeditors.png" alt="multipleatom" /></p>
-
-<p>I also love the preinstalled markdown preview package, which I am using right now:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Atom</th>
-      <th style="text-align: center">PHPStorm</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><img src="../images/atomeditor.png" alt="eatom" /></td>
-      <td style="text-align: center"><img src="../images/phpstorm.png" alt="eatom" /></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>PHPStorm also has the markdown preview, but its in a tabswitcher, and I couldn’t figure out how to make it show permanently on the side like the one in Atom.</p>
-
-<p>Overall I enjoy the cleaner, distraction free look of the Atom Editor. A lot of the buttons and tabs that I don’t use in PHPStorm are just not there. You can find all these in the mac top menu bar, which enforces learning keyboard shortcuts. And I don’t mind.
-My work environment is cleaner, and I have a larger area to code. Also, the few seconds it takes to look up a hotkey combination for a common command will shave off countless seconds of work in the future.</p>
-
-<p>Lastly, what I like about Atom is that you can customize it to your own needs. Atom is flexible and I can choose which plug-ins I need, whereas the Jetbrains EDI’s come with a lot of stuff prepackaged. Stuff that I’ll never use in an EDI. for example: vcs and grunt: good try, but I do my gitting and grunting in the terminal.</p>
-
-<p>If you don’t like something, or want to make it better, it is <a href="https://github.com/atom/atom">hackable</a>.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -1057,7 +1220,7 @@ My work environment is cleaner, and I have a larger area to code. Also, the few 
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+    <span>&copy; 2017 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 
