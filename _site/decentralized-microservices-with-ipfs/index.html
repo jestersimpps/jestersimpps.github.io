@@ -1,0 +1,364 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Decentralized Microservices With IPFS &#8211; Hardcore trial & error</title>
+<meta name="description" content="Exploring how to combine IPFS distributed file system with microservices architecture to create robust, decentralized applications.">
+<meta name="keywords" content="IPFS, microservices, decentralized, blockchain, distributed-systems">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/ipfs.jpg">
+<meta name="twitter:title" content="Decentralized Microservices With IPFS">
+<meta name="twitter:description" content="Exploring how to combine IPFS distributed file system with microservices architecture to create robust, decentralized applications.">
+<meta name="twitter:creator" content="@jestersimpps">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Decentralized Microservices With IPFS">
+<meta property="og:description" content="Exploring how to combine IPFS distributed file system with microservices architecture to create robust, decentralized applications.">
+<meta property="og:url" content="http://localhost:4001/decentralized-microservices-with-ipfs/">
+<meta property="og:site_name" content="Hardcore trial & error">
+
+<link rel="canonical" href="http://localhost:4001/decentralized-microservices-with-ipfs/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Hardcore trial & error Feed">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/bio-photo.png" alt="Jester Simpps photo" class="author-photo">
+					<h4>Jester Simpps</h4>
+					<p></p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:jestersimpps@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/jestersimpps"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="http://linkedin.com/in/jo-vinkenroye/63/a79/459"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="http://github.com/jestersimpps"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				<li>
+					<a href="http://instagram.com/jestersimpps"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+
+
+<div class="entry-header">
+  <div class="entry-image">
+    <img src="/images/ipfs.jpg" alt="Decentralized Microservices With IPFS">
+  </div>
+</div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        <h1 class="entry-title"><a href="/decentralized-microservices-with-ipfs/" rel="bookmark" title="Decentralized Microservices With IPFS">Decentralized Microservices With IPFS</a></h1>
+        <h2><span class="entry-date date published"><time datetime="2017-10-07T00:00:00+02:00">October 07, 2017</time></span></h2>
+        
+        
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          Reading time ~7 minutes
+        </p>
+      </div>
+    </header>
+    <div class="entry-content">
+      <h2 id="what-is-ipfs">What is IPFS?</h2>
+
+<p>IPFS (the InterPlanetary File System) is a distributed file system that seeks to connect all computing devices with the same system of files. In some ways, this is similar to the original aims of the Web, but IPFS is actually more similar to a single bittorrent swarm exchanging git objects. (You can read more about its origins in the paper <a href="https://github.com/ipfs/ipfs/blob/master/papers/ipfs-cap2pfs/ipfs-p2p-file-system.pdf?raw=true">IPFS - Content Addressed, Versioned, P2P File System.</a>)</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8CMxDNuuAiQ" frameborder="0" allowfullscreen=""></iframe>
+
+<h2 id="what-are-microservices">What are microservices?</h2>
+
+<p>Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of loosely coupled services, which implement business capabilities. The microservice architecture enables the continuous delivery/deployment of large, complex applications. It also enables an organization to evolve its technology stack.</p>
+
+<p><img src="https://ipfs.io/ipfs/QmaCjhDr2378r9iPqEjUu4vXavmRK3JEtf5nKUxSrXpQBc" alt="ipfs2" /></p>
+
+<h2 id="what-makes-the-combination-of-ipfs-and-microservices-interesting">What makes the combination of IPFS and microservices interesting?</h2>
+
+<p>The nice thing about IPFS is it’s immutable storage. IPFS works like a github repository. Just like commit hashes, IPFS hashes will always point to the same immutable files. This makes IPFS an interesting platform to develop microservices. Similar to dependency versioning in npm (node packaging manager), you know for sure that the code at a certain hash will always do the same thing. Secondly, these services are not hosted by a single source (centralized), but are hosted worldwide on several locations (distributed), which makes them more robust. They will remain available at all times.</p>
+
+<p><img src="https://ipfs.io/ipfs/QmZpfhN5rucQC4kx7Gu5udS8FXxsxMddiDCvG8WFjG8SMv" alt="ipfs1" /></p>
+
+<h2 id="storing-files-on-ipfs">Storing files on IPFS</h2>
+
+<p>Before creating an IPFS microservice, let’s store a simple website on IPFS. You probably haven’t noticed, but the image above was actually uploaded to the IPFS and downloaded using an IPFS gateway: <a href="https://ipfs.io/ipfs/">https://ipfs.io/ipfs/</a>. This gateway allows you to load decentralized files stored on IPFS in your web browser, which is pretty cool and opens up amazing possibilities regarding web apps.</p>
+
+<h3 id="uploading-a-static-website-to-ipfs--ipns">Uploading a static website to IPFS / IPNS</h3>
+
+<p>(<em>To follow this tutorial, please <a href="https://ipfs.io/docs/install/">install</a> IPFS first.</em>)</p>
+
+<p>Besides simple files, you can also store entire directories to IPFS.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ipfs add <span class="nt">-r</span> <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>So, I uploaded a simple static website I created a while ago onto IPFS and it can be accessed using the directory hash <code class="language-plaintext highlighter-rouge">QmUyif9MLjMzpFeXvjLJiatCKsQJhykV1oZH7GPuXRcJjo</code> like so:</p>
+
+<p><a href="https://ipfs.io/ipfs/QmUyif9MLjMzpFeXvjLJiatCKsQJhykV1oZH7GPuXRcJjo/en/">https://ipfs.io/ipfs/QmUyif9MLjMzpFeXvjLJiatCKsQJhykV1oZH7GPuXRcJjo/en/</a></p>
+
+<p>Now I have a simple static site hosted on IPFS. The problem is, however, when I update my site, the hash will change, and any links I have shared will continue pointing to the old version.</p>
+
+<p>That’s where IPNS comes in. It allows you to store a reference to an IPFS hash under the namespace of your IPNS hash or peerID.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ipfs name publish QmUyif9MLjMzpFeXvjLJiatCKsQJhykV1oZH7GPuXRcJjo
+</code></pre></div></div>
+
+<p>That will return your peerID and the hash you are publishing to it. A few seconds later my terminal spits back the following IPNS hash:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Published to QmaJLU8Jb2NmpHsgCGu3EqawjqFB23FfXHvt3kWted1PdQ:/ipfs/QmUyif9MLjMzpFeXvjLJiatCKsQJhykV1oZH7GPuXRcJjo
+</code></pre></div></div>
+
+<p>My website is now accessible through:</p>
+
+<p><a href="https://ipfs.io/ipns/QmaJLU8Jb2NmpHsgCGu3EqawjqFB23FfXHvt3kWted1PdQ/en/">https://ipfs.io/ipns/QmaJLU8Jb2NmpHsgCGu3EqawjqFB23FfXHvt3kWted1PdQ/en/</a></p>
+
+<p>Notice the <code class="language-plaintext highlighter-rouge">ipns</code> in the url, instead of <code class="language-plaintext highlighter-rouge">ipfs</code>. Every time I update my website, IPNS will make sure anyone accessing the IPNS will get the hash of my latest site.</p>
+
+<h2 id="creating-an-ipfs-microservice">Creating an IPFS Microservice</h2>
+
+<h3 id="ipfs-and-decentralized-services">IPFS and decentralized services</h3>
+
+<p>If we can upload websites, we can add javascript code to those websites that looks at the url and extracts additional IPFS hashes. Those can be used to access other files saved on IPFS. This allows us to create services or applications on IPFS that accept other IPFS files as inputs and do something with those.</p>
+
+<p>A nice example of such a service is <a href="https://ipfs.io/ipfs/QmVc6zuAneKJzicnJpfrqCH9gSy6bz54JhcypfJYhGUFQu/play#/ipfs/QmTKZgRNwDNZwHtJSjCp6r5FYefzpULfy37JvMt9DwvXse">this IPFS video player</a>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">https://ipfs.io/ipfs/QmVc6zuAneKJzicnJpfrqCH9gSy6bz54JhcypfJYhGUFQu/play#/ipfs/QmTKZgRNwDNZwHtJSjCp6r5FYefzpULfy37JvMt9DwvXse</code></p>
+
+<p>The entire code of the video player can be found <a href="https://ipfs.io/ipfs/QmVc6zuAneKJzicnJpfrqCH9gSy6bz54JhcypfJYhGUFQu">here</a>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">tf</span> <span class="o">=</span> <span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#input</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nf">hash</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">.</span><span class="nf">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nf">render</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">&lt;video&gt;</span><span class="dl">'</span><span class="p">)</span>
+
+  <span class="nx">video</span>
+    <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">videoid</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">width</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">100%</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">height</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">100%</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">controls</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">controls</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">poster</span><span class="dl">"</span><span class="p">,</span> <span class="nx">path</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/poster.jpg</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">preload</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">auto</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">'</span><span class="s1">data-setup</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">{"example_option":true}</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">addClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">video-js vjs-default-skin vjs-big-play-centered</span><span class="dl">'</span><span class="p">)</span>
+
+  <span class="k">if </span><span class="p">(</span><span class="nx">type</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">file</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;source&gt;</span><span class="dl">"</span><span class="p">)</span>
+      <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">,</span> <span class="nx">path</span><span class="p">)</span>
+      <span class="p">.</span><span class="nf">appendTo</span><span class="p">(</span><span class="nx">video</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">formats</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">mp4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">webm</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ogv</span><span class="dl">'</span><span class="p">]</span>
+    <span class="nx">formats</span><span class="p">.</span><span class="nf">forEach</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">fmt</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;source&gt;</span><span class="dl">"</span><span class="p">)</span>
+        <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">video/</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">fmt</span><span class="p">)</span>
+        <span class="p">.</span><span class="nf">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">,</span> <span class="nx">path</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/video.</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">fmt</span><span class="p">)</span>
+        <span class="p">.</span><span class="nf">appendTo</span><span class="p">(</span><span class="nx">video</span><span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+
+  <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">div#video-div</span><span class="dl">"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">""</span>
+  <span class="nf">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">div#video-div</span><span class="dl">"</span><span class="p">).</span><span class="nf">append</span><span class="p">(</span><span class="nx">video</span><span class="p">)</span>
+
+  <span class="nf">videojs</span><span class="p">(</span><span class="dl">"</span><span class="s2">videoid</span><span class="dl">"</span><span class="p">).</span><span class="nf">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nf">play</span><span class="p">();</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">last</span> <span class="o">=</span> <span class="dl">""</span>
+<span class="kd">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">last</span> <span class="o">==</span> <span class="nx">path</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="nx">last</span> <span class="o">=</span> <span class="nx">path</span>
+
+  <span class="nx">$</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">render</span><span class="p">(</span><span class="dl">"</span><span class="s2">dir</span><span class="dl">"</span><span class="p">,</span> <span class="nx">path</span><span class="p">)</span>
+  <span class="p">}).</span><span class="nf">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">render</span><span class="p">(</span><span class="dl">"</span><span class="s2">file</span><span class="dl">"</span><span class="p">,</span> <span class="nx">path</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nx">tf</span><span class="p">.</span><span class="nf">val</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">path</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">updated to: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">path</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nf">isFile</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">path</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">).</span><span class="nf">pop</span><span class="p">().</span><span class="nf">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">.</span><span class="dl">'</span><span class="p">).</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">(</span><span class="kd">function</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">tf</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="dl">'</span><span class="s1">keyup keypress blur change cut copy paste</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">update</span><span class="p">(</span><span class="nx">tf</span><span class="p">.</span><span class="nf">val</span><span class="p">())</span>
+  <span class="p">})</span>
+
+  <span class="nx">tf</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="dl">'</span><span class="s1">hashchange</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">update</span><span class="p">(</span><span class="nf">hash</span><span class="p">())</span>
+  <span class="p">})</span>
+
+  <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nf">hash</span><span class="p">()</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nx">text</span> <span class="o">=</span> <span class="dl">""</span>
+  <span class="nf">update</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+<span class="p">})()</span>
+</code></pre></div></div>
+
+<p>If we take a look at the code, we can see that</p>
+
+<p><code class="language-plaintext highlighter-rouge">window.location.hash.substring(1)</code></p>
+
+<p>extracts the following string from the url: <code class="language-plaintext highlighter-rouge">/ipfs/QmTKZgRNwDNZwHtJSjCp6r5FYefzpULfy37JvMt9DwvXse</code></p>
+
+<p>This hash is then used to fetch the <a href="https://ipfs.io/ipfs/QmTKZgRNwDNZwHtJSjCp6r5FYefzpULfy37JvMt9DwvXse">input file</a> for the video. If we would create another video file, add it to IPFS and the new hash to the video player url, the video player will act as a service to play that other file.</p>
+
+<h3 id="lets-build-a-simple-text-to-speech-app">Let’s build a simple text to speech app</h3>
+
+<p>The following code is a simple webapp that reads out the url and speaks the text defined in the <code class="language-plaintext highlighter-rouge">say</code> query parameter.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;title&gt;</span>text to speech render<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"lib/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/h1&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="kd">function</span> <span class="nf">speak</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpeechSynthesisUtterance</span><span class="p">();</span>
+            <span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#text</span><span class="dl">'</span><span class="p">).</span><span class="nf">text</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+            <span class="nx">msg</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">text</span><span class="p">;</span>
+            <span class="nx">speechSynthesis</span><span class="p">.</span><span class="nf">speak</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">(</span><span class="kd">function</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nf">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">if </span><span class="p">(</span><span class="dl">'</span><span class="s1">speechSynthesis</span><span class="dl">'</span> <span class="k">in</span> <span class="nb">window</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nf">decodeURIComponent</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">say=</span><span class="dl">'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]);</span>
+                    <span class="nf">speak</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nb">window</span><span class="p">.</span><span class="nf">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">no text to speech browser support.</span><span class="dl">'</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="p">})()</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>It was uploaded to IPFS and can be accessed using the following link:</p>
+
+<p><a href="https://ipfs.io/ipfs/QmPdWu3ko1qAwKJe83itC2UuAzRoKjnpQy8a1p4YYJDECr/?say=hello%20world">https://ipfs.io/ipfs/QmPdWu3ko1qAwKJe83itC2UuAzRoKjnpQy8a1p4YYJDECr/?say=hello%20world</a></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags">
+          
+            <a href="/tags/#ipfs" title="Posts tagged IPFS" class="tag">IPFS</a>
+          
+            <a href="/tags/#microservices" title="Posts tagged microservices" class="tag">microservices</a>
+          
+            <a href="/tags/#decentralized" title="Posts tagged decentralized" class="tag">decentralized</a>
+          
+            <a href="/tags/#blockchain" title="Posts tagged blockchain" class="tag">blockchain</a>
+          
+            <a href="/tags/#distributed-systems" title="Posts tagged distributed-systems" class="tag">distributed-systems</a>
+          
+        </span>
+        <div class="social-share">
+          <ul class="socialcount socialcount-small inline-list">
+            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4001/decentralized-microservices-with-ipfs/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+            <li class="twitter"><a href="https://twitter.com/intent/tweet?text=Decentralized Microservices With IPFS&url=http://localhost:4001/decentralized-microservices-with-ipfs/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </article>
+</div>
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2026 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67531656-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

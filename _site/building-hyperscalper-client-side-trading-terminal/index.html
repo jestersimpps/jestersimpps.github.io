@@ -1,0 +1,649 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Building Hyperscalper: A Fully Client-Side Crypto Trading Terminal &#8211; Hardcore trial & error</title>
+<meta name="description" content="Technical deep-dive into building a professional trading terminal for Hyperliquid DEX with zero backend, multiple order entry methods, and real-time market scanners.">
+<meta name="keywords" content="Web3, Trading, Next.js, TypeScript, WebSocket, Crypto">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/hyperscalper-hero.png">
+<meta name="twitter:title" content="Building Hyperscalper: A Fully Client-Side Crypto Trading Terminal">
+<meta name="twitter:description" content="Technical deep-dive into building a professional trading terminal for Hyperliquid DEX with zero backend, multiple order entry methods, and real-time market scanners.">
+<meta name="twitter:creator" content="@jestersimpps">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building Hyperscalper: A Fully Client-Side Crypto Trading Terminal">
+<meta property="og:description" content="Technical deep-dive into building a professional trading terminal for Hyperliquid DEX with zero backend, multiple order entry methods, and real-time market scanners.">
+<meta property="og:url" content="http://localhost:4001/building-hyperscalper-client-side-trading-terminal/">
+<meta property="og:site_name" content="Hardcore trial & error">
+
+<link rel="canonical" href="http://localhost:4001/building-hyperscalper-client-side-trading-terminal/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Hardcore trial & error Feed">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/bio-photo.png" alt="Jester Simpps photo" class="author-photo">
+					<h4>Jester Simpps</h4>
+					<p></p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:jestersimpps@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/jestersimpps"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="http://linkedin.com/in/jo-vinkenroye/63/a79/459"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="http://github.com/jestersimpps"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				<li>
+					<a href="http://instagram.com/jestersimpps"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+
+
+<div class="entry-header">
+  <div class="entry-image">
+    <img src="/images/hyperscalper-hero.png" alt="Building Hyperscalper: A Fully Client-Side Crypto Trading Terminal">
+  </div>
+</div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        <h1 class="entry-title"><a href="/building-hyperscalper-client-side-trading-terminal/" rel="bookmark" title="Building Hyperscalper: A Fully Client-Side Crypto Trading Terminal">Building Hyperscalper: A Fully Client-Side Crypto Trading Terminal</a></h1>
+        <h2><span class="entry-date date published"><time datetime="2026-01-13T00:00:00+01:00">January 13, 2026</time></span></h2>
+        
+        
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          Reading time ~18 minutes
+        </p>
+      </div>
+    </header>
+    <div class="entry-content">
+      <p>Hyperscalper is a professional cryptocurrency trading terminal I built for Hyperliquid DEX. What makes it unique is that it’s <strong>fully client-side</strong> - no backend servers, no middlemen. Your private keys never leave your browser.</p>
+
+<p>In this post, I’ll walk through the key architectural decisions, the different order entry methods I implemented, and how the real-time market scanners work.</p>
+
+<h2 id="why-fully-client-side">Why Fully Client-Side?</h2>
+
+<p>When building a trading application that handles private keys, trust is everything. I made a deliberate decision: <strong>zero backend</strong>.</p>
+
+<h3 id="the-trust-problem">The Trust Problem</h3>
+
+<p>Traditional trading platforms require you to trust them with your credentials. Even with the best security practices, there’s always a server that could be compromised, a database that could be breached, or an employee who could go rogue.</p>
+
+<p>With Hyperscalper, the data flow is simple:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Browser → Hyperliquid DEX API
+</code></pre></div></div>
+
+<p>That’s it. No relay servers, no proxies, no backend databases.</p>
+
+<h3 id="how-private-keys-are-secured">How Private Keys Are Secured</h3>
+
+<p>Even though everything runs in the browser, I still needed robust encryption for the private key stored in localStorage. Here’s the approach:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// AES-GCM encryption with PBKDF2 key derivation</span>
+<span class="kd">const</span> <span class="nx">deriveKey</span> <span class="o">=</span> <span class="k">async </span><span class="p">(</span><span class="nx">password</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">salt</span><span class="p">:</span> <span class="nb">Uint8Array</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">keyMaterial</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">subtle</span><span class="p">.</span><span class="nf">importKey</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">raw</span><span class="dl">'</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nc">TextEncoder</span><span class="p">().</span><span class="nf">encode</span><span class="p">(</span><span class="nx">password</span><span class="p">),</span>
+    <span class="dl">'</span><span class="s1">PBKDF2</span><span class="dl">'</span><span class="p">,</span>
+    <span class="kc">false</span><span class="p">,</span>
+    <span class="p">[</span><span class="dl">'</span><span class="s1">deriveBits</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">deriveKey</span><span class="dl">'</span><span class="p">]</span>
+  <span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">subtle</span><span class="p">.</span><span class="nf">deriveKey</span><span class="p">(</span>
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">PBKDF2</span><span class="dl">'</span><span class="p">,</span>
+      <span class="nx">salt</span><span class="p">,</span>
+      <span class="na">iterations</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>  <span class="c1">// Makes brute-force expensive</span>
+      <span class="na">hash</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SHA-256</span><span class="dl">'</span>
+    <span class="p">},</span>
+    <span class="nx">keyMaterial</span><span class="p">,</span>
+    <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">AES-GCM</span><span class="dl">'</span><span class="p">,</span> <span class="na">length</span><span class="p">:</span> <span class="mi">256</span> <span class="p">},</span>
+    <span class="kc">false</span><span class="p">,</span>
+    <span class="p">[</span><span class="dl">'</span><span class="s1">encrypt</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">decrypt</span><span class="dl">'</span><span class="p">]</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The system generates a device-specific key on first use, stored in localStorage. Users can optionally add a password for additional protection. Even if someone steals the localStorage data, they’d need 100,000 PBKDF2 iterations to crack each guess.</p>
+
+<h3 id="the-tradeoffs">The Tradeoffs</h3>
+
+<p>Going fully client-side has consequences:</p>
+
+<ul>
+  <li><strong>Zero trust required</strong> — but can’t run server-side bots</li>
+  <li><strong>No data collection</strong> — but order history relies on exchange API</li>
+  <li><strong>True decentralization</strong> — but all computation happens in browser</li>
+  <li><strong>No server costs</strong> — but can’t do heavy backtesting</li>
+</ul>
+
+<p>For a scalping terminal where speed matters, these tradeoffs make sense. The latency between your browser and Hyperliquid is all that matters.</p>
+
+<h2 id="order-entry-methods">Order Entry Methods</h2>
+
+<p>Traders have different workflows. Some prefer clicking, others use hotkeys, and some want automated ladder orders. I implemented five distinct ways to enter orders.</p>
+
+<h3 id="click-on-chart-orders">Click-on-Chart Orders</h3>
+
+<p>Sometimes you want to place an order at a specific price level you see on the chart. I implemented a crosshair system that makes this intuitive:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">handleChartClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">crosshairActive</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">price</span> <span class="o">=</span> <span class="nx">params</span><span class="p">.</span><span class="nx">price</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">isBuy</span> <span class="o">=</span> <span class="nx">price</span> <span class="o">&lt;</span> <span class="nx">currentPrice</span><span class="p">;</span>
+
+  <span class="nf">placeLimitOrderAtPrice</span><span class="p">({</span>
+    <span class="nx">symbol</span><span class="p">,</span>
+    <span class="nx">price</span><span class="p">,</span>
+    <span class="nx">isBuy</span><span class="p">,</span>
+    <span class="na">percentage</span><span class="p">:</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">orderSizePercent</span>
+  <span class="p">});</span>
+
+  <span class="nf">setCrosshairActive</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Click below current price = buy limit order. Click above = sell limit order. Simple and intuitive.</p>
+
+<h3 id="cloud-ladder-orders-dca">Cloud Ladder Orders (DCA)</h3>
+
+<p>The signature feature. Instead of placing a single order, Cloud orders place 5 limit orders stacked at intervals below (for buys) or above (for sells) the current price.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">buyCloud</span> <span class="o">=</span> <span class="k">async </span><span class="p">({</span> <span class="nx">symbol</span><span class="p">,</span> <span class="nx">currentPrice</span><span class="p">,</span> <span class="nx">priceInterval</span><span class="p">,</span> <span class="nx">percentage</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">ORDER_COUNT</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">TAKE_PROFIT_PERCENT</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">orders</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">ORDER_COUNT</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">price</span> <span class="o">=</span> <span class="nx">currentPrice</span> <span class="o">-</span> <span class="p">(</span><span class="nx">priceInterval</span> <span class="o">*</span> <span class="nx">i</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">totalSize</span> <span class="o">/</span> <span class="nx">ORDER_COUNT</span><span class="p">;</span>
+    <span class="nx">orders</span><span class="p">.</span><span class="nf">push</span><span class="p">({</span>
+      <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">limit</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">side</span><span class="p">:</span> <span class="dl">'</span><span class="s1">buy</span><span class="dl">'</span><span class="p">,</span>
+      <span class="nx">price</span><span class="p">,</span>
+      <span class="nx">size</span><span class="p">,</span>
+      <span class="na">reduceOnly</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">});</span>
+    <span class="c1">// Auto TP at 2% profit</span>
+    <span class="nx">orders</span><span class="p">.</span><span class="nf">push</span><span class="p">({</span>
+      <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">limit</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">side</span><span class="p">:</span> <span class="dl">'</span><span class="s1">sell</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">price</span><span class="p">:</span> <span class="nx">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nx">TAKE_PROFIT_PERCENT</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+      <span class="nx">size</span><span class="p">,</span>
+      <span class="na">reduceOnly</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nf">all</span><span class="p">(</span><span class="nx">orders</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">o</span> <span class="o">=&gt;</span> <span class="nf">submitOrder</span><span class="p">(</span><span class="nx">o</span><span class="p">)));</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The price interval is calculated from recent candle heights - the system adapts to current volatility.</p>
+
+<h3 id="keyboard-shortcuts">Keyboard Shortcuts</h3>
+
+<p>For speed traders, reaching for the mouse is too slow. I mapped all common actions to hotkeys:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">handleKeyDown</span> <span class="o">=</span> <span class="p">(</span><span class="na">e</span><span class="p">:</span> <span class="nx">KeyboardEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">metaKey</span> <span class="o">||</span> <span class="nx">e</span><span class="p">.</span><span class="nx">ctrlKey</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">switch </span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">:</span>
+          <span class="nx">e</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">();</span>
+          <span class="nx">inverted</span> <span class="p">?</span> <span class="nf">sellCloud</span><span class="p">()</span> <span class="p">:</span> <span class="nf">buyCloud</span><span class="p">();</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="dl">'</span><span class="s1">s</span><span class="dl">'</span><span class="p">:</span>
+          <span class="nx">e</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">();</span>
+          <span class="nx">inverted</span> <span class="p">?</span> <span class="nf">buyCloud</span><span class="p">()</span> <span class="p">:</span> <span class="nf">sellCloud</span><span class="p">();</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="dl">'</span><span class="s1">e</span><span class="dl">'</span><span class="p">:</span>
+          <span class="nx">e</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">();</span>
+          <span class="nf">closePosition</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span> <span class="c1">// Close 25%</span>
+          <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nb">window</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keydown</span><span class="dl">'</span><span class="p">,</span> <span class="nx">handleKeyDown</span><span class="p">);</span>
+  <span class="k">return </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">window</span><span class="p">.</span><span class="nf">removeEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keydown</span><span class="dl">'</span><span class="p">,</span> <span class="nx">handleKeyDown</span><span class="p">);</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">inverted</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>Notice the <code class="language-plaintext highlighter-rouge">inverted</code> check - more on that later.</p>
+
+<h3 id="optimistic-updates">Optimistic Updates</h3>
+
+<p>Nobody wants to wait 500ms for an API response before seeing feedback. I implemented optimistic updates:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">placeOrder</span> <span class="o">=</span> <span class="k">async </span><span class="p">(</span><span class="nx">order</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 1. Immediately show in UI</span>
+  <span class="kd">const</span> <span class="nx">optimisticId</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nf">randomUUID</span><span class="p">();</span>
+  <span class="nf">addOptimisticOrder</span><span class="p">({</span> <span class="p">...</span><span class="nx">order</span><span class="p">,</span> <span class="na">id</span><span class="p">:</span> <span class="nx">optimisticId</span> <span class="p">});</span>
+  <span class="nf">showToast</span><span class="p">(</span><span class="dl">'</span><span class="s1">Placing order...</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// 2. Actually submit to exchange</span>
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">submitToHyperliquid</span><span class="p">(</span><span class="nx">order</span><span class="p">);</span>
+    <span class="c1">// 3. Replace optimistic with real</span>
+    <span class="nf">removeOptimisticOrder</span><span class="p">(</span><span class="nx">optimisticId</span><span class="p">);</span>
+    <span class="nf">addConfirmedOrder</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+    <span class="nf">playSuccessSound</span><span class="p">();</span>
+  <span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 4. Rollback on failure</span>
+    <span class="nf">removeOptimisticOrder</span><span class="p">(</span><span class="nx">optimisticId</span><span class="p">);</span>
+    <span class="nf">showErrorToast</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The UI responds in under 100ms regardless of network latency.</p>
+
+<h2 id="market-scanners">Market Scanners</h2>
+
+<p>A trading terminal is only as good as its ability to find opportunities. I built 8 different scanner types that run in real-time across all symbols.</p>
+
+<h3 id="scanner-architecture">Scanner Architecture</h3>
+
+<p>Each scanner subscribes to candle data via WebSocket and runs analysis on every update:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Shared WebSocket connection (singleton pattern)</span>
+<span class="kd">const</span> <span class="nx">ws</span> <span class="o">=</span> <span class="nf">getWebSocketService</span><span class="p">();</span>
+
+<span class="c1">// Subscribe to all symbols on multiple timeframes</span>
+<span class="nx">symbols</span><span class="p">.</span><span class="nf">forEach</span><span class="p">(</span><span class="nx">symbol</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">1m</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">5m</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">15m</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">1h</span><span class="dl">'</span><span class="p">].</span><span class="nf">forEach</span><span class="p">(</span><span class="nx">timeframe</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">ws</span><span class="p">.</span><span class="nf">subscribeToCandles</span><span class="p">(</span><span class="nx">symbol</span><span class="p">,</span> <span class="nx">timeframe</span><span class="p">,</span> <span class="p">(</span><span class="nx">candles</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nf">runScanners</span><span class="p">(</span><span class="nx">symbol</span><span class="p">,</span> <span class="nx">timeframe</span><span class="p">,</span> <span class="nx">candles</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="stochastic-scanner">Stochastic Scanner</h3>
+
+<p>The stochastic oscillator is great for finding oversold/overbought conditions. I implemented four variants with different periods:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">scanStochastic</span> <span class="o">=</span> <span class="p">(</span><span class="nx">candles</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">variants</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">ultraFast</span><span class="p">:</span> <span class="p">{</span> <span class="na">period</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="na">smoothK</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">smoothD</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span>
+    <span class="na">fast</span><span class="p">:</span> <span class="p">{</span> <span class="na">period</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="na">smoothK</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="na">smoothD</span><span class="p">:</span> <span class="mi">3</span> <span class="p">},</span>
+    <span class="na">medium</span><span class="p">:</span> <span class="p">{</span> <span class="na">period</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="na">smoothK</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="na">smoothD</span><span class="p">:</span> <span class="mi">3</span> <span class="p">},</span>
+    <span class="na">slow</span><span class="p">:</span> <span class="p">{</span> <span class="na">period</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="na">smoothK</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="na">smoothD</span><span class="p">:</span> <span class="mi">5</span> <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="kd">const</span> <span class="nx">signals</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="nb">Object</span><span class="p">.</span><span class="nf">entries</span><span class="p">(</span><span class="nx">variants</span><span class="p">).</span><span class="nf">forEach</span><span class="p">(([</span><span class="nx">name</span><span class="p">,</span> <span class="nx">params</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">config</span><span class="p">.</span><span class="nx">variants</span><span class="p">[</span><span class="nx">name</span><span class="p">].</span><span class="nx">enabled</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">stoch</span> <span class="o">=</span> <span class="nf">calculateStochastic</span><span class="p">(</span><span class="nx">candles</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">stoch</span><span class="p">[</span><span class="nx">stoch</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="kd">const</span> <span class="nx">previous</span> <span class="o">=</span> <span class="nx">stoch</span><span class="p">[</span><span class="nx">stoch</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">2</span><span class="p">];</span>
+    <span class="c1">// Bullish: K crosses above D in oversold zone</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">k</span> <span class="o">&gt;</span> <span class="nx">current</span><span class="p">.</span><span class="nx">d</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">previous</span><span class="p">.</span><span class="nx">k</span> <span class="o">&lt;=</span> <span class="nx">previous</span><span class="p">.</span><span class="nx">d</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">current</span><span class="p">.</span><span class="nx">k</span> <span class="o">&lt;</span> <span class="nx">config</span><span class="p">.</span><span class="nx">oversoldLevel</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">signals</span><span class="p">.</span><span class="nf">push</span><span class="p">({</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">stochastic</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">variant</span><span class="p">:</span> <span class="nx">name</span><span class="p">,</span>
+        <span class="na">direction</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bullish</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">strength</span><span class="p">:</span> <span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">oversoldLevel</span> <span class="o">-</span> <span class="nx">current</span><span class="p">.</span><span class="nx">k</span><span class="p">)</span> <span class="o">/</span> <span class="nx">config</span><span class="p">.</span><span class="nx">oversoldLevel</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+  <span class="k">return</span> <span class="nx">signals</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="divergence-detection">Divergence Detection</h3>
+
+<p>Divergences are powerful signals - when price makes a new low but RSI makes a higher low, it often signals a reversal. This required more complex logic:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">detectDivergence</span> <span class="o">=</span> <span class="p">(</span><span class="nx">candles</span><span class="p">,</span> <span class="nx">rsiValues</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">pricePivots</span> <span class="o">=</span> <span class="nf">findPivots</span><span class="p">(</span><span class="nx">candles</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">rsiPivots</span> <span class="o">=</span> <span class="nf">findPivots</span><span class="p">(</span><span class="nx">rsiValues</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">divergences</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">const</span> <span class="nx">recentPriceLows</span> <span class="o">=</span> <span class="nx">pricePivots</span>
+    <span class="p">.</span><span class="nf">filter</span><span class="p">(</span><span class="nx">p</span> <span class="o">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="kd">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">low</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">);</span>
+
+  <span class="k">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">recentPriceLows</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">recentPriceLows</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="kd">const</span> <span class="nx">previous</span> <span class="o">=</span> <span class="nx">recentPriceLows</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="c1">// Price made lower low</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">price</span> <span class="o">&lt;</span> <span class="nx">previous</span><span class="p">.</span><span class="nx">price</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">currentRsi</span> <span class="o">=</span> <span class="nf">findClosestPivot</span><span class="p">(</span><span class="nx">rsiPivots</span><span class="p">,</span> <span class="nx">current</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">previousRsi</span> <span class="o">=</span> <span class="nf">findClosestPivot</span><span class="p">(</span><span class="nx">rsiPivots</span><span class="p">,</span> <span class="nx">previous</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>
+      <span class="c1">// RSI made higher low = bullish divergence</span>
+      <span class="k">if </span><span class="p">(</span><span class="nx">currentRsi</span><span class="p">.</span><span class="nx">value</span> <span class="o">&gt;</span> <span class="nx">previousRsi</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">divergences</span><span class="p">.</span><span class="nf">push</span><span class="p">({</span>
+          <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">regular_bullish</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">pricePoints</span><span class="p">:</span> <span class="p">[</span><span class="nx">previous</span><span class="p">,</span> <span class="nx">current</span><span class="p">],</span>
+          <span class="na">rsiPoints</span><span class="p">:</span> <span class="p">[</span><span class="nx">previousRsi</span><span class="p">,</span> <span class="nx">currentRsi</span><span class="p">],</span>
+          <span class="na">strength</span><span class="p">:</span> <span class="nf">calculateDivergenceStrength</span><span class="p">(...)</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">divergences</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="performance-considerations">Performance Considerations</h3>
+
+<p>Running 8 scanners across 500+ symbols on 4 timeframes could easily kill browser performance. I used several optimization techniques:</p>
+
+<p><strong>Memoization with TTL:</strong></p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">memoizedCalculate</span> <span class="o">=</span> <span class="nf">createMemoizedFunction</span><span class="p">(</span>
+  <span class="nx">calculateStochastic</span><span class="p">,</span>
+  <span class="p">(</span><span class="nx">candles</span><span class="p">,</span> <span class="nx">period</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="s2">`stoch-</span><span class="p">${</span><span class="nx">candles</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span><span class="s2">-</span><span class="p">${</span><span class="nx">period</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+  <span class="mi">100</span><span class="p">,</span>    <span class="c1">// max cache entries</span>
+  <span class="mi">60000</span>   <span class="c1">// expire after 60s</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>Debounced divergence detection:</strong></p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Don't recalculate on every tick</span>
+<span class="kd">const</span> <span class="nx">debouncedDivergence</span> <span class="o">=</span> <span class="nf">useDebouncedCallback</span><span class="p">(</span>
+  <span class="nx">detectDivergence</span><span class="p">,</span>
+  <span class="mi">1000</span>  <span class="c1">// Wait 1s after last update</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>Virtual scrolling for results:</strong></p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">FixedSizeList</span>
+  <span class="nx">height</span><span class="o">=</span><span class="p">{</span><span class="mi">600</span><span class="p">}</span>
+  <span class="nx">itemCount</span><span class="o">=</span><span class="p">{</span><span class="nx">signals</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span>
+  <span class="nx">itemSize</span><span class="o">=</span><span class="p">{</span><span class="mi">60</span><span class="p">}</span>
+<span class="o">&gt;</span>
+  <span class="p">{({</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">style</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">SignalItem</span> <span class="nx">signal</span><span class="o">=</span><span class="p">{</span><span class="nx">signals</span><span class="p">[</span><span class="nx">index</span><span class="p">]}</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">style</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>  <span class="p">)}</span>
+<span class="o">&lt;</span><span class="sr">/FixedSizeList</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<h2 id="multi-timeframe-analysis">Multi-Timeframe Analysis</h2>
+
+<p>One of the most powerful features is the multi-timeframe view. Seeing the same symbol across 1m, 5m, 15m, and 1h simultaneously helps identify confluence.</p>
+
+<p>All charts are synchronized - when you zoom or pan one chart, all others follow. This is achieved through a shared chart sync store:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">useChartSyncStore</span> <span class="o">=</span> <span class="nf">create</span><span class="p">((</span><span class="kd">set</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+  <span class="na">timeRange</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="na">setTimeRange</span><span class="p">:</span> <span class="p">(</span><span class="nx">range</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nf">set</span><span class="p">({</span> <span class="na">timeRange</span><span class="p">:</span> <span class="nx">range</span> <span class="p">}),</span>
+<span class="p">}));</span>
+
+<span class="c1">// In each chart component</span>
+<span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">unsubscribe</span> <span class="o">=</span> <span class="nx">useChartSyncStore</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span>
+    <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">timeRange</span><span class="p">,</span>
+    <span class="p">(</span><span class="nx">range</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if </span><span class="p">(</span><span class="nx">range</span><span class="p">)</span> <span class="nx">chart</span><span class="p">.</span><span class="nf">timeScale</span><span class="p">().</span><span class="nf">setVisibleRange</span><span class="p">(</span><span class="nx">range</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+  <span class="k">return</span> <span class="nx">unsubscribe</span><span class="p">;</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">chart</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<h2 id="support-and-resistance-lines">Support and Resistance Lines</h2>
+
+<p>Automated trendline detection is one of those features that sounds simple but has surprising depth. I implemented three complementary approaches.</p>
+
+<h3 id="pivot-based-trendlines">Pivot-Based Trendlines</h3>
+
+<p>The most intuitive approach: find pivot points and draw lines through them.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">detectPivots</span> <span class="o">=</span> <span class="p">(</span><span class="nx">candles</span><span class="p">,</span> <span class="nx">strength</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">pivots</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">strength</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">candles</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">strength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">candles</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="kd">let</span> <span class="nx">isHigh</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="k">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">-</span> <span class="nx">strength</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">i</span> <span class="o">+</span> <span class="nx">strength</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if </span><span class="p">(</span><span class="nx">j</span> <span class="o">!==</span> <span class="nx">i</span> <span class="o">&amp;&amp;</span> <span class="nx">candles</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">high</span> <span class="o">&gt;=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">high</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">isHigh</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">isHigh</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">pivots</span><span class="p">.</span><span class="nf">push</span><span class="p">({</span> <span class="na">index</span><span class="p">:</span> <span class="nx">i</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="nx">current</span><span class="p">.</span><span class="nx">high</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">high</span><span class="dl">'</span> <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="c1">// Same logic for lows...</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">pivots</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="envelope-validation">Envelope Validation</h3>
+
+<p>A support line that gets violated isn’t useful. I validate lines against all candles:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">findBestSupportLine</span> <span class="o">=</span> <span class="p">(</span><span class="nx">pivots</span><span class="p">,</span> <span class="nx">candles</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">bestLine</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">bestScore</span> <span class="o">=</span> <span class="o">-</span><span class="kc">Infinity</span><span class="p">;</span>
+
+  <span class="k">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">pivots</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">pivots</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">line</span> <span class="o">=</span> <span class="nf">createLine</span><span class="p">(</span><span class="nx">pivots</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">pivots</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
+      <span class="kd">let</span> <span class="nx">touches</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="kd">let</span> <span class="nx">violations</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+      <span class="nx">candles</span><span class="p">.</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">candle</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">linePrice</span> <span class="o">=</span> <span class="nf">getLineValueAt</span><span class="p">(</span><span class="nx">line</span><span class="p">,</span> <span class="nx">idx</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">tolerance</span> <span class="o">=</span> <span class="nx">linePrice</span> <span class="o">*</span> <span class="mf">0.002</span><span class="p">;</span>
+        <span class="k">if </span><span class="p">(</span><span class="nx">candle</span><span class="p">.</span><span class="nx">low</span> <span class="o">&lt;</span> <span class="nx">linePrice</span> <span class="o">-</span> <span class="nx">tolerance</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">violations</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if </span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nf">abs</span><span class="p">(</span><span class="nx">candle</span><span class="p">.</span><span class="nx">low</span> <span class="o">-</span> <span class="nx">linePrice</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nx">tolerance</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">touches</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+
+      <span class="kd">const</span> <span class="nx">score</span> <span class="o">=</span> <span class="nx">touches</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">-</span> <span class="nx">violations</span> <span class="o">*</span> <span class="mi">100</span><span class="p">;</span>
+      <span class="k">if </span><span class="p">(</span><span class="nx">score</span> <span class="o">&gt;</span> <span class="nx">bestScore</span> <span class="o">&amp;&amp;</span> <span class="nx">violations</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">touches</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">bestScore</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
+        <span class="nx">bestLine</span> <span class="o">=</span> <span class="nx">line</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">bestLine</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The key insight: a support line with zero violations is far more valuable than one with many touches but some violations.</p>
+
+<h2 id="trade-analytics">Trade Analytics</h2>
+
+<p>Tracking performance is essential for improving as a trader. Hyperscalper provides daily and monthly P&amp;L overviews.</p>
+
+<p>All this data comes directly from Hyperliquid’s API - no backend storage needed.</p>
+
+<h2 id="the-inverted-mode">The Inverted Mode</h2>
+
+<p>Here’s a feature born from real trading experience: <strong>inverted mode</strong>.</p>
+
+<p>When you’re a short-biased trader, the standard UI is confusing. Green means price went up (bad for shorts), red means it went down (good for shorts). Bullish signals are bearish opportunities.</p>
+
+<p>Inverted mode flips everything:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getSignalColor</span> <span class="o">=</span> <span class="p">(</span><span class="nx">signal</span><span class="p">,</span> <span class="nx">inverted</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">isBullish</span> <span class="o">=</span> <span class="nx">signal</span><span class="p">.</span><span class="nx">direction</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">bullish</span><span class="dl">'</span><span class="p">;</span>
+
+  <span class="k">if </span><span class="p">(</span><span class="nx">inverted</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Bullish signal = shorting opportunity = show as "good" (green)</span>
+    <span class="k">return</span> <span class="nx">isBullish</span> <span class="p">?</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">bearish</span> <span class="p">:</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">bullish</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">isBullish</span> <span class="p">?</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">bullish</span> <span class="p">:</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">bearish</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Candle colors, signal indicators, even the support/resistance label semantics flip. A short trader sees the same patterns as a long trader, just interpreted correctly for their bias.</p>
+
+<h2 id="multi-monitor-support">Multi-Monitor Support</h2>
+
+<p>Professional traders often use multiple monitors. Hyperscalper supports detaching charts into separate windows.</p>
+
+<p>Each popup window maintains its own WebSocket connection and syncs state with the main window via BroadcastChannel:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">channel</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BroadcastChannel</span><span class="p">(</span><span class="dl">'</span><span class="s1">hyperscalper-sync</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Main window broadcasts state changes</span>
+<span class="nx">channel</span><span class="p">.</span><span class="nf">postMessage</span><span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POSITION_UPDATE</span><span class="dl">'</span><span class="p">,</span> <span class="na">data</span><span class="p">:</span> <span class="nx">positions</span> <span class="p">});</span>
+
+<span class="c1">// Popup windows listen</span>
+<span class="nx">channel</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="kd">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">POSITION_UPDATE</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">setPositions</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="state-management-with-zustand">State Management with Zustand</h2>
+
+<p>With 20+ stores managing different domains, I needed lightweight state management. Redux felt like overkill. I chose Zustand:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">useTradingStore</span> <span class="o">=</span> <span class="nx">create</span><span class="o">&lt;</span><span class="nx">TradingStore</span><span class="o">&gt;</span><span class="p">((</span><span class="kd">set</span><span class="p">,</span> <span class="kd">get</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+  <span class="na">orders</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">positions</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">addOrder</span><span class="p">:</span> <span class="p">(</span><span class="nx">order</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nf">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="na">orders</span><span class="p">:</span> <span class="p">[...</span><span class="nx">state</span><span class="p">.</span><span class="nx">orders</span><span class="p">,</span> <span class="nx">order</span><span class="p">]</span>
+  <span class="p">})),</span>
+  <span class="na">closePosition</span><span class="p">:</span> <span class="k">async </span><span class="p">(</span><span class="nx">symbol</span><span class="p">,</span> <span class="nx">percentage</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">position</span> <span class="o">=</span> <span class="nf">get</span><span class="p">().</span><span class="nx">positions</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nx">p</span> <span class="o">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">symbol</span> <span class="o">===</span> <span class="nx">symbol</span><span class="p">);</span>
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">position</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">size</span> <span class="o">*</span> <span class="p">(</span><span class="nx">percentage</span> <span class="o">/</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="k">await</span> <span class="nf">submitMarketOrder</span><span class="p">({</span>
+      <span class="nx">symbol</span><span class="p">,</span>
+      <span class="na">side</span><span class="p">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">side</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">long</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">sell</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">buy</span><span class="dl">'</span><span class="p">,</span>
+      <span class="nx">size</span><span class="p">,</span>
+      <span class="na">reduceOnly</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}));</span>
+</code></pre></div></div>
+
+<p>Each store is focused on one domain: trading, orders, positions, candles, scanner, settings, etc. Components subscribe to exactly what they need.</p>
+
+<h2 id="lessons-learned">Lessons Learned</h2>
+
+<p>Building Hyperscalper taught me several things:</p>
+
+<p><strong>1. Client-side can be enough.</strong> For applications where trust matters, eliminating the backend isn’t just possible - it’s preferable.</p>
+
+<p><strong>2. Optimistic updates are essential.</strong> In trading, 500ms of latency feels like an eternity. Show feedback immediately, reconcile later.</p>
+
+<p><strong>3. Multiple input methods matter.</strong> Different traders have different workflows. Some click, some use hotkeys, some want automation. Support them all.</p>
+
+<p><strong>4. Performance optimization is mandatory.</strong> Running technical analysis on 500 symbols in real-time requires careful attention to memoization, debouncing, and virtual rendering.</p>
+
+<p><strong>5. Inverted thinking helps.</strong> Building for short traders forced me to question assumptions about what “up” and “good” mean. The result is a more flexible system.</p>
+
+<p>Hyperscalper is live at <a href="https://hyperscalper.vercel.app">hyperscalper.vercel.app</a> if you want to try it out. The code demonstrates that professional-grade trading tools can run entirely in the browser - no backend required.</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags">
+          
+            <a href="/tags/#web3" title="Posts tagged Web3" class="tag">Web3</a>
+          
+            <a href="/tags/#trading" title="Posts tagged Trading" class="tag">Trading</a>
+          
+            <a href="/tags/#next-js" title="Posts tagged Next.js" class="tag">Next.js</a>
+          
+            <a href="/tags/#typescript" title="Posts tagged TypeScript" class="tag">TypeScript</a>
+          
+            <a href="/tags/#websocket" title="Posts tagged WebSocket" class="tag">WebSocket</a>
+          
+            <a href="/tags/#crypto" title="Posts tagged Crypto" class="tag">Crypto</a>
+          
+        </span>
+        <div class="social-share">
+          <ul class="socialcount socialcount-small inline-list">
+            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4001/building-hyperscalper-client-side-trading-terminal/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+            <li class="twitter"><a href="https://twitter.com/intent/tweet?text=Building Hyperscalper: A Fully Client-Side Crypto Trading Terminal&url=http://localhost:4001/building-hyperscalper-client-side-trading-terminal/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </article>
+</div>
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2026 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67531656-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

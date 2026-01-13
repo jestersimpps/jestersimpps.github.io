@@ -1,0 +1,573 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Sending Bitcoins using Bitcore and node.js &#8211; Hardcore trial & error</title>
+<meta name="description" content="My journey through code and development">
+<meta name="keywords" content="Bitcore, Bitcoin, Bitpay, nodejs, Yeoman">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/blockchain1.jpg">
+
+<meta name="twitter:title" content="Sending Bitcoins using Bitcore and node.js">
+<meta name="twitter:description" content="My journey through code and development">
+<meta name="twitter:creator" content="@jestersimpps">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sending Bitcoins using Bitcore and node.js">
+<meta property="og:description" content="My journey through code and development">
+<meta property="og:url" content="/my-first-experience-with-bitpay-bitcore/">
+<meta property="og:site_name" content="Hardcore trial & error">
+
+
+
+
+
+<link rel="canonical" href="/my-first-experience-with-bitpay-bitcore/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Hardcore trial & error Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/bio-photo.png" alt="Jester Simpps photo" class="author-photo">
+					<h4>Jester Simpps</h4>
+					<p></p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:jestersimpps@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/jestersimpps"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				
+				<li>
+					<a href="http://linkedin.com/in/jo-vinkenroye/63/a79/459"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="http://github.com/jestersimpps"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				<li>
+					<a href="http://instagram.com/jestersimpps"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+				</li>
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+<div class="entry-header">
+  <div class="image-credit">Image source: <a href="http://www.imusiciandigital.com">imusiciandigital</a></div><!-- /.image-credit -->
+  <div class="entry-image">
+    <img src="/images/blockchain1.jpg" alt="Sending Bitcoins using Bitcore and node.js">
+  </div><!-- /.entry-image -->
+</div><!-- /.entry-header -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/my-first-experience-with-bitpay-bitcore/" rel="bookmark" title="Sending Bitcoins using Bitcore and node.js">Sending Bitcoins using Bitcore and node.js</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2016-05-20T18:14:31-04:00">May 20, 2016</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Reading time ~20 minutes
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>This week I was asked to create a simple web app that allows users to send bitcoins from one address to another using node.js.
+After skimming through some online articles and forums I discovered <a href="https://bitcore.io/api">Bitcore</a>.
+I also looked at an alternative called <a href="http://bitcoinjs.org/">BitcoinJs</a></p>
+
+<p>After comparing both, I decided to use bitcore as it seemed a little bit ahead of BitcoinJs and they also provide <a href="https://bitcore.io/api/lib/transaction#Transaction+checkedSerialize">nice documentation and development resources on their website</a>. Also, the company that open sourced Bitcore, Bitpay, is an established brand in the Bitcoin industry. BitPay is a payment processor that specializes in processing bitcoin payments and enabling merchants to accept bitcoin using a variety of website plugins and other integrations. Bitcore is their javascript library that allows developers to interface directly with the real bitcoin network.</p>
+
+<h2 id="1-setting-up-the-app">1. Setting up the app</h2>
+<p>To kickstart my project, I looked for a suitable <a href="http://yeoman.io/">Yeoman</a> generator. I had no desire setting up custom or advanced build automation for thisone. It would literally be a single page app that makes two simple API calls:</p>
+
+<ul>
+  <li>Get the transaction history of a Bitcoin address</li>
+  <li>Perform a transaction</li>
+</ul>
+
+<p>I decided to use the <a href="https://github.com/ericmdantas/generator-ng-fullstack#readme">ng-fullstack</a> generator as it seemed to have all the tools I like to work with, except for sass, which I discovered later, after the project was scaffolded. For a moment I was tempted to go with the Angular 2 configuration, but again… it’s literally a 1 page app, so I  just went with Angular 1.x. The generator includes a simple todo app, which is nice and it provides you some structure to work with.</p>
+
+<p>After an initial UI overhaul, nothing remained of the todo app, but the UI was kept simple.
+We have 4 input fields, two address verification buttons and a send button in green.</p>
+
+<ul>
+  <li>An input field for the origin address</li>
+  <li>An input field for the recipient address</li>
+  <li>An input field for the origin private key</li>
+  <li>An input field for the amount of mBTC to transact</li>
+</ul>
+
+<p><img src="../images/kbt2.png" alt="kbt" /></p>
+
+<h2 id="2-fetching-transaction-data">2. Fetching transaction data</h2>
+<p>When users enter a Bitcoin address, the app sends an api request to the <a href="https://blockchain.info">blockchain.info</a> api and fetches the transaction history for the address.
+You can see the output of an example request to the Blockchain.info api <a href="https://blockchain.info/address/15CrPRVdNUaXX1DCZqttnP21wyJLTTmy8y?format=json">here</a></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>├── server
+<span class="p">|</span>    ├── api  
+<span class="p">|</span>         ├── wallet
+<span class="p">|</span>               ├── services
+<span class="p">|</span>                     ├── wallet-service.js</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;https://blockchain.info/address/&#39;</span> <span class="o">+</span> <span class="nx">address</span> <span class="o">+</span> <span class="s1">&#39;?format=json&#39;</span><span class="p">;</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">!==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kd">let</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+  <span class="nx">resolve</span><span class="p">(</span><span class="nx">balance</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>Before sending actual requests, I verify Bitcoin addresses using a simple regex on the clientside:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">var</span> <span class="nx">BITCOINADDRESS</span> <span class="o">=</span> <span class="s1">&#39;(?:[13][1-9A-Za-z][^O0Il]{24,32})&#39;</span><span class="p">;</span>
+ </code></pre></figure>
+
+<p>and the <a href="https://github.com/defunctzombie/bitcoin-address">bitcoin-address</a> library on the server side.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">import</span> <span class="nx">bitcoinaddress</span> <span class="nx">from</span> <span class="s1">&#39;bitcoin-address&#39;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">address</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Address checksum failed&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+ </code></pre></figure>
+
+<p>When the address data arrives in my angular client, I display the transaction history table with the dates, transaction results and hashes like so:
+<img src="../images/kbt3.png" alt="kbt" /></p>
+
+<h2 id="3-creating-bitcoin-transactions">3. Creating Bitcoin transactions</h2>
+
+<p>To create a Bitcoin transaction, we need 4 things:</p>
+
+<ul>
+  <li>The Bitcoin address of the sender</li>
+  <li>The private key of the sender</li>
+  <li>A recipient address</li>
+  <li>The amount of Bitcoins to be sent</li>
+</ul>
+
+<p>The information from the input boxes will be checked by a transaction model on the client side and is then sent to the <code>wallet-service.js</code> in the back end.
+To create transactions using bitcore, we first need to install the bitcore and bitcore-explorers libraries using npm:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>npm i --save bitcore-lib <span class="o">&amp;&amp;</span> bitcore-explorers</code></pre></figure>
+
+<p>And reference them so we can use them:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">import</span> <span class="nx">bitcore</span> <span class="nx">from</span> <span class="s1">&#39;bitcore-lib&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">explorers</span> <span class="nx">from</span> <span class="s1">&#39;bitcore-explorers&#39;</span><span class="p">;</span>
+ </code></pre></figure>
+
+<h3 id="31-getting-the-senders-balance">3.1 Getting the sender’s balance</h3>
+<p>Before creating a transaction, we have to do some checks.</p>
+
+<p>Firstly, we have to take in account the miner fee, which is the price we have to pay to send the transaction to the Bitcoin Blockchain.
+This fee can directly influence the time it takes for a transaction to be confirmed on the blockchain.
+At the moment of writing, the approximate minimum mining fee is 12,800 satoshis (0.05$). (<a href="https://bitcoinfees.21.co/">https://bitcoinfees.21.co/</a>)</p>
+
+<p>Secondly, we need to check if the private key can sign the inputs. This is done by the bitcore library and is pretty complex, so I will not expand on this, but you can find more on signing transactions <a href="http://www.righto.com/2014/02/bitcoins-hard-way-using-raw-bitcoin.html">here</a>.</p>
+
+<p>So, our first check will be to see if the sender address balance can at least cover the mining fee.
+The <code>bitcore-explorers</code> library includes <a href="https://insight.is/">insight</a>, which is an open-source bitcoin blockchain API that will help us get information regarding our senders’ address.
+To determine the balance of the sender address, we need to go over the unspent outputs of the sender.</p>
+
+<blockquote>
+  <p>Bitcoin works on the concept of discrete inputs and outputs not spending part of a balance. All transactions have as their input a reference to a previous unspent
+output. Each transaction records one or more new outputs (which are referenced in the inputs of some future transactions). Outputs are “spent” when they are referenced
+in a new transaction. Outputs can only be unspent or spent, they can’t be partially spent.
+Wallet balance (or address balance) is an abstraction to help us humans and make Bitcoin more like conventional payment systems. Balances are not used at the protocol level. When the wallet indicates your confirmed balance is 1.2 BTC it is saying that the sum of the value of all unspent outputs in the blockchain which correspond to public keys it has the private key for total 1.2 BTC. In other words the wallet is computing the total value of the outputs which it can spend which requires a) the output be unspent and b) the client has the private key necessary to spend it. ~ Pieter Wuille</p>
+</blockquote>
+
+<p>More information on utxos and balances can be found in <a href="http://bitcoin.stackexchange.com/questions/22997/how-is-a-wallets-balance-computed">this answer on stackexchange</a></p>
+
+<p>Using insight, we can return the array of utxos or Unspent Transaction Outputs:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">const</span> <span class="nx">insight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">explorers</span><span class="p">.</span><span class="nx">Insight</span><span class="p">();</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">utxos</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>The output in the terminal should be something like:</p>
+
+<p><img src="../images/kbt4.png" alt="kbt" /></p>
+
+<p>The sum of the utxos is basically the balance on the senders’ Bitcoin address, so we can now try the following:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">utxos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">balance</span> <span class="o">+=</span><span class="nx">utxos</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;satoshis&#39;</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;balance:&#39;</span><span class="o">+</span> <span class="nx">balance</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>Which, in my case, returned a balance of 105042196 satoshis:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="o">[</span><span class="m">0</span><span class="o">]</span> balance:105042196</code></pre></figure>
+
+<!-- ![kbt](../images/winning.gif) -->
+
+<h3 id="32-error-handling-and-input-validation">3.2 Error handling and input validation</h3>
+<p>Let’s expand our code, create some constants for the miner fee and the transaction amount and include some error handling.
+We will also make use of the bitcore Unit utility to define and convert our minerfee, transaction amount and balance variables:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">const</span> <span class="nx">unit</span> <span class="o">=</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Unit</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">insight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">explorers</span><span class="p">.</span><span class="nx">Insight</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">minerFee</span> <span class="o">=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromMilis</span><span class="p">(</span><span class="mf">0.128</span><span class="p">).</span><span class="nx">toSatoshis</span><span class="p">();</span> <span class="c1">//cost of transaction in satoshis (minerfee)</span>
+<span class="kr">const</span> <span class="nx">transactionAmount</span> <span class="o">=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromMilis</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">amount</span><span class="p">).</span><span class="nx">toSatoshis</span><span class="p">();</span> <span class="c1">//convert mBTC to Satoshis using bitcore unit</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//any other error</span>
+    <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">utxos</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//if no transactions have happened, there is no balance on the address.</span>
+      <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have enough Satoshis to cover the miner fee.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//get balance</span>
+    <span class="kd">let</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromSatoshis</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">toSatoshis</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">utxos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">balance</span> <span class="o">+=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromSatoshis</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">utxos</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;satoshis&#39;</span><span class="p">])).</span><span class="nx">toSatoshis</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">//check whether the balance of the address covers the miner fee</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">balance</span> <span class="o">-</span> <span class="nx">transactionAmount</span> <span class="o">-</span> <span class="nx">minerFee</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="c1">//our transaction code will come here</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have enough Satoshis to cover the miner fee.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>I am also defining the same mining fee in the transaction model on the client side so the send button only becomes enabled once the amount entered exceeds the miner fee:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">var</span> <span class="nx">MININGFEE</span> <span class="o">=</span> <span class="mf">0.12800</span><span class="p">;</span> <span class="c1">//mining fee in mBTC</span></code></pre></figure>
+
+<p>Let’s also validate the origin and recipient addresses in the backend before any api requests happen.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Origin address checksum failed&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Recipient address checksum failed&#39;</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="33-creating-a-new-transaction-and-serialization">3.3 Creating a new transaction and serialization</h3>
+
+<p>This was a bit of a struggle for me at first since it was the first time I worked with the bitcore library and discovered that the error handling was a bit flaky.
+Hence, I discovered the best way to get around this was to surround the transaction code with a try catch and make use of <a href="https://bitcore.io/api/lib/transaction#Transaction+getSerializationError">getSerializationError</a>.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="c1">//create a new transaction</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">bitcore_transaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Transaction</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">utxos</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">,</span> <span class="nx">transactionAmount</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">fee</span><span class="p">(</span><span class="nx">minerFee</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">privatekey</span><span class="p">);</span>
+
+  <span class="c1">//handle serialization errors</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">bitcore_transaction</span><span class="p">.</span><span class="nx">getSerializationError</span><span class="p">())</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">bitcore_transaction</span><span class="p">.</span><span class="nx">getSerializationError</span><span class="p">().</span><span class="nx">message</span><span class="p">;</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="s1">&#39;Some inputs have not been fully signed&#39;</span><span class="o">:</span>
+        <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Please check your private key&#39;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">default</span><span class="o">:</span>
+        <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>I decided to create a switch case so I could rewrite possible errors in my own language as I found <code>'Some inputs have not been fully signed'</code> not very clear towards the end user.</p>
+
+<p>The actual bitcore transaction takes the following inputs:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kd">let</span> <span class="nx">bitcore_transaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Transaction</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">utxos</span><span class="p">)</span> <span class="c1">// Feed information about what unspent outputs one can use</span>
+  <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">,</span> <span class="nx">transactionAmount</span><span class="p">)</span> <span class="c1">// Add an output with the given amount of satoshis</span>
+  <span class="p">.</span><span class="nx">fee</span><span class="p">(</span><span class="nx">minerFee</span><span class="p">)</span> <span class="c1">// the miner fee (is automatically calculated when omitted)</span>
+  <span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">)</span> <span class="c1">// Sets up a change address where the rest of the funds will go</span>
+  <span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">privatekey</span><span class="p">);</span>  <span class="c1">// Signs all the inputs it can</span></code></pre></figure>
+
+<p>As you can see I have set the change address to the senders’ address.
+Because outputs can only be unspent or spent, and not partially spent, there’s a concept of “change address” in the bitcoin ecosystem:</p>
+
+<blockquote>
+  <p>If an output of 10 BTC is available for me to spend, but I only need to transmit 1 BTC, I’ll create a transaction with two outputs, one with 1 BTC that I want to spend, and the other with 9 BTC to a change address, so I can spend this 9 BTC with another private key that I own</p>
+</blockquote>
+
+<p><a href="http://bitzuma.com/posts/five-ways-to-lose-money-with-bitcoin-change-addresses/">Here</a> is a very interesting article on change addresses which explains the concept very well.
+If you haven’t heard of change addresses and are involved in bitcoin transactions in any way, it’s definitely a recommended read.</p>
+
+<h3 id="34-broadcasting-the-transaction-to-the-blockchain">3.4 Broadcasting the transaction to the blockchain</h3>
+
+<p>Now that our transaction has been signed and created, we can broadcast it to the blockchain. As we are not running our own bitcoin node, this will happen via the <a href="https://bitcore.io/api/explorers/">insight api</a>.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="c1">//broadcasting the transaction to the blockchain</span>
+<span class="nx">insight</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">(</span><span class="nx">bitcore_transaction</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Error in broadcast: &#39;</span> <span class="o">+</span> <span class="nx">error</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">resolve</span><span class="p">({</span><span class="nx">transactionId</span><span class="o">:</span> <span class="nx">body</span><span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>When we put everything together, the entire transaction function looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="kr">static</span> <span class="nx">createTransaction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">transaction</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+    <span class="kr">const</span> <span class="nx">unit</span> <span class="o">=</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Unit</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">insight</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">explorers</span><span class="p">.</span><span class="nx">Insight</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">minerFee</span> <span class="o">=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromMilis</span><span class="p">(</span><span class="mf">0.128</span><span class="p">).</span><span class="nx">toSatoshis</span><span class="p">();</span> <span class="c1">//cost of transaction in satoshis (minerfee)</span>
+    <span class="kr">const</span> <span class="nx">transactionAmount</span> <span class="o">=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromMilis</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">amount</span><span class="p">).</span><span class="nx">toSatoshis</span><span class="p">();</span> <span class="c1">//convert mBTC to Satoshis using bitcore unit</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Origin address checksum failed&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">bitcoinaddress</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Recipient address checksum failed&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">insight</span><span class="p">.</span><span class="nx">getUnspentUtxos</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">utxos</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//any other error</span>
+        <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">utxos</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">//if no transactions have happened, there is no balance on the address.</span>
+          <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have enough Satoshis to cover the miner fee.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">//get balance</span>
+        <span class="kd">let</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromSatoshis</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">toSatoshis</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">utxos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">balance</span> <span class="o">+=</span> <span class="nx">unit</span><span class="p">.</span><span class="nx">fromSatoshis</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">utxos</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;satoshis&#39;</span><span class="p">])).</span><span class="nx">toSatoshis</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="c1">//check whether the balance of the address covers the miner fee</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nx">balance</span> <span class="o">-</span> <span class="nx">transactionAmount</span> <span class="o">-</span> <span class="nx">minerFee</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+
+          <span class="c1">//create a new transaction</span>
+          <span class="k">try</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">bitcore_transaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bitcore</span><span class="p">.</span><span class="nx">Transaction</span><span class="p">()</span>
+              <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">utxos</span><span class="p">)</span>
+              <span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">toaddress</span><span class="p">,</span> <span class="nx">transactionAmount</span><span class="p">)</span>
+              <span class="p">.</span><span class="nx">fee</span><span class="p">(</span><span class="nx">minerFee</span><span class="p">)</span>
+              <span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">fromaddress</span><span class="p">)</span>
+              <span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">privatekey</span><span class="p">);</span>
+
+            <span class="c1">//handle serialization errors</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">bitcore_transaction</span><span class="p">.</span><span class="nx">getSerializationError</span><span class="p">())</span> <span class="p">{</span>
+              <span class="kd">let</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">bitcore_transaction</span><span class="p">.</span><span class="nx">getSerializationError</span><span class="p">().</span><span class="nx">message</span><span class="p">;</span>
+              <span class="k">switch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">case</span> <span class="s1">&#39;Some inputs have not been fully signed&#39;</span><span class="o">:</span>
+                  <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Please check your private key&#39;</span><span class="p">);</span>
+                  <span class="k">break</span><span class="p">;</span>
+                <span class="k">default</span><span class="o">:</span>
+                  <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="c1">// broadcast the transaction to the blockchain</span>
+            <span class="nx">insight</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">(</span><span class="nx">bitcore_transaction</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Error in broadcast: &#39;</span> <span class="o">+</span> <span class="nx">error</span><span class="p">);</span>
+              <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">resolve</span><span class="p">({</span>
+                  <span class="nx">transactionId</span><span class="o">:</span> <span class="nx">body</span>
+                <span class="p">});</span>
+              <span class="p">}</span>
+            <span class="p">});</span>
+
+          <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">reject</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have enough Satoshis to cover the miner fee.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>We are done! Now we should be able to send Bitcoins using the bitcore library and node.js.
+You can find code of the entire app in the following github repo:
+<a href="https://github.com/jestersimpps/bitcoin-transact">https://github.com/jestersimpps/bitcoin-transact</a>.</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#Bitcore" title="Pages tagged Bitcore" class="tag"><span class="term">Bitcore</span></a><a href="/tags/#Bitcoin" title="Pages tagged Bitcoin" class="tag"><span class="term">Bitcoin</span></a><a href="/tags/#Bitpay" title="Pages tagged Bitpay" class="tag"><span class="term">Bitpay</span></a><a href="/tags/#nodejs" title="Pages tagged nodejs" class="tag"><span class="term">nodejs</span></a><a href="/tags/#Yeoman" title="Pages tagged Yeoman" class="tag"><span class="term">Yeoman</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/my-first-experience-with-bitpay-bitcore/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/my-first-experience-with-bitpay-bitcore/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/my-first-experience-with-bitpay-bitcore/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/getting-around-the-product-variant-limitation-in-shopify/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/decentralized-microservices-with-ipfs/" title="Decentralized Microservices With IPFS">Decentralized Microservices With IPFS</a></h3>
+      <p># What is IPFS?IPFS (the InterPlanetary File System) is a distributed file system that seeks to connect all computing devices with the sa...&hellip; <a href="/decentralized-microservices-with-ipfs/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/setting-up-a-private-npm-registry-with-sinopia/" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h4>
+        <span>Published on December 05, 2016</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/a-cool-idea-for-scrolling-throough-posts/" title="A Post History Scroller">A Post History Scroller</a></h4>
+        <span>Published on November 09, 2016</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67531656-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jestersimpps'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+</body>
+</html>

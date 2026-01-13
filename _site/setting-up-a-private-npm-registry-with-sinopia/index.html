@@ -1,0 +1,233 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Setting Up a Private Npm Registry With Sinopia &#8211; Hardcore trial & error</title>
+<meta name="description" content="Learn how to set up a private npm registry using Sinopia to share Angular 2 modules across multiple projects within your organization.">
+<meta name="keywords" content="npm, sinopia, angular2, nodejs, package-management">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/sinopia.png">
+<meta name="twitter:title" content="Setting Up a Private Npm Registry With Sinopia">
+<meta name="twitter:description" content="Learn how to set up a private npm registry using Sinopia to share Angular 2 modules across multiple projects within your organization.">
+<meta name="twitter:creator" content="@jestersimpps">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setting Up a Private Npm Registry With Sinopia">
+<meta property="og:description" content="Learn how to set up a private npm registry using Sinopia to share Angular 2 modules across multiple projects within your organization.">
+<meta property="og:url" content="http://localhost:4001/setting-up-a-private-npm-registry-with-sinopia/">
+<meta property="og:site_name" content="Hardcore trial & error">
+
+<link rel="canonical" href="http://localhost:4001/setting-up-a-private-npm-registry-with-sinopia/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Hardcore trial & error Feed">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/bio-photo.png" alt="Jester Simpps photo" class="author-photo">
+					<h4>Jester Simpps</h4>
+					<p></p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:jestersimpps@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/jestersimpps"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="http://linkedin.com/in/jo-vinkenroye/63/a79/459"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="http://github.com/jestersimpps"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				<li>
+					<a href="http://instagram.com/jestersimpps"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+
+
+<div class="entry-header">
+  <div class="entry-image">
+    <img src="/images/sinopia.png" alt="Setting Up a Private Npm Registry With Sinopia">
+  </div>
+</div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        <h1 class="entry-title"><a href="/setting-up-a-private-npm-registry-with-sinopia/" rel="bookmark" title="Setting Up a Private Npm Registry With Sinopia">Setting Up a Private Npm Registry With Sinopia</a></h1>
+        <h2><span class="entry-date date published"><time datetime="2016-12-05T00:00:00+01:00">December 05, 2016</time></span></h2>
+        
+        
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          Reading time ~2 minutes
+        </p>
+      </div>
+    </header>
+    <div class="entry-content">
+      <p>When you have several front end projects going in the same company, and you are using a component based framework like Angular 2, it is important that you can reuse those components over all projects. It is possible to pay npm for private repositories, or to make use of npm link, but in this post, I will:</p>
+
+<ul>
+  <li>Implement a private npm registry using <a href="https://github.com/rlidwka/sinopia">Sinopia</a>.</li>
+  <li>Create a dummy Angular 2 module.</li>
+  <li>Publish the module to my private npm registry</li>
+  <li>Access the module from secondary application.</li>
+</ul>
+
+<h3 id="installing-sinopia">Installing Sinopia</h3>
+
+<p>Do a global install of the package:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-g</span> sinopia
+</code></pre></div></div>
+
+<p>Set your npm registry to your local Sinopia:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">set </span>registry http://localhost:4873/
+<span class="c"># if you wish to set it back to the default npmjs:</span>
+npm <span class="nb">set </span>registry https://registry.npmjs.org/
+</code></pre></div></div>
+
+<p>Run Sinopia using:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sinopia
+</code></pre></div></div>
+
+<p>If everything works well, you should see that Sinopia automatically generated a config file and is now running at <code class="language-plaintext highlighter-rouge">http://localhost:4873/</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>warn  <span class="nt">---</span> config file  - /Users/jestersimpps/.config/sinopia/config.yaml
+warn  <span class="nt">---</span> http address - http://localhost:4873/
+</code></pre></div></div>
+
+<p>The Default configuration will allow all users to do anything. I’m going to leave this for now as I want to focus more on publishing and installing my own packages instead. If you are interested in setting up your own configuration file, you can find a full config file <a href="https://github.com/rlidwka/sinopia/blob/master/conf/full.yaml">here</a>.</p>
+
+<h3 id="creating-a-packaged-angular-2-module">Creating a packaged Angular 2 module</h3>
+
+<p>We will create an angular module from the ground up. Cd into the folder (<code class="language-plaintext highlighter-rouge">./dummy</code> in my case) you wish to use for your module and generate a <code class="language-plaintext highlighter-rouge">package.json</code> file by typing:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>dummy
+<span class="nb">cd </span>dummy
+npm init
+</code></pre></div></div>
+
+<p>This will ask you some questions about the library you wish to create, but don’t worry about those, you can just skip through them. Next, we have to include Angular 2 as a dependency, so we will do:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i <span class="nt">--save</span> @angular/core
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">--save</code> command will add the installed dependency to the previously creatde <code class="language-plaintext highlighter-rouge">package.json</code> file.</p>
+
+<p>Once Angular2 is installed, we will create a <code class="language-plaintext highlighter-rouge">.ts</code> source file at the root of our library with the name of our library:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dummy.ts
+</code></pre></div></div>
+
+<p>This will be the name we will use later on when we will import our library from a secondary application:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">dummy</span><span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">dummy/dummy</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>This main file in the root will be used to export all of the files we will create next that make our module work.</p>
+
+<p>to be continued…</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags">
+          
+            <a href="/tags/#npm" title="Posts tagged npm" class="tag">npm</a>
+          
+            <a href="/tags/#sinopia" title="Posts tagged sinopia" class="tag">sinopia</a>
+          
+            <a href="/tags/#angular2" title="Posts tagged angular2" class="tag">angular2</a>
+          
+            <a href="/tags/#nodejs" title="Posts tagged nodejs" class="tag">nodejs</a>
+          
+            <a href="/tags/#package-management" title="Posts tagged package-management" class="tag">package-management</a>
+          
+        </span>
+        <div class="social-share">
+          <ul class="socialcount socialcount-small inline-list">
+            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4001/setting-up-a-private-npm-registry-with-sinopia/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+            <li class="twitter"><a href="https://twitter.com/intent/tweet?text=Setting Up a Private Npm Registry With Sinopia&url=http://localhost:4001/setting-up-a-private-npm-registry-with-sinopia/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </article>
+</div>
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2026 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67531656-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

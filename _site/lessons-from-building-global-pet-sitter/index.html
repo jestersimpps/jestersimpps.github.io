@@ -1,0 +1,348 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Lessons from Building Global Pet Sitter &#8211; Hardcore trial & error</title>
+<meta name="description" content="what i learned co-founding a pet sitting platform. the good, the bad, and everything in between">
+<meta name="keywords" content="Startup, Entrepreneurship, Side Project, Lessons Learned, Convex, Next.js">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/global-pet-sitter-hero.jpeg">
+<meta name="twitter:title" content="Lessons from Building Global Pet Sitter">
+<meta name="twitter:description" content="what i learned co-founding a pet sitting platform. the good, the bad, and everything in between">
+<meta name="twitter:creator" content="@jestersimpps">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lessons from Building Global Pet Sitter">
+<meta property="og:description" content="what i learned co-founding a pet sitting platform. the good, the bad, and everything in between">
+<meta property="og:url" content="http://localhost:4001/lessons-from-building-global-pet-sitter/">
+<meta property="og:site_name" content="Hardcore trial & error">
+
+<link rel="canonical" href="http://localhost:4001/lessons-from-building-global-pet-sitter/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Hardcore trial & error Feed">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/bio-photo.png" alt="Jester Simpps photo" class="author-photo">
+					<h4>Jester Simpps</h4>
+					<p></p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:jestersimpps@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/jestersimpps"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="http://linkedin.com/in/jo-vinkenroye/63/a79/459"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="http://github.com/jestersimpps"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				<li>
+					<a href="http://instagram.com/jestersimpps"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+
+
+<div class="entry-header">
+  <div class="entry-image">
+    <img src="/images/global-pet-sitter-hero.jpeg" alt="Lessons from Building Global Pet Sitter">
+  </div>
+</div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        <h1 class="entry-title"><a href="/lessons-from-building-global-pet-sitter/" rel="bookmark" title="Lessons from Building Global Pet Sitter">Lessons from Building Global Pet Sitter</a></h1>
+        <h2><span class="entry-date date published"><time datetime="2026-01-13T00:00:00+01:00">January 13, 2026</time></span></h2>
+        
+        
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          Reading time ~8 minutes
+        </p>
+      </div>
+    </header>
+    <div class="entry-content">
+      <p>i co-founded <a href="https://www.globalpetsitter.com">Global Pet Sitter</a> with my friend Geert. two developers, over 10 years of housesitting experience between us, trying to build something transparent and community-driven. it started as a simple idea and honestly turned into one of the most educational experiences of my life</p>
+
+<h2 id="why-we-built-it">why we built it</h2>
+
+<p>we’d been housesitters ourselves for years. used platforms like TrustedHousesitters and Nomador. and honestly, we got frustrated</p>
+
+<p>the problems kept piling up:</p>
+
+<ul>
+  <li><strong>fees getting out of control</strong> - TrustedHousesitters introduced a $12 booking fee per sit on top of annual memberships. felt like nickel-and-diming the community</li>
+  <li><strong>customer support that doesn’t respond</strong> - emails go unanswered, phone support removed, just chatbots. when something goes wrong during a sit, you’re on your own</li>
+  <li><strong>review systems that feel broken</strong> - false reviews can’t be removed even with proof. no accountability when hosts or sitters behave badly</li>
+  <li><strong>no real vetting</strong> - background checks are voluntary and paid by the sitter. platform takes minimal action even when theft or pet neglect is reported</li>
+</ul>
+
+<p>we kept reading the same complaints over and over on Trustpilot and Sitejabber. TrustedHousesitters has a 2.7/5 rating on Sitejabber with over 1000 reviews. people describing theft, property damage, last-minute cancellations, and a platform that “investigated but refused to take action”</p>
+
+<p>something that started as community-focused became over-commercialised. and we thought, maybe we could do better</p>
+
+<p>the mission was clear: build something transparent where pet owners and sitters could connect without all the friction. sounds simple right? haha</p>
+
+<h2 id="the-tech-stack">the tech stack</h2>
+
+<p>we went with Next.js 16 (App Router + Turbopack), Convex for the real-time backend, and Clerk for auth. Tailwind for styling because life’s too short to write CSS from scratch</p>
+
+<p>why Convex? real-time updates out of the box. when a sitter applies or a message comes in, you see it instantly. no websocket setup, no polling, no headaches. the schema is defined in TypeScript, queries are type-safe, and deployments just work</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// this is how clean Convex queries are</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">getApplicationsByAssignment</span> <span class="o">=</span> <span class="nf">query</span><span class="p">({</span>
+  <span class="na">args</span><span class="p">:</span> <span class="p">{</span> <span class="na">assignmentId</span><span class="p">:</span> <span class="nx">v</span><span class="p">.</span><span class="nf">id</span><span class="p">(</span><span class="dl">"</span><span class="s2">sitAssignments</span><span class="dl">"</span><span class="p">)</span> <span class="p">},</span>
+  <span class="na">handler</span><span class="p">:</span> <span class="k">async </span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">applications</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">db</span>
+      <span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="dl">"</span><span class="s2">applications</span><span class="dl">"</span><span class="p">)</span>
+      <span class="p">.</span><span class="nf">withIndex</span><span class="p">(</span><span class="dl">"</span><span class="s2">by_sit_assignment</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">q</span><span class="p">)</span> <span class="o">=&gt;</span>
+        <span class="nx">q</span><span class="p">.</span><span class="nf">eq</span><span class="p">(</span><span class="dl">"</span><span class="s2">sitAssignmentId</span><span class="dl">"</span><span class="p">,</span> <span class="nx">args</span><span class="p">.</span><span class="nx">assignmentId</span><span class="p">)</span>
+      <span class="p">)</span>
+      <span class="p">.</span><span class="nf">filter</span><span class="p">((</span><span class="nx">q</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">q</span><span class="p">.</span><span class="nf">eq</span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nf">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">deletedAt</span><span class="dl">"</span><span class="p">),</span> <span class="kc">undefined</span><span class="p">))</span>
+      <span class="p">.</span><span class="nf">collect</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">applications</span><span class="p">;</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="trust-is-everything">trust is everything</h2>
+
+<p>when you’re asking someone to take care of their pet, you’re asking for a lot of trust. pets are family. people don’t just hand over their dog to a stranger on the internet</p>
+
+<p>we spent way more time on verification, reviews, and safety features than we initially planned. privacy controls became a big thing. and honestly we should have started there. building trust isn’t a feature you add later, it’s the foundation</p>
+
+<h3 id="blind-reviews">blind reviews</h3>
+
+<p>one thing we built that i’m pretty happy with: blind reviews. both parties submit their review independently, and neither can see the other’s review until both have submitted (or 14 days pass). prevents retaliation reviews and keeps things honest</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">isReviewVisible</span> <span class="o">=</span> <span class="p">(</span><span class="nx">review</span><span class="p">:</span> <span class="p">{</span> <span class="nl">visibleAt</span><span class="p">?:</span> <span class="kr">number</span> <span class="p">}):</span> <span class="nx">boolean</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">review</span><span class="p">.</span><span class="nx">visibleAt</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">review</span><span class="p">.</span><span class="nx">visibleAt</span> <span class="o">&lt;=</span> <span class="nb">Date</span><span class="p">.</span><span class="nf">now</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>simple logic but it changes the whole dynamic</p>
+
+<h3 id="importing-reviews-from-other-platforms">importing reviews from other platforms</h3>
+
+<p>one problem new platforms face: experienced sitters already have reviews on other sites. they don’t want to start from zero. so we built a review import system</p>
+
+<p>the flow works like this:</p>
+
+<ol>
+  <li>user links their profile on another platform (TrustedHousesitters, Nomador, etc.)</li>
+  <li>we verify they own the profile by having them add a unique code to their bio</li>
+  <li>once verified, they can upload screenshots of their reviews</li>
+  <li>GPT-4 Vision extracts the review data automatically</li>
+</ol>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">extractReviewFromScreenshot</span> <span class="o">=</span> <span class="nf">action</span><span class="p">({</span>
+  <span class="na">args</span><span class="p">:</span> <span class="p">{</span> <span class="na">imageUrl</span><span class="p">:</span> <span class="nx">v</span><span class="p">.</span><span class="nf">string</span><span class="p">()</span> <span class="p">},</span>
+  <span class="na">handler</span><span class="p">:</span> <span class="k">async </span><span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">openai</span><span class="p">.</span><span class="nx">chat</span><span class="p">.</span><span class="nx">completions</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span>
+      <span class="na">model</span><span class="p">:</span> <span class="nx">VISION_MODEL</span><span class="p">,</span>
+      <span class="na">messages</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="na">role</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">content</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">text</span><span class="dl">"</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Extract the review information:</span><span class="dl">"</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">image_url</span><span class="dl">"</span><span class="p">,</span> <span class="na">image_url</span><span class="p">:</span> <span class="p">{</span> <span class="na">url</span><span class="p">:</span> <span class="nx">args</span><span class="p">.</span><span class="nx">imageUrl</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">],</span>
+      <span class="p">}],</span>
+      <span class="na">response_format</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json_object</span><span class="dl">"</span> <span class="p">},</span>
+    <span class="p">});</span>
+    <span class="c1">// returns: reviewerName, reviewText, overallRating, reviewDate</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>the verification part was interesting. we generate a unique code like <code class="language-plaintext highlighter-rouge">gps-verify-abc123</code>, user adds it to their profile bio, and we fetch the page to check if the code exists</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">codeFound</span> <span class="o">=</span> <span class="nx">html</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="nx">profile</span><span class="p">.</span><span class="nx">verificationCode</span><span class="p">);</span>
+<span class="k">if </span><span class="p">(</span><span class="nx">codeFound</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="nf">updateProfileStatus</span><span class="p">({</span> <span class="na">status</span><span class="p">:</span> <span class="dl">"</span><span class="s2">verified</span><span class="dl">"</span> <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>simple but effective. prevents people from claiming reviews that aren’t theirs</p>
+
+<h2 id="two-sided-marketplaces-are-hard">two-sided marketplaces are hard</h2>
+
+<p>you need pet owners AND pet sitters. but pet owners won’t join without sitters, and sitters won’t join without pet owners. classic chicken and egg</p>
+
+<p>we ended up focusing on building features that actually help both sides - map search so you can find sits near you, dual accounts so you can be both a sitter and an owner. the little things that make the experience smoother</p>
+
+<h3 id="the-map-search-problem">the map search problem</h3>
+
+<p>map search sounds easy until you actually build it. we use LocationIQ for geocoding (way cheaper than Google) and had to build a backfill system for existing users</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">backfillSitterCoordinates</span> <span class="o">=</span> <span class="nf">action</span><span class="p">({</span>
+  <span class="na">args</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">batchSize</span><span class="p">:</span> <span class="nx">v</span><span class="p">.</span><span class="nf">optional</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nf">number</span><span class="p">()),</span>
+    <span class="na">delayMs</span><span class="p">:</span> <span class="nx">v</span><span class="p">.</span><span class="nf">optional</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nf">number</span><span class="p">()),</span> <span class="c1">// rate limit protection</span>
+  <span class="p">},</span>
+  <span class="na">handler</span><span class="p">:</span> <span class="k">async </span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">sitters</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nf">runQuery</span><span class="p">(</span>
+      <span class="nx">internal</span><span class="p">.</span><span class="nx">geocoding</span><span class="p">.</span><span class="nx">getSittersNeedingGeocoding</span><span class="p">,</span>
+      <span class="p">{</span> <span class="na">limit</span><span class="p">:</span> <span class="nx">batchSize</span> <span class="p">}</span>
+    <span class="p">);</span>
+    <span class="c1">// process in batches to avoid rate limits</span>
+    <span class="k">for </span><span class="p">(</span><span class="kd">const</span> <span class="nx">sitter</span> <span class="k">of</span> <span class="nx">sitters</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// geocode and update...</span>
+      <span class="k">await</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="nf">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">delayMs</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>we also use supercluster for clustering markers when you zoom out. otherwise the map becomes unusable with too many pins</p>
+
+<h2 id="listening-changes-everything">listening changes everything</h2>
+
+<p>one of the biggest lessons: listen to your users. we recently changed how we talk about the platform entirely based on feedback. the way we described Global Pet Sitter wasn’t resonating with people, so we rewrote it</p>
+
+<p>every complaint is a feature request in disguise. every confused user is showing you where your product falls short. pretty cool when you start seeing it that way</p>
+
+<h2 id="soft-deletes-everywhere">soft deletes everywhere</h2>
+
+<p>early on we learned: never actually delete data. everything uses soft deletes with a <code class="language-plaintext highlighter-rouge">deletedAt</code> field. when something goes wrong (and it will), you can recover. when users ask “what happened to my listing?”, you can actually tell them</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">.</span><span class="nf">filter</span><span class="p">((</span><span class="nx">q</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">q</span><span class="p">.</span><span class="nf">eq</span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nf">field</span><span class="p">(</span><span class="dl">"</span><span class="s2">deletedAt</span><span class="dl">"</span><span class="p">),</span> <span class="kc">undefined</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>you see this pattern everywhere in our codebase. slightly annoying to remember but saves you so many headaches</p>
+
+<h2 id="what-weve-shipped">what we’ve shipped</h2>
+
+<p>looking back at what we built:</p>
+
+<ul>
+  <li><strong>map search</strong> - find sits in your area visually with marker clustering</li>
+  <li><strong>dual accounts</strong> - be a sitter and an owner with the same profile</li>
+  <li><strong>privacy controls</strong> - you decide what info to share</li>
+  <li><strong>real-time messaging</strong> - no refresh needed, messages just appear</li>
+  <li><strong>blind reviews</strong> - honest feedback without fear of retaliation</li>
+  <li><strong>review importing</strong> - bring your reputation from other platforms using AI extraction</li>
+  <li><strong>early adopter rewards</strong> - because the first users took a chance on us</li>
+</ul>
+
+<p>and we’re working on an iPhone app. it’s coming :)</p>
+
+<h2 id="the-tech-wasnt-the-hard-part">the tech wasn’t the hard part</h2>
+
+<p>i spent so much time worrying about the tech stack, the architecture, the performance. turns out the hard part was getting people to care about your product</p>
+
+<p>the best code in the world doesn’t matter if nobody uses it. i wish i learned this earlier</p>
+
+<p>that said, picking the right tools (Convex, Clerk, Next.js) made the dev experience smooth enough that we could focus on the product instead of fighting infrastructure</p>
+
+<h2 id="would-i-do-it-again">would i do it again</h2>
+
+<p>absolutely. even with all the late nights and moments of doubt. building something from scratch with someone you trust teaches you things you can’t learn any other way</p>
+
+<p>maybe that’s the real lesson. the product might succeed or fail, but you always come out knowing more than when you started</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags">
+          
+            <a href="/tags/#startup" title="Posts tagged Startup" class="tag">Startup</a>
+          
+            <a href="/tags/#entrepreneurship" title="Posts tagged Entrepreneurship" class="tag">Entrepreneurship</a>
+          
+            <a href="/tags/#side-project" title="Posts tagged Side Project" class="tag">Side Project</a>
+          
+            <a href="/tags/#lessons-learned" title="Posts tagged Lessons Learned" class="tag">Lessons Learned</a>
+          
+            <a href="/tags/#convex" title="Posts tagged Convex" class="tag">Convex</a>
+          
+            <a href="/tags/#next-js" title="Posts tagged Next.js" class="tag">Next.js</a>
+          
+        </span>
+        <div class="social-share">
+          <ul class="socialcount socialcount-small inline-list">
+            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4001/lessons-from-building-global-pet-sitter/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+            <li class="twitter"><a href="https://twitter.com/intent/tweet?text=Lessons from Building Global Pet Sitter&url=http://localhost:4001/lessons-from-building-global-pet-sitter/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </article>
+</div>
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2026 Jester Simpps. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67531656-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
