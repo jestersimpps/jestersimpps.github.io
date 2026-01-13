@@ -1,0 +1,42 @@
+<head>
+<meta charset="utf-8">
+<title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<meta name="keywords" content="{{ page.tags | join: ', ' }}">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ page.image | default: '/images/20110925-114605.jpg' | prepend: site.baseurl }}">
+<meta name="twitter:title" content="{{ page.title | default: site.title }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description }}">
+<meta name="twitter:creator" content="@{{ site.author.twitter }}">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+
+<link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+<link href="{{ '/feed.xml' | prepend: site.baseurl }}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<script src="{{ '/assets/js/vendor/modernizr-2.6.2.custom.min.js' | prepend: site.baseurl }}"></script>
+
+<link rel="shortcut icon" href="{{ '/favicon.png' | prepend: site.baseurl }}">
+<link rel="apple-touch-icon-precomposed" href="{{ '/images/apple-touch-icon-precomposed.png' | prepend: site.baseurl }}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ '/images/apple-touch-icon-72x72-precomposed.png' | prepend: site.baseurl }}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ '/images/apple-touch-icon-114x114-precomposed.png' | prepend: site.baseurl }}">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ '/images/apple-touch-icon-144x144-precomposed.png' | prepend: site.baseurl }}">
+
+</head>

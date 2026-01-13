@@ -1,0 +1,60 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+{% include head.html %}
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+{% include navigation.html %}
+
+{% if page.image %}
+<div class="entry-header">
+  <div class="entry-image">
+    <img src="{{ page.image }}" alt="{{ page.title }}">
+  </div>
+</div>
+{% endif %}
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        <h1 class="entry-title"><a href="{{ page.url | prepend: site.baseurl }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
+        <h2><span class="entry-date date published"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
+        {% assign words = content | number_of_words %}
+        {% assign minutes = words | divided_by: 200 %}
+        {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          Reading time ~{{ minutes }} minute{% if minutes > 1 %}s{% endif %}
+        </p>
+      </div>
+    </header>
+    <div class="entry-content">
+      {{ content }}
+      <footer class="entry-meta">
+        <span class="entry-tags">
+          {% for tag in page.tags %}
+            <a href="{{ '/tags/' | prepend: site.baseurl }}#{{ tag | slugify }}" title="Posts tagged {{ tag }}" class="tag">{{ tag }}</a>
+          {% endfor %}
+        </span>
+        <div class="social-share">
+          <ul class="socialcount socialcount-small inline-list">
+            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.baseurl | prepend: site.url }}" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+            <li class="twitter"><a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | prepend: site.baseurl | prepend: site.url }}" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </article>
+</div>
+
+{% include footer.html %}
+{% include scripts.html %}
+
+</body>
+</html>

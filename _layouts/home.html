@@ -1,0 +1,66 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+{% include head.html %}
+
+<body id="post-index" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+{% include navigation.html %}
+
+<div class="entry-header">
+  <div class="entry-image">
+    <img src="/images/20110925-114605.jpg" alt="Latest Posts">
+  </div>
+  <div class="header-title">
+    <div class="header-title-wrap">
+      <h1>{{ site.title }}</h1>
+      <h2>Latest Posts</h2>
+    </div>
+  </div>
+</div>
+
+<div id="main" role="main">
+  {% for post in site.posts %}
+  <article class="hentry">
+    <header>
+      {% if post.image %}
+      <div class="entry-image-index">
+        <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"><img src="{{ post.image }}" alt="{{ post.title }}"></a>
+      </div>
+      {% endif %}
+      <div class="entry-meta">
+        <span class="entry-date date published updated">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.date | date: "%B %d, %Y" }}</a>
+          </time>
+        </span>
+        <span class="author vcard">
+          <span class="fn"><a href="/about/" title="About {{ post.author }}">{{ post.author }}</a></span>
+        </span>
+        {% assign words = post.content | number_of_words %}
+        {% assign minutes = words | divided_by: 200 %}
+        {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+        <span class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          Reading time ~{{ minutes }} minute{% if minutes > 1 %}s{% endif %}
+        </span>
+      </div>
+      <h1 class="entry-title"><a href="{{ post.url | prepend: site.baseurl }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
+    </header>
+    <div class="entry-content">
+      {{ post.excerpt }}
+      <a href="{{ post.url | prepend: site.baseurl }}" class="btn">Continue reading</a>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+
+{% include footer.html %}
+{% include scripts.html %}
+
+</body>
+</html>
