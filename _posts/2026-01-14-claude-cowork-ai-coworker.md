@@ -7,6 +7,7 @@ author: "Jester Simpps"
 categories: [AI]
 tags: [AI, Claude, Anthropic, Productivity, Automation]
 image: /images/claude-cowork-cover.jpg
+canonical_url: https://jovweb.dev/blog/claude-cowork-the-ai-coworker-we-didnt-know-we-needed
 ---
 
 so anthropic just dropped something pretty interesting. Claude Cowork. and i think it might be a bigger deal than people realize

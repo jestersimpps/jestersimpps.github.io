@@ -8,6 +8,7 @@ categories: [Development]
 tags: [Web3, Trading, Next.js, TypeScript, WebSocket, Crypto]
 image: /images/hyperscalper-hero.png
 featured: true
+canonical_url: https://jovweb.dev/blog/building-hyperscalper-client-side-trading-terminal
 ---
 
 Hyperscalper is a professional cryptocurrency trading terminal I built for Hyperliquid DEX. What makes it unique is that it's **fully client-side** - no backend servers, no middlemen. Your private keys never leave your browser.

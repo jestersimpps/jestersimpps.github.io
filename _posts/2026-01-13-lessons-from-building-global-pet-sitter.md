@@ -7,6 +7,7 @@ author: "Jo Vinkenroye"
 categories: [Career]
 tags: [Startup, Entrepreneurship, Side Project, Lessons Learned, Convex, Next.js]
 image: /images/global-pet-sitter-hero.jpeg
+canonical_url: https://jovweb.dev/blog/lessons-from-building-global-pet-sitter
 ---
 
 i co-founded [Global Pet Sitter](https://www.globalpetsitter.com) with my friend Geert. two developers, over 10 years of housesitting experience between us, trying to build something transparent and community-driven. it started as a simple idea and honestly turned into one of the most educational experiences of my life

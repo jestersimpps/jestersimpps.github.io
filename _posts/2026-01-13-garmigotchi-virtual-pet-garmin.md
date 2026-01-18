@@ -7,6 +7,7 @@ author: "Jester Simpps"
 categories: [Development]
 tags: [Garmin, Wearables, Gamification, MonkeyC, Side Project]
 image: /images/garmigotchi-cover.png
+canonical_url: https://jovweb.dev/blog/garmigotchi-virtual-pet-garmin
 ---
 
 what if your smartwatch had a tiny creature living inside it. one that thrives when you're healthy and dies when you neglect yourself

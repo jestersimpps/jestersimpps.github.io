@@ -7,6 +7,7 @@ author: "Jester Simpps"
 categories: [AI]
 tags: [AI, Video Generation, Next.js, Fal.ai, Automation]
 image: /images/ad-forge-cover.jpg
+canonical_url: https://jovweb.dev/blog/building-ad-forge
 ---
 
 so i run globalpetsitter.com. connecting pet owners with sitters around the world. like any startup i need promo content, specifically video ads for social media. the problem is making even a simple 30 second ad takes forever

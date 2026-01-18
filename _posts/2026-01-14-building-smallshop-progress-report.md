@@ -7,6 +7,7 @@ author: "Jester Simpps"
 categories: [AI & Machine Learning]
 tags: [AI, E-commerce, Next.js, Side Project, Automation, Vercel]
 image: /images/smallshop-cover.png
+canonical_url: https://jovweb.dev/blog/building-smallshop-progress-report
 ---
 
 So i was helping a friend set up her online boutique on shopify. should have been simple right? haha

@@ -36,6 +36,12 @@
     </header>
     <div class="entry-content">
       {{ content }}
+      {% if page.canonical_url %}
+      <hr style="margin: 2em 0; border: 0; border-top: 1px solid #e8e8e8;">
+      <p style="text-align: center; color: #666; font-size: 0.9em;">
+        <em>Originally published at <a href="{{ page.canonical_url }}" target="_blank" rel="canonical">jovweb.dev</a></em>
+      </p>
+      {% endif %}
       <footer class="entry-meta">
         <span class="entry-tags">
           {% for tag in page.tags %}

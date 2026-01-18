@@ -19,7 +19,11 @@
 <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
 <meta property="og:site_name" content="{{ site.title }}">
 
+{% if page.canonical_url %}
+<link rel="canonical" href="{{ page.canonical_url }}">
+{% else %}
 <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+{% endif %}
 <link href="{{ '/feed.xml' | prepend: site.baseurl }}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
 <meta name="HandheldFriendly" content="True">
