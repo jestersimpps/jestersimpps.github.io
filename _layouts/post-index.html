@@ -1,0 +1,43 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+{% include head.html %}
+
+<body id="post-index">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+{% include navigation.html %}
+
+<div class="entry-header">
+  <div class="header-title">
+    <div class="header-title-wrap">
+      <h1>{{ site.title }}</h1>
+      <h2>{{ page.title }}</h2>
+    </div>
+  </div>
+</div>
+
+<div id="main" role="main">
+  {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in postsByYear %}
+    <article>
+      <h2 id="{{ year.name }}-ref">{{ year.name }}</h2>
+      <ul>
+        {% for post in year.items %}
+          <li class="entry-title">
+            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </article>
+  {% endfor %}
+</div>
+
+{% include footer.html %}
+{% include scripts.html %}
+
+</body>
+</html>
