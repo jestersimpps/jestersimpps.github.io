@@ -43,6 +43,8 @@ I build a lot. it's what gets me excited. some weekend i'm building a trading bo
 
 But here's the pattern i kept repeating: build for three months → launch to zero users → get crickets → move to next project. the code was good. the products worked. but nobody knew they existed. that's when i saw what was happening with building in public
 
+![code quality up, users zero](/images/stonks-code-quality.jpg)
+
 ### The Build in Public Movement
 
 Developers sharing their journey on x, linkedin, indie hackers. documenting failures. showing revenue numbers. asking for feedback in public
