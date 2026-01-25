@@ -149,20 +149,6 @@ One poster asked "Why does clawdbot not get any love in HN?" and speculated abou
 
 The project seems to have found its audience on social media rather than traditional tech forums. Maybe HN just isn't feeling it?
 
-## Getting started today
-
-Here's the fast path:
-
-1. Install Node 22+ if you haven't
-2. Run `npm install -g clawdbot@latest`
-3. Run `clawdbot onboard --install-daemon`
-4. Follow the wizard to connect your first channel (Telegram is easiest)
-5. Start chatting
-
-The [official docs](https://docs.clawd.bot/start/getting-started) are solid. There's also a [setup guide on addROM](https://addrom.com/clawdbot-your-personal-ai-assistant-for-windows-macos-and-linux/) and a [detailed VelvetShark review](https://velvetshark.com/clawdbot-the-self-hosted-ai-that-siri-should-have-been) with step-by-step instructions
-
-[Vercel's AI Gateway](https://vercel.com/docs/ai-gateway/chat-platforms/clawd-bot) also has integration docs if you're using their platform
-
 ## Should you care?
 
 Here's my take: Clawdbot represents something genuinely new
