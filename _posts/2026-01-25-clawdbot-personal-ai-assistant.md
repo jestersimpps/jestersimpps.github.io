@@ -57,13 +57,40 @@ The community is building wild things. Here's what people are actually doing:
 
 At the core is the [Gateway](https://docs.clawd.bot/) - a single long-running process that acts as the control plane for everything. It owns channel connections, manages sessions, handles cron jobs, webhooks, and serves the Control UI
 
-All your messaging channels connect to this central Gateway via WebSocket:
+```mermaid
+graph LR
+    subgraph Channels
+        WA[WhatsApp]
+        TG[Telegram]
+        DC[Discord]
+        SL[Slack]
+        IM[iMessage]
+    end
 
-WhatsApp (via Baileys) → Gateway → Agent
-Telegram (via grammY) → Gateway → Agent
-Discord, Slack, iMessage, Teams → Gateway → Agent
+    subgraph Gateway
+        GW[Control Plane]
+        SS[Sessions]
+        CR[Cron]
+    end
 
-The Gateway then routes messages to your agent, which processes them using your configured AI model (Anthropic, OpenAI, or local). Responses flow back through the Gateway to whichever channel you're using
+    subgraph Agent
+        AI[Claude/GPT]
+        WS[Workspace]
+        MEM[Memory]
+    end
+
+    WA --> GW
+    TG --> GW
+    DC --> GW
+    SL --> GW
+    IM --> GW
+    GW --> SS
+    SS --> AI
+    AI --> WS
+    AI --> MEM
+```
+
+All your messaging channels connect to this central Gateway via WebSocket. The Gateway then routes messages to your agent, which processes them using your configured AI model (Anthropic, OpenAI, or local). Responses flow back through the Gateway to whichever channel you're using
 
 This is why you can start a conversation on WhatsApp and continue it on Telegram. The Gateway maintains the session state, not the individual channels
 
@@ -72,6 +99,26 @@ You can run multiple agents too. [Multi-agent routing](https://github.com/clawdb
 ## How memory actually works
 
 This is the clever part. Clawdbot's [memory](https://docs.clawd.bot/concepts/memory) isn't some complex vector database - it's just markdown files in your agent workspace
+
+```mermaid
+graph TD
+    subgraph "Session Start"
+        A[Load MEMORY.md] --> B[Load today's log]
+        B --> C[Load yesterday's log]
+        C --> D[Context ready]
+    end
+
+    subgraph "During Conversation"
+        E["'Remember this'"] --> F[Write to daily log]
+        G[Important fact] --> H[Write to MEMORY.md]
+    end
+
+    subgraph "Storage"
+        I[memory/2026-01-25.md]
+        J[memory/2026-01-24.md]
+        K[MEMORY.md]
+    end
+```
 
 Two layers:
 
@@ -86,6 +133,24 @@ There's also optional session indexing with hybrid search (FTS5 + vectors) if yo
 ## The heartbeat system
 
 This is how Clawdbot becomes proactive instead of just reactive
+
+```mermaid
+graph TD
+    A[Cron triggers heartbeat] --> B[Read HEARTBEAT.md]
+    B --> C{Checklist empty?}
+    C -->|Yes| D[Skip - save API calls]
+    C -->|No| E[Agent wakes up]
+    E --> F[Check inbox]
+    E --> G[Check calendar]
+    E --> H[Run tasks]
+    F --> I{Anything urgent?}
+    G --> I
+    H --> I
+    I -->|No| J[Reply HEARTBEAT_OK]
+    I -->|Yes| K[Send alert to user]
+    J --> L[Drop message]
+    K --> M[Suppress duplicates 24h]
+```
 
 The [heartbeat](https://docs.clawd.bot/gateway/heartbeat) is a scheduled wake-up call. You configure a `HEARTBEAT.md` file with a checklist of things to check:
 
