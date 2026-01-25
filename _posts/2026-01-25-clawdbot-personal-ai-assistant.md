@@ -53,22 +53,66 @@ The community is building wild things. Here's what people are actually doing:
 
 **Grocery autopilot.** A [community skill](https://github.com/Dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations) for Picnic pulls order history, infers preferred brands, maps recipes to cart, and completes orders automatically
 
-## The technical setup
+## How the architecture works
 
-Clawdbot runs on a [Gateway architecture](https://docs.clawd.bot/start/getting-started) - basically a single long-running process that owns channel connections and the WebSocket control plane
+At the core is the [Gateway](https://docs.clawd.bot/) - a single long-running process that acts as the control plane for everything. It owns channel connections, manages sessions, handles cron jobs, webhooks, and serves the Control UI
 
-Getting started is pretty straightforward:
+All your messaging channels connect to this central Gateway via WebSocket:
 
-```bash
-npm install -g clawdbot@latest
-clawdbot onboard --install-daemon
-```
+WhatsApp (via Baileys) → Gateway → Agent
+Telegram (via grammY) → Gateway → Agent
+Discord, Slack, iMessage, Teams → Gateway → Agent
 
-The onboarding wizard walks you through model setup (Anthropic, OpenAI, or local models), channel connections, and skill installation
+The Gateway then routes messages to your agent, which processes them using your configured AI model (Anthropic, OpenAI, or local). Responses flow back through the Gateway to whichever channel you're using
 
-For 24/7 availability, most users run it on a VPS. [Hetzner has servers for about $5/month](https://velvetshark.com/clawdbot-the-self-hosted-ai-that-siri-should-have-been) that handle it fine
+This is why you can start a conversation on WhatsApp and continue it on Telegram. The Gateway maintains the session state, not the individual channels
 
-Works on Mac, Windows (via WSL2), or Linux. Requires Node 22+
+You can run multiple agents too. [Multi-agent routing](https://github.com/clawdbot/clawdbot/blob/main/AGENTS.md) lets you route different channels or accounts to isolated agents with separate workspaces
+
+## How memory actually works
+
+This is the clever part. Clawdbot's [memory](https://docs.clawd.bot/concepts/memory) isn't some complex vector database - it's just markdown files in your agent workspace
+
+Two layers:
+
+**Daily logs** (`memory/YYYY-MM-DD.md`) - append-only notes for each day. The agent reads today + yesterday at session start for recent context
+
+**Long-term memory** (`MEMORY.md`) - curated facts, preferences, and decisions that persist indefinitely
+
+When you say "remember this," the agent literally writes it to a file. If it learns something wrong? Just `git revert`. The workspace can be a Git repo
+
+There's also optional session indexing with hybrid search (FTS5 + vectors) if you want to dig through past conversations. But the core system is beautifully simple - files are the source of truth
+
+## The heartbeat system
+
+This is how Clawdbot becomes proactive instead of just reactive
+
+The [heartbeat](https://docs.clawd.bot/gateway/heartbeat) is a scheduled wake-up call. You configure a `HEARTBEAT.md` file with a checklist of things to check:
+
+- Quick scan: anything urgent in inboxes?
+- Calendar: any upcoming meetings to prep for?
+- If daytime, do a lightweight check-in
+
+The Gateway triggers heartbeats on a schedule (configurable cron). The agent wakes up, runs through the checklist, and either takes action or responds with `HEARTBEAT_OK` if nothing needs attention
+
+You can also schedule one-shot tasks with the cron system. "Remind me about the meeting in 30 minutes" becomes an actual scheduled job that fires at the right time
+
+The system suppresses duplicate alerts for 24 hours so you don't get spammed. And if your heartbeat file is empty, it skips the run entirely to save API calls
+
+## The agent workspace
+
+Every agent has a [workspace](https://docs.clawd.bot/concepts/agent-workspace) - a directory containing its identity and knowledge:
+
+- `IDENTITY.md` - who the agent is
+- `SOUL.md` - personality and behavior guidelines
+- `TOOLS.md` - available capabilities
+- `USER.md` - information about you
+- `HEARTBEAT.md` - proactive check-in tasks
+- `memory/` - the memory system
+
+This workspace is separate from credentials and config (those live in `~/.clawdbot/`). You can version control it, sync it, back it up
+
+The agent only "knows" what's in these files plus what gets loaded from skills. This makes behavior predictable and debuggable - you can literally read what the agent knows
 
 ## The skills ecosystem
 
