@@ -190,27 +190,3 @@ The fact that someone used it to buy a car - handling research, negotiations, sc
 The [GitHub repo](https://github.com/clawdbot/clawdbot) is open source under MIT license. The [official site](https://clawd.bot/) has demos and the [documentation](https://docs.clawd.bot/) is comprehensive
 
 Whether you dive in now or wait for the ecosystem to mature, Clawdbot is worth watching. This is what personal AI looks like in 2026
-
----
-
-**Sources:**
-- [Clawdbot Official Site](https://clawd.bot/)
-- [Clawdbot GitHub Repository](https://github.com/clawdbot/clawdbot)
-- [Clawdbot Documentation](https://docs.clawd.bot/)
-- [MacStories Review](https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/)
-- [VelvetShark Review](https://velvetshark.com/clawdbot-the-self-hosted-ai-that-siri-should-have-been)
-- ["Clawdbot Bought Me a Car" - AJ Stuyvenberg](https://aaronstuyvenberg.com/posts/clawd-bought-a-car)
-- [Michael Tsai Blog](https://mjtsai.com/blog/2026/01/22/clawdbot/)
-- [Medium: My Almost AGI with Clawdbot](https://medium.com/@henrymascot/my-almost-agi-with-clawdbot-cd612366898b)
-- [addROM Setup Guide](https://addrom.com/clawdbot-your-personal-ai-assistant-for-windows-macos-and-linux/)
-- [Vercel AI Gateway Docs](https://vercel.com/docs/ai-gateway/chat-platforms/clawd-bot)
-- [Peter Steinberger](https://steipete.me/)
-- [Clawdbot Shoutouts](https://clawd.bot/shoutouts)
-- [Clawdbot Integrations](https://clawd.bot/integrations)
-- [Skills Documentation](https://docs.clawd.bot/tools/skills)
-- [Security Documentation](https://docs.clawd.bot/gateway/security)
-- [iMessage Integration](https://docs.clawd.bot/channels/imessage)
-- [Browser Automation](https://docs.clawd.bot/tools/browser)
-- [Hacker News Discussion](https://news.ycombinator.com/item?id=46748880)
-- [HN: "Why no love for Clawdbot?"](https://news.ycombinator.com/item?id=46662034)
-- [Community Skills Collection](https://github.com/Dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations)
