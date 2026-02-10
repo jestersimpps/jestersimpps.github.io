@@ -2,7 +2,7 @@
 layout: post
 title: "Building VibeCoder: an AIDE for Developers Who Vibe"
 description: "Why I built a desktop development environment where terminals and browsers come first, and the code editor is intentionally secondary."
-date: 2026-02-11
+date: 2026-02-10 12:00:00 +0100
 author: "Jester Simpps"
 categories: [Development]
 tags: [Electron, TypeScript, AI, Developer Tools, React, Open Source]
