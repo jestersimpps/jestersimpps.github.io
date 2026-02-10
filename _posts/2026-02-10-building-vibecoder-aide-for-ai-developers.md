@@ -89,4 +89,15 @@ VibeCoder isn't trying to replace VS Code. It's built for a different workflow e
 
 That's what an AIDE is. Not an IDE with AI bolted on. A fundamentally different tool for a fundamentally different way of building software
 
-Check out the code on [GitHub](https://github.com/jestersimpps/Claude-AIDE)
+## What's next
+
+Still on the roadmap:
+- Drag and drop files into Claude terminals (yes there's multiple per project)
+- One-button collapse for dev terminal and console to maximize browser preview
+- Console errors with "send to Claude" button
+- Detailed network call inspection with "send to Claude"
+- Click files and folders in the project tree to send to Claude for easy context input
+- Give Claude access to the webview browser so it can manipulate and test the preview
+- Many more ideas
+
+Open source and very much a work in progress. Feel free to contribute on [GitHub](https://github.com/jestersimpps/Claude-AIDE)
