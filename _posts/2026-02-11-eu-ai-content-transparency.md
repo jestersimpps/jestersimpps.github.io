@@ -61,17 +61,22 @@ The key requirement: marking must **survive common transformations** like resizi
 
 ## Who must comply and what they must do
 
-| Role | Requirement | Deadline |
-|------|-------------|----------|
-| **AI Model Providers** | Build marking into model outputs at generation time | Aug 2, 2026 |
-| **Professional Deployers** | Label deepfakes and AI text for public interest content | Aug 2, 2026 |
-| **Platform Operators** | Implement detection systems to identify marked content | Aug 2, 2026 |
+Three groups face compliance requirements by **August 2, 2026**:
 
-If you build AI models: your outputs need marking embedded before they leave your system.
+**AI Model Providers**
+- Build marking into model outputs at generation time
+- Ensure marking survives transformations
+- Your outputs need marking embedded before they leave your system
 
-If you use AI professionally: you must label synthetic content, especially for journalism, public communications, or matters of public interest.
+**Professional Deployers**
+- Label deepfakes and AI text for public interest content
+- Required for journalism, public communications, matters of public interest
+- Must clearly disclose when content is AI-generated
 
-If you run a platform: you need systems to detect and surface AI markings to users.
+**Platform Operators**
+- Implement detection systems to identify marked content
+- Surface AI markings to users
+- Build infrastructure to read and verify multiple marking formats
 
 ## Timeline: six months until enforcement begins
 
