@@ -6,6 +6,7 @@ date: 2026-02-11
 author: "Jester Simpps"
 categories: [AI & Machine Learning]
 tags: [AI Regulation, EU AI Act, Content Transparency, Machine Learning, Policy]
+image: /images/eu-ai-transparency-cover.jpg
 ---
 
 You can't detect AI-generated content at scale without machine-readable marking. Watermarks can be stripped. Visual labels require human review. Metadata can be lost in transit.
