@@ -33,6 +33,10 @@ The AI terminal auto-creates when you switch projects. because in a vibe coding 
 
 Built it with node-pty for native shell access. your actual shell, your actual environment, your actual PATH. not some sandboxed fake terminal
 
+Terminal search with highlights, clear/restart buttons, and scroll-to-bottom. Shift+Enter inserts newlines in the LLM terminal input without submitting, which sounds tiny but makes a huge difference when you're writing multi-line prompts
+
+You can drag files straight into the terminal for quick context. drop an image and it auto-attaches to the LLM via clipboard. no more copy-pasting file paths
+
 ```
 ┌──────────────────────────┬──────────────┐
 │                          │   Git Graph  │
@@ -48,6 +52,8 @@ Built it with node-pty for native shell access. your actual shell, your actual e
 Every project gets its own integrated browser with per-project storage isolation. no more cookies leaking between projects. each one runs in its own Electron webview partition
 
 i hooked into Chrome DevTools Protocol to get network monitoring and console capture without building any custom instrumentation. the browser panel has three devtools tabs: Console, Network, and Passwords
+
+The network inspector shows expandable request details with headers, type, and accurate response sizes. console errors and network failures have a **one-click "send to LLM"** button that forwards them straight to your active AI terminal. see a 500 error? click once and your agent is already debugging it
 
 The password manager detects login forms automatically. injects a script that watches for password fields using MutationObserver, catches form submissions, and offers to save credentials encrypted with Electron's native safeStorage API
 
@@ -98,11 +104,9 @@ That's what an AIDE is. not an IDE with AI bolted on. a fundamentally different 
 ## What's next
 
 Still on the roadmap:
-- Drag and drop files into AI terminals for easy context input
-- One-button collapse for dev terminal and console to maximize browser preview
-- Console errors with "send to agent" button
-- Detailed network call inspection with "send to agent"
-- Click files and folders in the project tree to send to your agent
+- **Visual skills manager** - browse, enable/disable, and configure LLM agent skills and slash commands from a UI panel instead of managing config files
+- **Password & browser favorites overhaul** - the current system needs a redesign for better UX and reliability
+- Click files and folders in the project tree to send to your agent for easy context input
 - Give the AI access to the webview browser so it can manipulate and test the preview
 - Windows and Linux builds
 - Many more ideas
