@@ -6,6 +6,7 @@ date: 2026-03-08
 author: "Jester Simpps"
 categories: [Development]
 tags: [Rust, Tauri, VPN, VLESS, Networking, Privacy]
+image: /images/tunnel-vpn-cover.png
 ---
 
 I'm moving to China for a while. and if you know anything about the internet situation there, you know the Great Firewall blocks basically everything — Google, YouTube, WhatsApp, Twitter, even ChatGPT. the usual VPN apps get detected and blocked pretty quickly too
