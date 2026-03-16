@@ -6,6 +6,7 @@ date: 2026-03-16
 author: "Jester Simpps"
 categories: [Career]
 tags: [Europe, Politics, Society, History, Geopolitics]
+image: /images/europe-decline-cover.jpg
 ---
 
 europe is already in the decline phase. Not approaching it. In it.
