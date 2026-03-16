@@ -8,23 +8,23 @@ categories: [Career]
 tags: [Europe, Politics, Society, History, Geopolitics]
 ---
 
-Europe is already in the decline phase. Not approaching it. In it.
+europe is already in the decline phase. Not approaching it. In it.
 
 I've been looking at the numbers for a while now and they don't leave much room for optimism.
 
 ## Birth Rates
 
-Start with birth rates. The EU's total fertility rate hit 1.34 in 2024 — lowest in six decades. Italy 1.20. Spain 1.20. Malta 1.01. You need 2.1 just to hold steady. Ten years ago the EU average was 1.54. That's a steep drop in a short time. Europe's median age is now 43.1 years.
+Start with birth rates. The EU's total fertility rate hit 1.34 in 2024, lowest in six decades. Italy 1.20. Spain 1.20. Malta 1.01. You need 2.1 just to hold steady. Ten years ago the EU average was 1.54. That's a steep drop in a short time. Europe's median age is now 43.1 years.
 
 The reflex is to call this a policy problem. Tax credits, parental leave, housing subsidies. They help at the margins. But when an entire continent stops having children, that's not a policy failure. That's people voting with their biology. The future doesn't feel worth it to them. You can't subsidy your way out of that
 
 ## The Bureaucracy Confession
 
-The bureaucracy situation is real but the framing is usually wrong. Brussels directly employs around 60,000 people — actually small for 440 million citizens. The real bloat is invisible. It's the armies of lawyers, compliance officers, and consultants that exist purely to figure out regulation. And even Brussels knows it's broken... the Commission announced in 2025 they want to cut administrative burden by 25% for businesses, 35% for small ones. When the institution admits it needs to cut a third of its own red tape, that's not a reform. That's a confession
+The bureaucracy situation is real but the framing is usually wrong. Brussels directly employs around 60,000 people, actually small for 440 million citizens. The real bloat is invisible. It's the armies of lawyers, compliance officers, and consultants that exist purely to figure out regulation. And even Brussels knows it's broken... the Commission announced in 2025 they want to cut administrative burden by 25% for businesses, 35% for small ones. When the institution admits it needs to cut a third of its own red tape, that's not a reform. That's a confession
 
 ## The Pension Wall
 
-The pension math is the one nobody wants to say out loud. Europe's average pension deficit is already 2.5% of GDP. Projected to hit 4% within 30 years. Spain's system is tracking toward deficits above 6% of GDP by 2050. France has a 116% debt-to-GDP ratio today, heading to 130% by 2030 — and just shelved a reform that would've saved €11 billion a year because it was politically impossible to pass. Governments aren't solving this. They're buying time
+The pension math is the one nobody wants to say out loud. Europe's average pension deficit is already 2.5% of GDP. Projected to hit 4% within 30 years. Spain's system is tracking toward deficits above 6% of GDP by 2050. France has a 116% debt-to-GDP ratio today, heading to 130% by 2030... and just shelved a reform that would've saved 11 billion euros a year because it was politically impossible to pass. Governments aren't solving this. They're buying time
 
 ## Germany
 
