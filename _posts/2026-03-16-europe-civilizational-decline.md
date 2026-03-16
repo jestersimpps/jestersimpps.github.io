@@ -32,6 +32,16 @@ That's why European cities are full of investment apartments sitting empty while
 
 ## The Bureaucracy Confession
 
+there's an experiment from the 1960s that explains European politics better than anything I've read in a newspaper.
+
+A scientist named John Calhoun built a sealed enclosure for rats. Unlimited food. Unlimited water. Perfect housing. No predators. No disease. Everything they could possibly need. He introduced a small colony and watched.
+
+The population exploded. 10 rats became 50, then 100, then 500. Everything was fine. Until it wasn't. The rats started killing each other. Every single time. He ran the experiment for 20 years and could never make it work. Always breakdown. Always collapse.
+
+His conclusion: they weren't fighting over food or water. They had plenty of both. They were fighting over status. Status is zero-sum. There can only be one alpha. In the wild, losers run away and start over somewhere else. But in a sealed enclosure there's nowhere to go. So they fight until someone dies.
+
+That's the EU right now. Europe is still materially wealthy. The problem isn't scarcity. It's that it's become a sealed system with too many elite-educated people competing for too few meaningful positions. Every Sciences Po and Oxbridge graduate expected to run something. There aren't enough somethings. So instead of building, they fight each other. Over narratives. Over influence. Over who gets to define what's acceptable to say. The resources aren't scarce. The status positions are.
+
 [Brussels directly employs around 60,000 people](https://theconversation.com/how-many-people-work-for-the-eu-59702)... actually small for 440 million citizens. The real bloat isn't in the headcount. It's the invisible layer. Lawyers, compliance officers, consultants that exist purely to figure out regulation. An entire professional class that produces nothing except the ability to understand a system normal people can't.
 
 And Brussels knows it. [The Commission set a goal in 2025 to cut administrative burden by 25% for businesses, 35% for small ones](https://www.europarl.europa.eu/news/en/agenda/plenary-news/2025-03-10/9/reducing-bureaucracy-to-enhance-europe-s-competitiveness). When the institution itself admits it needs to cut a third of its own red tape, that's not a reform announcement. That's a confession
@@ -53,6 +63,16 @@ None of these are temporary shocks. They're structural
 [Eurobarometer: 49% of Europeans trust the EU. 42% don't](https://www.eurofound.europa.eu/en/commentary-and-analysis/all-content/trust-crisis-europes-social-contract-under-threat). Trust in national governments keeps falling. [The people losing faith fastest are rural, lower income, watching their purchasing power disappear](https://www.delorscentre.eu/en/publications/political-trust-in-economic-crisis). They feel politically invisible. They probably are.
 
 AfD surging in Germany. Le Pen normalized in France. Wilders winning in Netherlands. Meloni running Italy. You can call this a far-right wave if you want. Or you can call it what it is... a predictable reaction from people who feel their country changed without asking them, their wages went nowhere, their kids can't afford to live near them, and they kept being told the problem was their attitude.
+
+People assume that when civilizations face a big enough external threat, everyone puts aside internal differences and unites. It's the Hollywood version of history. It's not what actually happens.
+
+When the Mongols swept through Central Asia, did the threatened kingdoms unite against them? No. Local lords allied with the Mongols specifically to defeat their domestic rivals. When Cortés arrived in Mexico with a few hundred men, did the indigenous nations unite to push them out? No. Tlaxcala and dozens of other peoples joined the Spanish, because they hated the Aztecs more than they feared the strangers.
+
+External threats don't unify declining civilizations. They become ammunition in the fights that were already happening.
+
+Look at Russia's invasion of Ukraine. It should have been a unifying moment for Europe. And briefly, it was. Then watch what actually happened. Hungary used it to extract concessions from Brussels. Marine Le Pen called for negotiating with Moscow while campaigning for president. AfD positioned Germany's energy costs as evidence that NATO was the real problem. Orbán built his entire brand around being the reasonable voice for a deal.
+
+The external threat didn't create unity. It handed every domestic faction a new weapon.
 
 When consent breaks down, governments follow a pattern. First genuine agreement... things work, people believe in the project. When that stops, they switch to managing perception. Spin. Messaging. Labeling critics as extremists. When that stops working they shift to force. Europe is deep in the middle phase. How long before the third
 
