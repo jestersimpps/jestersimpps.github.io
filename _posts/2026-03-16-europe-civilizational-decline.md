@@ -38,6 +38,8 @@ A scientist named John Calhoun built a sealed enclosure for rats. Unlimited food
 
 The population exploded. 10 rats became 50, then 100, then 500. Everything was fine. Until it wasn't. The rats started killing each other. Every single time. He ran the experiment for 20 years and could never make it work. Always breakdown. Always collapse.
 
+![John Calhoun crouching inside Universe 25, his famous mouse-behavior experiment, February 1970](/images/calhoun-universe25.jpg)
+
 His conclusion: they weren't fighting over food or water. They had plenty of both. They were fighting over status. Status is zero-sum. There can only be one alpha. In the wild, losers run away and start over somewhere else. But in a sealed enclosure there's nowhere to go. So they fight until someone dies.
 
 That's the EU right now. Europe is still materially wealthy. The problem isn't scarcity. It's that it's become a sealed system with too many elite-educated people competing for too few meaningful positions. Every Sciences Po and Oxbridge graduate expected to run something. There aren't enough somethings. So instead of building, they fight each other. Over narratives. Over influence. Over who gets to define what's acceptable to say. The resources aren't scarce. The status positions are.
